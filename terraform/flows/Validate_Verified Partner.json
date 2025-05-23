@@ -1,0 +1,1361 @@
+{
+  "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "annotationConnector",
+    "httpConnector",
+    "functionsConnector",
+    "flowConnector",
+    "variablesConnector"
+  ],
+  "createdDate": 1745505806877,
+  "currentVersion": 4,
+  "customerId": "9e7a1b9c40541ad3300834c5539253e7",
+  "deployedDate": 1745505808697,
+  "description": "Cloned on Wed Apr 23 2025 19:46:29 GMT+0000 (Coordinated Universal Time). \nImported on Wed Apr 23 2025 16:46:46 GMT+0000 (Coordinated Universal Time)",
+  "flowStatus": "enabled",
+  "inputSchemaCompiled": {
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false,
+      "required": []
+    }
+  },
+  "isInputSchemaSaved": false,
+  "isOutputSchemaSaved": false,
+  "name": "Validate Verified Partner",
+  "publishedVersion": 4,
+  "settings": {
+    "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
+    "intermediateLoadingScreenCSS": {},
+    "intermediateLoadingScreenHTML": {},
+    "useCustomCSS": true,
+    "cssLinks": [
+      "https://assets.pingone.com/ux/end-user-nano/0.1.0-alpha.1/end-user-nano.css",
+      "https://assets.pingone.com/ux/astro-nano/0.1.0-alpha.7/icons.css"
+    ],
+    "logLevel": 2,
+    "useBetaAlgorithm": false,
+    "useCustomScript": false,
+    "jsLinks": [],
+    "flowHttpTimeoutInSeconds": 300,
+    "flowTimeoutInSeconds": 600,
+    "requireAuthenticationToInitiate": false,
+    "css": "\n  :root {\n    /********************************************************\n    * COMPANY LOGO\n    *********************************************************/\n    --company-logo-img-url: url(\"https://assets.pingone.com/ux/ui-library/5.0.2/images/logo-pingidentity.png\");\n    --company-logo-max-height: 65px;\n\n    /********************************************************\n    * PAGE BACKGROUND \n    *********************************************************/\n    --background-image-url: url(\"\");\n\n    /********************************************************\n    * CARD BODY\n    *********************************************************/\n    --card-background-color: rgb(255, 255, 255);\n\n    /********************************************************\n    * BODY\n    *********************************************************/\n    --body-font-family: BlinkMacSystemFont;\n    --body-font-size: 0.9rem;\n\n    /********************************************************\n    * TEXT FONT COLORS\n    *********************************************************/\n\n    /*  PRIMARY FONT COLOR (RGB) */\n    --text-color-primary: 61, 69, 77;\n\n    /* HEADING FONT COLR (RBG) */\n    --heading-text-color: 61, 69, 77;\n    \n    /*  MUTED TEXT ALPHA  */\n    --text-color-muted-apha: 0.75;\n\n    /*  ERROR FONT COLOR  */\n    --text-color-error: rgb(163, 19, 0);\n\n    /********************************************************\n    * BUTTON ATTRIBUTES\n    *********************************************************/\n\n    /*  BUTTON FONT COLOR  */\n    --button-primary-text-color: rgb(255, 255, 255);\n\n    /*  BUTTON BACKGROUND COLOR (RGB)  */\n    --button-primary-background-color: 39, 123, 165;\n    \n    /* LINK BUTTON FONT COLOR (RGB)  */\n    --link-button-primary-color: 39, 123, 165;\n\n    /*  BUTTON HOVER ALPHA  */\n    --button-hover-alpha: 0.70;\n\n    /*  BUTTON ACTIVE ALPHA  */\n    --button-active-alpha: 0.80;\n\n    /*  BUTTON DISABLED ALPHA  */\n    --button-disabled-alpha: 0.65;\n\n    /********************************************************\n    * ACTIVITY INDICATOR & BUTTON SPINNER COLOR\n    *********************************************************/\n\n    --activity-indicator-color: rgb(68, 98, 237);\n\n    --polling-indicator-color: rgb(68, 98, 237);\n\n    /********************************************************\n    * APPLYING TEXT COLOR - DO NOT CHANGE\n    *********************************************************/\n    /* H1,H2, H3, Body text color */\n    --bs-body-color: rgb(var(--text-color-main)) !important;\n    --bs-danger-rgb: var(--text-color-error);\n  }\n\n  \n  \n/********************************************************\n* CLASSES BELOW ARE DERIVED FROM VALUES ABOVE\n* DO NOT CHANGE UNLESS YOU HAVE CSS 'SKILLZ' :)\n*********************************************************/\n\n/*  COMPANY LOGO  */\n.companyLogo {\n  content: var(--company-logo-img-url) !important;\n  height: var(--company-logo-max-height) !important;\n  width: auto !important;\n}\n\n/*  BACKGROUND IMAGE  */\ndiv.bg-light {\n  background-image:       var(--background-image-url);\n  background-size:        cover;\n  background-repeat:      no-repeat;\n}\n\n/*  HEADING TEXT  */\nh1, h2, h3, h4 {\n  color: rgb(var(--heading-text-color)) !important;\n}\n\n/*  BODY FONT & COLOR  */\n.card-body {\n  /*  font family */\n  font-family: var(--body-font-family) !important;\n  /*  font size */\n  font-size: var(--body-font-size) !important;\n  /*  font color */\n  color: rgb(var(--text-color-primary)) !important;\n  /*  background color */\n  background-color: var(--card-background-color) !important;\n}\n\n/*  MUTED PARAGRAPH  */\np.text-muted {\n  color: rgba(var(--text-color-primary), var(--text-color-muted-apha)) !important;\n}\n\n/*  ERROR MESSAGE PARAGRAPH  */\n.card .text-danger {\n  color: var(--text-color-error) !important;\n}\n\n/*  FORM CONTROL FONT COLOR  */\n.form-control,\n.form-control:focus {\n  color: var(--text-color-primary) !important;\n}\n\n/*  FORM CONTROL PLACEHOLDER FONT COLOR  */\n.form-floating input+label {\n  color: rgba(var(--text-color-primary), var(--text-color-muted-apha)) !important;\n}\n\n/*  FORM CONTROL HIGHLIGHT  */\n.form-control:focus {\n  border-color: rgba(var(--button-primary-background-color), .5) !important;\n  box-shadow: 0 0 0 0.25rem rgba(var(--button-primary-background-color), 0.25) !important;\n}\n\n/*  PRIMARY BUTTON  */\n.btn-primary {\n  /*  font color  */\n  --bs-btn-color: var(--button-primary-text-color) !important;\n  /*  font color when hovering  */\n  --bs-btn-hover-color: var(--button-primary-text-color) !important;\n  /*  border color  */\n  --bs-btn-border-color: var(--button-primary-background-color) !important;\n  /*  background color  */\n  --bs-btn-bg: rgb(var(--button-primary-background-color)) !important;\n  /*  background color when hovering  */\n  --bs-btn-hover-bg: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;\n  /*  background color when active  */\n  --bs-btn-active-bg: rgba(var(--button-primary-background-color), var(--button-active-alpha)) !important;\n  /*  background color when disabled  */\n  --bs-btn-disabled-bg: rgba(var(--button-primary-background-color), var(--button-disabled-alpha)) !important;\n  background-color: rgb(var(--button-primary-background-color)) !important;\n  border-color: rgb(var(--button-primary-background-color)) !important;\n  color: var(--button-primary-text-color) !important;\n}\n\n\n.btn-primary:hover {\n  background-color: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;\n  border-color: rgba(var(--button-primary-background-color), var(--button-hover-alpha)) !important;\n\n  color: var(--button-primary-text-color) !important;\n}\n\n/*  LINK BUTTON  */\n.btn-link {\n  /*  button font color  */\n  --bs-btn-color: rgb(var(--link-button-primary-color)) !important;\n  /*  button font color when active  */\n  --bs-btn-active-color: rgba(var(--link-button-primary-color), var(--button-active-alpha)) !important;\n  /*  button font color when hovering  */\n  --bs-btn-hover-color: rgba(var(--link-button-primary-color), var(--button-hover-alpha)) !important;\n  /*  button font color when disabled  */\n  --bs-btn-disabled-color: rgba(var(--link-button-primary-color), var(--button-disabled-alpha)) !important;\n  color: rgb(var(--link-button-primary-color)) !important;\n}\n\n/*  POLLING INDICATORS  */\n.css-11k6vsm,\n.css-17zi2ag,\n.css-139roxj {\n  /* width: 20px; */\n  /* height: 20px; */\n  /* animation-duration: 0.75s; */\n  /*  circle background color  */\n  background-color: var(--polling-indicator-color) !important;\n}\n\n/*  BUTTON ACTIVITY INDICATOR  */\n.css-sw2ho0 {\n  /*  spinning circle color  */\n  --primary-color: var(--activity-indicator-color) !important;\n}\n",
+    "pingOneFlow": true
+  },
+  "timeouts": "null",
+  "trigger": {
+    "type": "AUTHENTICATION"
+  },
+  "updatedDate": 1745505808728,
+  "flowId": "2bbd951566e8da03133284c95b908e35",
+  "versionId": 4,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "eua4tvmr65",
+            "nodeType": "EVAL",
+            "properties": {
+              "hk3kh4zhwd": {
+                "value": "anyTriggersFalse"
+              },
+              "a35ycvtvc6": {
+                "value": "anyTriggersFalse"
+              },
+              "50t5298k7d": {
+                "value": "anyTriggersFalse"
+              },
+              "vmsze9ykcp": {
+                "value": "anyTriggersFalse"
+              },
+              "kh8c3pncjb": {
+                "value": "anyTriggersFalse"
+              }
+            }
+          },
+          "position": {
+            "x": 1448,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "szsktlnctv",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#4462edff"
+              },
+              "annotationTextColor": {
+                "value": "#ffffffff"
+              },
+              "annotation": {
+                "value": "Primary Flow:  Initiate a VC Presentation Request for Credential Validation"
+              },
+              "width": {
+                "value": 2000
+              },
+              "fontStyle": {
+                "value": "bold"
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              }
+            },
+            "status": "configured",
+            "idUnique": "7x04397o2h"
+          },
+          "position": {
+            "x": 308,
+            "y": 214
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "pi7op56cke",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHTMLTemplate",
+            "type": "trigger",
+            "properties": {
+              "title": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Welcome\"\n      }\n    ]\n  }\n]"
+              },
+              "description": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Please select an option to continue.\"\n      }\n    ]\n  }\n]"
+              },
+              "customHTML": {
+                "value": "<div\n  class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\">\n  <div style=\"max-width: 460px; min-width: 460px; width: 100%\">\n    <div class=\"card shadow mb-5\">\n      <div class=\"card-body p-5 d-flex flex-column\">\n        <img class=\"companyLogo align-self-center mb-5\" alt=\"{{global.variables.companyName}}\" />\n        <h1 id=\"header\" class=\"text-center mb-4\">{{title}}</h1>\n        <p class=\"text-muted text-center\">{{description}}</p>\n        <p id=\"feedback\" data-id=\"feedback\" class=\"text-danger mdi mdi-alert-circle\" data-skcomponent=\"skerror\"></p>\n        <p class=\"text-danger mdi mdi-alert-circle\" data-skerrorid=\"email\" data-skcomponent=\"skerrormessage\"></p>\n        <form id=\"emailForm\" data-id=\"emailForm\">\n          <div class=\"d-flex flex-column\">\n            <button class=\"btn btn-outline-light flex-grow-1 d-flex align-items-center gap-4 w-100 {{disabledCSS}}\"\n              type=\"submit\" data-skbuttontype=\"form-submit\" data-skcomponent=\"skbutton\"\n              data-skbuttonvalue=\"DIGITALCREDS\" id=\"btnDevice-DIGITALCREDS\" data-skform=\"deviceSelectionForm\">\n              <i class=\"mdi text-dark fs-2\" aria-hidden=\"true\"></i> \n              <div class=\"d-flex flex-column text-start gap-1\">\n                <div class=\"fw-semibold text-primary\"><i class=\"fa fa-qrcode\"></i> Scan Your Digital Credential</div>\n                <div class=\"fs-5 text-secondary\">\n                  Use my Digital Credential to get started.\n                </div>\n              </div>\n            </button>   \n          </div>\n          <div class=\"d-flex flex-row align-items-center my-4\">\n            <hr class=\"flex-grow-1\" />\n            <span class=\"fs-5 fw-bold px-3\">OR</span>\n            <hr class=\"flex-grow-1\" />\n          </div>\n          <div class=\"d-flex flex-column\">\n            <button class=\"btn btn-outline-light flex-grow-1 d-flex align-items-center gap-4 w-100 {{disabledCSS}}\"\n              type=\"submit\" data-skbuttontype=\"form-submit\" data-skcomponent=\"skbutton\"\n              data-skbuttonvalue=\"EMAIL\" id=\"btnDevice-EMAIL\" data-skform=\"deviceSelectionForm\">\n              <i class=\"mdi text-dark fs-2\" aria-hidden=\"true\"></i> \n              <div class=\"d-flex flex-column text-start gap-1\">\n                <div class=\"fw-semibold text-primary\">Enter my Email Address</div>\n                <div class=\"fs-5 text-secondary\">\n                  I don't have a Digital Crednetial. Use my email address to begin.\n                </div>\n              </div>\n            </button>   \n          </div>   \n          <br/>       \n          <div class=\"d-flex flex-column\">\n            <button type=\"submit\" class=\"btn btn-link\" data-skcomponent=\"skbutton\" data-skbuttontype=\"next-event\"\n              data-skform=\"emailForm\" data-skbuttonvalue=\"CANCEL\" id=\"btnCancel\">\n              Cancel\n            </button>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
+              },
+              "formFieldsList": {
+                "value": [
+                  {
+                    "preferredControlType": "textField",
+                    "preferredDataType": "string",
+                    "propertyName": "email",
+                    "displayName": "email",
+                    "hashedVisibility": false
+                  },
+                  {
+                    "preferredControlType": "textField",
+                    "preferredDataType": "string",
+                    "propertyName": "buttonValue"
+                  }
+                ]
+              },
+              "nodeTitle": {
+                "value": "Request Form"
+              },
+              "customCSS": {
+                "value": "@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);\n.btn-green {\nbackground-color: #07833d !important;\n}\n\n.btn-green:hover {\n   background-color: #22a65b!important;\n}"
+              },
+              "customScript": {
+                "value": "// Focus on the first input element on the page\nconst focusOnFirstInputElement = () => {\n    const element = document.querySelector(\"input\");\n\n    // Set focus on the first input element, if it exists\n    if (element) {\n        element.focus();\n    }\n};\n\n// If the page is still loading, wait for it to finish before calling the function\nif (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", focusOnFirstInputElement);\n} else {\n    // If the page has already finished loading, call the function immediately\n    focusOnFirstInputElement();\n}\n"
+              },
+              "validationRules": {
+                "value": []
+              },
+              "nodeDescription": {
+                "value": "Email or Digital Id"
+              },
+              "sktemplate": {
+                "uiId": "f0278a8ddca082f38c7741636477706e",
+                "createdDate": 1689165082540,
+                "customerId": "f3e47d945ae971a4b4142ec75012d155",
+                "description": "",
+                "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\n            \"type\": \"string\",\n            \"displayName\": \"Title\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"title\"\n        },\n\t\t\"description\": {\n            \"type\": \"string\",\n            \"displayName\": \"Description\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"description\"\n        }\n    }\n}",
+                "name": "Username form",
+                "outputSchema": null,
+                "script": "",
+                "style": "",
+                "template": "",
+                "updatedDate": 1689165187330,
+                "validationRules": [],
+                "version": "1.0",
+                "visibility": "private",
+                "companyId": "50451ff2-2ed6-4c10-90ed-0e138623955c",
+                "value": "f0278a8ddca082f38c7741636477706e"
+              },
+              "inputSchema": {
+                "value": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\n            \"type\": \"string\",\n            \"displayName\": \"Title\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"title\"\n        },\n\t\t\"description\": {\n            \"type\": \"string\",\n            \"displayName\": \"Description\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"description\"\n        }\n    }\n}"
+              },
+              "outputSchema": {
+                "value": {}
+              }
+            },
+            "idUnique": "tm3j9z88ta"
+          },
+          "position": {
+            "x": 698,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "n22t1bwgx5",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 818,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "qp0fe3akuo",
+            "nodeType": "CONNECTION",
+            "connectionId": "de650ca45593b82c49064ead10b9fe17",
+            "connectorId": "functionsConnector",
+            "name": "Functions",
+            "label": "Function",
+            "status": "configured",
+            "capabilityName": "AEqualsMultipleB",
+            "type": "trigger",
+            "properties": {
+              "leftValueA": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"http.svg\",\n        \"url\": \"buttonValue\",\n        \"data\": \"{{local.pi7op56cke.payload.output.buttonValue}}\",\n        \"tooltip\": \"{{local.pi7op56cke.payload.output.buttonValue}}\",\n        \"children\": [\n          {\n            \"text\": \"buttonValue\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "rightValueMultiple": {
+                "value": [
+                  {
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"DIGITALCREDS\"\n      }\n    ]\n  }\n]",
+                    "id": "2qz21f54td"
+                  },
+                  {
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"EMAIL\"\n      }\n    ]\n  }\n]",
+                    "id": "g1yx55ile6"
+                  }
+                ]
+              },
+              "nodeTitle": {
+                "value": "Determine Flow Selection"
+              }
+            }
+          },
+          "position": {
+            "x": 998,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "hbtrbgy4af",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 1148,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "bu2bwepdnl",
+            "nodeType": "CONNECTION",
+            "connectionId": "de650ca45593b82c49064ead10b9fe17",
+            "connectorId": "functionsConnector",
+            "name": "Functions",
+            "label": "Function",
+            "status": "configured",
+            "capabilityName": "AEqualsB",
+            "type": "trigger",
+            "properties": {
+              "leftValueA": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"credentialVerificationStatus\",\n        \"data\": \"{{local.p0v2899ql9.payload.output.credentialVerificationStatus}}\",\n        \"tooltip\": \"{{local.p0v2899ql9.payload.output.credentialVerificationStatus}}\",\n        \"children\": [\n          {\n            \"text\": \"credentialVerificationStatus\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "rightValueB": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"VERIFICATION_SUCCESSFUL\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Verification Successful?"
+              }
+            }
+          },
+          "position": {
+            "x": 1628,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "lh3jldsidg",
+            "nodeType": "EVAL",
+            "properties": {
+              "vmsze9ykcp": {
+                "value": "anyTriggersFalse"
+              }
+            }
+          },
+          "position": {
+            "x": 1748,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "vmsze9ykcp",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHTMLTemplate",
+            "type": "trigger",
+            "properties": {
+              "title": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Verification Failed\"\n      }\n    ]\n  }\n]"
+              },
+              "subtitle": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"The digital credential is invalid or could not be verified.\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "pollingMessage": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "qrUrl": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"qrUrl\",\n        \"data\": \"{{local.6nxaefguf0.payload.output.transaction.qrUrl}}\",\n        \"tooltip\": \"{{local.6nxaefguf0.payload.output.transaction.qrUrl}}\",\n        \"children\": [\n          {\n            \"text\": \"qrUrl\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "webVerificationUrl": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"webVerificationUrl\",\n        \"data\": \"{{local.6nxaefguf0.payload.output.transaction.webVerificationUrl}}\",\n        \"tooltip\": \"{{local.6nxaefguf0.payload.output.transaction.webVerificationUrl}}\",\n        \"children\": [\n          {\n            \"text\": \"webVerificationUrl\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "webVerificationCode": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"webVerificationCode\",\n        \"data\": \"{{local.6nxaefguf0.payload.output.transaction.webVerificationCode}}\",\n        \"tooltip\": \"{{local.6nxaefguf0.payload.output.transaction.webVerificationCode}}\",\n        \"children\": [\n          {\n            \"text\": \"webVerificationCode\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "messageTitle": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Please Verify yourself\"\n      }\n    ]\n  }\n]"
+              },
+              "message": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"url:i585p7f1n8\",\n        \"url\": \"generatedQr\",\n        \"data\": \"{{local.9mth1vknb1.payload.output.generatedQr}}\",\n        \"tooltip\": \"{{local.9mth1vknb1.payload.output.generatedQr}}\",\n        \"children\": [\n          {\n            \"text\": \"{{local.9mth1vknb1.payload.output.generatedQr}}\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\\n\\nVerify Code: \"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"url:f93w9r1ccf\",\n        \"url\": \"webVerificationCode\",\n        \"data\": \"{{local.f7rajqo8ws.payload.output.rawResponse.body.webVerificationCode}}\",\n        \"tooltip\": \"{{local.f7rajqo8ws.payload.output.rawResponse.body.webVerificationCode}}\",\n        \"children\": [\n          {\n            \"text\": \"{{local.f7rajqo8ws.payload.output.rawResponse.body.webVerificationCode}}\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\\n\\n\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"data\": \"[[[skcomponent###c2tjb21wb25lbnQgInNrZXJyb3JtZXNzYWdlIiAgY2xhc3M9IiIgZXJyb3JJZD0iIg==###eyJuYW1lIjoic2tlcnJvcm1lc3NhZ2UiLCJvcHRpb25zIjp7ImNsYXNzIjoiIiwiZXJyb3JJZCI6IiJ9LCJjb21wb25lbnRQcm9wcyI6eyJjbGFzcyI6eyJuYW1lIjoiY2xhc3MiLCJkaXNwbGF5TmFtZSI6IkNsYXNzIn0sImVycm9ySWQiOnsibmFtZSI6ImVycm9ySWQiLCJkaXNwbGF5TmFtZSI6IklEIG9mIGlucHV0IGZpZWxkIGFzc29jaWF0ZWQgd2l0aCBlcnJvciBtZXNzYWdlIn19fQ==]]]\",\n        \"src\": \"auth.svg\",\n        \"url\": \"skerrormessage\",\n        \"children\": [\n          {\n            \"text\": \"skerrormessage\"\n          }\n        ],\n        \"component\": \"skerrormessage\",\n        \"options\": {\n          \"class\": \"\",\n          \"errorId\": \"\"\n        },\n        \"componentProps\": {\n          \"class\": {\n            \"name\": \"class\",\n            \"displayName\": \"Class\"\n          },\n          \"errorId\": {\n            \"name\": \"errorId\",\n            \"displayName\": \"ID of input field associated with error message\"\n          }\n        },\n        \"tooltip\": \"{{component.skerrormessage}}\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Verification Failed"
+              },
+              "nodeDescription": {},
+              "showFooter": {
+                "value": false
+              },
+              "enablePolling": {
+                "value": true
+              },
+              "pollChallengeStatus": {
+                "value": false
+              },
+              "customHTML": {
+                "value": "<div\n   class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\">\n   <div style=\"max-width: 460px; min-width: 460px; width: 100%\">\n      <div class=\"card shadow mb-5\">\n         <div class=\"card-body p-5 d-flex flex-column\">\n            <img class=\"companyLogo align-self-center mb-5\" alt=\"{{global.variables.companyName}}\" />\n            <h1 class=\"text-center mb-4\">{{title}}</h1>\n            <p class=\"text-muted text-center\">{{subtitle}}</p>\n            <div class=\"text-muted\">\n               Verification Request Status:  {{verificationStatus}}<br/><br/>\n               {{#each verificationData/credentialsDataList}}\n                  <dl>\n                     <dt>Credential Information</dt>\n                     <dd>Issuer:  {{issuerName}}</dd>\n                     <dd>Type:  {{type}}</dd>\n                  </dl>\n                  <dl>\n                     <dt>Failure Details</dt>\n                     <dd>Reason:  {{verificationStatus}}</dd>\n                     <dd>Details:  {{verificationErrors}}</dd>\n                  </dl>\n               {{/each}}   \n            </div>\n         </div>\n      </div>\n   </div>\n</div>"
+              },
+              "customScript": {
+                "value": ""
+              },
+              "formFieldsList": {
+                "value": [
+                  {
+                    "preferredControlType": "textField",
+                    "preferredDataType": "string",
+                    "propertyName": "buttonValue"
+                  }
+                ]
+              },
+              "sktemplate": {
+                "uiId": "e6e1bb56db7fa43d0bb18721a55fc694",
+                "createdDate": 1687889267333,
+                "customerId": "f3e47d945ae971a4b4142ec75012d155",
+                "description": "",
+                "inputSchema": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\n            \"type\": \"string\",\n            \"displayName\": \"Form Title\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"title\"\n        },\n        \"subtitle\": {\n            \"type\": \"string\",\n            \"displayName\": \"Form Subtitle\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"subtitle\"\n        },\n        \"verificationStatus\": {\n            \"type\": \"string\",\n            \"displayName\": \"Credential Verification Status\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"verificationStatus\"\n        },\n        \"verificationData\": {\n            \"type\": \"object\",\n            \"displayName\": \"Credential Verification Data\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"verificationData\"\n        }\n    }\n}",
+                "name": "VerifyPolling",
+                "outputSchema": {},
+                "script": "",
+                "style": "",
+                "template": "",
+                "updatedDate": 1687889792920,
+                "validationRules": [],
+                "version": "1.0",
+                "visibility": "private",
+                "companyId": "edcc3f46-49cc-4176-bfcb-849afb268c1b",
+                "value": "e6e1bb56db7fa43d0bb18721a55fc694"
+              },
+              "inputSchema": {
+                "value": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\n            \"type\": \"string\",\n            \"displayName\": \"Form Title\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"title\"\n        },\n        \"subtitle\": {\n            \"type\": \"string\",\n            \"displayName\": \"Form Subtitle\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"subtitle\"\n        },\n        \"verificationStatus\": {\n            \"type\": \"string\",\n            \"displayName\": \"Credential Verification Status\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"verificationStatus\"\n        },\n        \"verificationData\": {\n            \"type\": \"object\",\n            \"displayName\": \"Credential Verification Data\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"verificationData\"\n        }\n    }\n}"
+              },
+              "outputSchema": {
+                "value": {}
+              },
+              "customCSS": {
+                "value": ""
+              },
+              "validationRules": {
+                "value": []
+              },
+              "backgroundColor": {
+                "value": "#ffc8c1ff"
+              },
+              "verificationStatus": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"credentialVerificationStatus\",\n        \"data\": \"{{local.p0v2899ql9.payload.output.credentialVerificationStatus}}\",\n        \"tooltip\": \"{{local.p0v2899ql9.payload.output.credentialVerificationStatus}}\",\n        \"children\": [\n          {\n            \"text\": \"credentialVerificationStatus\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "verificationData": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"credentialVerificationData\",\n        \"data\": \"{{local.p0v2899ql9.payload.output.credentialVerificationData}}\",\n        \"tooltip\": \"{{local.p0v2899ql9.payload.output.credentialVerificationData}}\",\n        \"children\": [\n          {\n            \"text\": \"credentialVerificationData\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            },
+            "idUnique": "nvo1niimr8"
+          },
+          "position": {
+            "x": 1928,
+            "y": 484
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "p0v2899ql9",
+            "nodeType": "CONNECTION",
+            "connectionId": "2581eb287bb1d9bd29ae9886d675f89f",
+            "connectorId": "flowConnector",
+            "name": "Flow Connector",
+            "label": "Flow Conductor",
+            "status": "configured",
+            "capabilityName": "startUiSubFlow",
+            "type": "trigger",
+            "properties": {
+              "subFlowId": {
+                "value": {
+                  "label": "Validate a Verifiable Credential Subflow",
+                  "value": "b0f215d1e3835f32ccfc79044f15183f"
+                }
+              },
+              "subFlowVersionId": {
+                "value": -1
+              },
+              "acceptedIssuers": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "presentationMessage": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"requestMessage\",\n        \"data\": \"{{global.variables.requestMessage}}\",\n        \"tooltip\": \"{{global.variables.requestMessage}}\",\n        \"children\": [\n          {\n            \"text\": \"requestMessage\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "trustedIssuers": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"trustedIssuers\",\n        \"data\": \"{{global.variables.trustedIssuers}}\",\n        \"tooltip\": \"{{global.variables.trustedIssuers}}\",\n        \"children\": [\n          {\n            \"text\": \"trustedIssuers\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Validate a Verifiable Credential"
+              },
+              "credentialType": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"requestedCredentialType\",\n        \"data\": \"{{global.variables.requestedCredentialType}}\",\n        \"tooltip\": \"{{global.variables.requestedCredentialType}}\",\n        \"children\": [\n          {\n            \"text\": \"requestedCredentialType\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "credentialKeys": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"requestedCredentialKeys\",\n        \"data\": \"{{global.variables.requestedCredentialKeys}}\",\n        \"tooltip\": \"{{global.variables.requestedCredentialKeys}}\",\n        \"children\": [\n          {\n            \"text\": \"requestedCredentialKeys\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 1328,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "4j8im090lj",
+            "nodeType": "EVAL",
+            "label": "Evaluator",
+            "properties": {
+              "555mi0ctvn": {
+                "value": "allTriggersTrue"
+              }
+            }
+          },
+          "position": {
+            "x": 1144,
+            "y": 480
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "555mi0ctvn",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHtmlMessage",
+            "type": "trigger",
+            "properties": {
+              "message": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Not Implemented\"\n      }\n    ]\n  }\n]"
+              },
+              "messageTitle": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Not Implemented\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Not Implemented"
+              }
+            }
+          },
+          "position": {
+            "x": 1328,
+            "y": 484
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "c0f2aln8pq",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 1144,
+            "y": 480
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "219nd4cylc",
+            "nodeType": "CONNECTION",
+            "connectionId": "06922a684039827499bdbdd97f49827b",
+            "connectorId": "variablesConnector",
+            "name": "Variables",
+            "label": "Variables",
+            "status": "configured",
+            "capabilityName": "saveValue",
+            "type": "trigger",
+            "properties": {
+              "saveVariables": {
+                "value": [
+                  {
+                    "name": "requestMessage",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Please present the requested verifiable credential.\"\n      }\n    ]\n  }\n]",
+                    "key": 0.04909261663787956,
+                    "label": "requestMessage (string - flowInstance)",
+                    "type": "string"
+                  },
+                  {
+                    "name": "requestedCredentialType",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"VerifiedPartner\"\n      }\n    ]\n  }\n]",
+                    "key": 0.937372848839408,
+                    "label": "requestedCredentialType (string - flowInstance)",
+                    "type": "string"
+                  },
+                  {
+                    "name": "requestedCredentialKeys",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.8499006321402487,
+                    "label": "requestedCredentialKeys (string - flowInstance)",
+                    "type": "string"
+                  }
+                ]
+              },
+              "nodeTitle": {
+                "value": "Presentation Request Settings"
+              }
+            }
+          },
+          "position": {
+            "x": 398,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "0a78xg327p",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 518,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "rt7lv1znrz",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#e7e7e7ff"
+              },
+              "annotationTextColor": {
+                "value": "#000000"
+              },
+              "strokeEnabled": {
+                "value": true
+              },
+              "strokeWidth": {
+                "value": 2
+              },
+              "strokeColor": {
+                "value": "#000000ff"
+              },
+              "fontSize": {
+                "value": 10
+              },
+              "fontStyle": {
+                "value": "normal"
+              },
+              "fontFamily": {
+                "value": "Verdana"
+              },
+              "annotation": {
+                "value": "To Configure: Define the requested credential type in the 'Presentation Request Settings' node.  The credential type is typically the credential name, e.g. VerifiedEmployee."
+              },
+              "width": {
+                "value": 340
+              },
+              "height": {
+                "value": 40
+              }
+            },
+            "status": "configured",
+            "idUnique": "kwjh3r0rqu"
+          },
+          "position": {
+            "x": 214,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "vafv8e8o34",
+            "nodeType": "CONNECTION",
+            "connectionId": "2581eb287bb1d9bd29ae9886d675f89f",
+            "connectorId": "flowConnector",
+            "name": "Flow Connector",
+            "label": "Flow Connector",
+            "status": "configured",
+            "capabilityName": "startUiSubFlow",
+            "type": "trigger",
+            "properties": {
+              "subFlowId": {
+                "value": {
+                  "label": "Issue EmployeeAccess Cred",
+                  "value": "6a21e2e98b64c0b036d44b3bc5d38544"
+                }
+              },
+              "subFlowVersionId": {
+                "value": -1
+              },
+              "mail": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"{{local.p0v2899ql9.payload.output.credentialData[7].value}}\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "givenName": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"{{local.p0v2899ql9.payload.output.\"\n      },\n      {\n        \"text\": \"credentialData\"\n      },\n      {\n        \"text\": \"[1].value}}\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "surname": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"{{local.p0v2899ql9.payload.output.\"\n      },\n      {\n        \"text\": \"credentialData\"\n      },\n      {\n        \"text\": \"[5].value}}\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Issue Access Credential"
+              },
+              "accessType": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"credentialType\",\n        \"data\": \"{{local.p0v2899ql9.payload.output.credentialType}}\",\n        \"tooltip\": \"{{local.p0v2899ql9.payload.output.credentialType}}\",\n        \"children\": [\n          {\n            \"text\": \"credentialType\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 1920,
+            "y": 360
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "44c9tmlb3h",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHTMLTemplate",
+            "type": "trigger",
+            "properties": {
+              "customHTML": {
+                "value": "<div class=\"end-user-nano\">\n    <div\n        class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0 overflow-auto\">\n        <div style=\"max-width: 400px; min-width: 400px; width: 100%\">\n            <div class=\"card shadow mb-5\">\n                <div class=\"card-body p-5 d-flex flex-column\">\n                    <img class=\"companyLogo align-self-center mb-5\" src=\"{{global.variables.companyLogo}}\" alt=\"{{global.variables.companyName}}\" />\n\n                    {{#if title}}\n                    <h1 class=\"text-center mb-4\">{{title}}</h1>\n                    {{/if}}\n\n                    <div class=\"mx-auto mt-3 mb-4\">\n                        <svg class=\"checkmark\" xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 52 52\">\n                            <circle class=\"checkmarkCircle\" cx=\"26\" cy=\"26\" r=\"25\" fill=\"none\" />\n                            <path class=\"checkmarkCheck\" fill=\"none\" d=\"M14.1 27.2l7.1 7.2 16.7-16.8\" />\n                        </svg>\n                    </div>\n\n                    {{#if textOne}}\n                    <p class=\"text-muted text-center\">{{textOne}}</p>\n                    {{/if}}\n\n                    {{#if textTwo}}\n                    <p class=\"text-muted text-center\">{{textTwo}}</p>\n                    {{/if}}\n\n                    <p class=\"text-danger mdi mdi-alert-circle\" data-id=\"feedback\" data-skcomponent=\"skerror\"></p>\n\n                    {{#if buttonLabel}}\n                    <div class=\"d-flex flex-column\">\n                        <button id=\"submitBtn\" data-id=\"submitBtn\" class=\"btn btn-primary mb-3\" type=\"submit\" data-skcomponent=\"skbutton\"\n                        data-skbuttontype=\"next-event\" data-skbuttonvalue=\"NEXT\" >\n                        {{buttonLabel}}\n                        </button>\n                    </div>\n                    {{/if}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+              },
+              "formFieldsList": {
+                "value": [
+                  {
+                    "preferredControlType": "textField",
+                    "preferredDataType": "string",
+                    "propertyName": "buttonValue"
+                  }
+                ]
+              },
+              "nodeTitle": {
+                "value": "Animated Success Node"
+              },
+              "customCSS": {
+                "value": ":root {\n  --animation-dimension: 100px;\n  --animation-start-color: #71e171;\n  --animation-midway-color: #67d067;\n  --animation-finish-color: #59b259;\n}\n\n.checkmark {\n  width: var(--animation-dimension);\n  height: var(--animation-dimension);\n  border-radius: 50%;\n  display: block;\n  stroke-width: 5;\n  stroke: #ffffff;\n  stroke-miterlimit: 10;\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n  animation: fill 0.4s ease-in-out 0.4s forwards,\n    scale 0.3s ease-in-out 0.9s both;\n}\n\n.checkmarkCircle {\n  stroke-dasharray: 166;\n  stroke-dashoffset: 166;\n  stroke-width: 5;\n  stroke-miterlimit: 10;\n  stroke: var(--animation-finish-color);\n  fill: none;\n  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards,\n    colorChange 1.2s ease-in-out forwards;\n}\n\n.checkmarkCheck {\n  transform-origin: 50% 50%;\n  stroke-dasharray: 48;\n  stroke-dashoffset: 48;\n  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards,\n    colorChange 0.6s ease-in-out 0.8s forwards;\n}\n\n@keyframes colorChange {\n  0% {\n    stroke: var(--animation-start-color);\n  }\n  50% {\n    stroke: var(--animation-midway-color);\n  } \n  100% {\n    stroke: var(--animation-finish-color);\n  }\n}\n\n@keyframes stroke {\n  100% {\n    stroke-dashoffset: 0;\n  }\n}\n@keyframes scale {\n  0%,\n  100% {\n    transform: none;\n  }\n  50% {\n    transform: scale3d(1.1, 1.1, 1);\n  }\n  70% {\n    transform: scale3d(0.98, 0.98, 1);\n  }\n  85% {\n    transform: scale3d(1.02, 1.02, 1);\n  }\n}\n@keyframes fill {\n  100% {\n    box-shadow: inset 0px 0px 0px 0px var(--animation-finish-color);\n  }\n}"
+              },
+              "validationRules": {
+                "value": []
+              },
+              "backgroundColor": {
+                "value": "#afd5ffff"
+              },
+              "customScript": {},
+              "inputSchema": {
+                "value": "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"title\": {\n            \"type\": \"string\",\n            \"displayName\": \"Title\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"title\"\n        },\n\t\"textOne\": {\n            \"type\": \"string\",\n            \"displayName\": \"Text One\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"textOne\"\n        },\n\t\"textTwo\": {\n            \"type\": \"string\",\n            \"displayName\": \"Text Two\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"textTwo\"\n        },\n        \"buttonLabel\": {\n            \"type\": \"string\",\n            \"displayName\": \"Button Label\",\n            \"preferredControlType\": \"textField\",\n            \"enableParameters\": true,\n            \"propertyName\": \"buttonLabel\"\n        }\n    }\n}"
+              },
+              "title": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Success!\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeDescription": {
+                "value": "Success message with animated checkmark"
+              }
+            },
+            "idUnique": "p3z6662uwb"
+          },
+          "position": {
+            "x": 2190,
+            "y": 360
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "axwn25ppz1",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 2055,
+            "y": 360
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "86u67zwsf3",
+            "source": "qp0fe3akuo",
+            "target": "4j8im090lj",
+            "multiValueSourceId": "g1yx55ile6"
+          },
+          "position": {
+            "x": 64,
+            "y": 92
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "g9gpthfeyh",
+            "source": "n22t1bwgx5",
+            "target": "qp0fe3akuo"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "4vw4i96csc",
+            "source": "c0f2aln8pq",
+            "target": "555mi0ctvn"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "gtccyzrxeb",
+            "source": "qp0fe3akuo",
+            "target": "c0f2aln8pq",
+            "multiValueSourceId": "-1"
+          },
+          "position": {
+            "x": 64,
+            "y": 132
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "qxa75p0fba",
+            "source": "4j8im090lj",
+            "target": "555mi0ctvn"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "xz46kmtvh7",
+            "source": "0a78xg327p",
+            "target": "pi7op56cke"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ggd6rawclj",
+            "source": "eua4tvmr65",
+            "target": "vmsze9ykcp"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "f5ufzj0kis",
+            "source": "lh3jldsidg",
+            "target": "vafv8e8o34"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "f9mulphnhm",
+            "source": "p0v2899ql9",
+            "target": "eua4tvmr65"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "hykjxlcnuh",
+            "source": "219nd4cylc",
+            "target": "0a78xg327p"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "imm5j9x3ca",
+            "source": "lh3jldsidg",
+            "target": "vmsze9ykcp"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "7o4uyt4s5v",
+            "source": "qp0fe3akuo",
+            "target": "hbtrbgy4af",
+            "multiValueSourceId": "2qz21f54td"
+          },
+          "position": {
+            "x": 64,
+            "y": 52
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "xpjqxecdi6",
+            "source": "bu2bwepdnl",
+            "target": "lh3jldsidg"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ygrjufyk49",
+            "source": "pi7op56cke",
+            "target": "n22t1bwgx5"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "13x3325x76",
+            "source": "hbtrbgy4af",
+            "target": "p0v2899ql9"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "29q4jg2a6i",
+            "source": "eua4tvmr65",
+            "target": "bu2bwepdnl"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "s4hgoi14vi",
+            "source": "vafv8e8o34",
+            "target": "axwn25ppz1"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "t33uu8phdi",
+            "source": "axwn25ppz1",
+            "target": "44c9tmlb3h"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "inputSchema": [],
+  "flowColor": "#ff661c",
+  "savedDate": 1745505806601,
+  "variables": [
+    {
+      "context": "flowInstance",
+      "createdDate": 1745427990188,
+      "fields": {
+        "type": "string",
+        "displayName": "Url for company's logo image",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "b8547a27-2d73-4518-a980-02634f12f10b",
+      "type": "property",
+      "visibility": "private",
+      "name": "companyLogo##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1745427990187,
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "d85fa2cc-35ca-4a94-9ccb-c6f9d38408b6",
+      "type": "property",
+      "visibility": "private",
+      "name": "companyName##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1745428021512,
+      "fields": {
+        "type": "string",
+        "displayName": "Request message to display on the credential wallet, if supported.",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "6d88a382-5d54-44f8-8013-af7a98d55636",
+      "type": "property",
+      "visibility": "private",
+      "name": "requestMessage##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1745428021513,
+      "fields": {
+        "type": "string",
+        "displayName": "Optional. If not defined, all keys are returned.  Comma-delimited list of requested credential keys if specific keys from the credential are desired.",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "d2a97306-bf50-4538-a1f3-08f7d8af0cb3",
+      "type": "property",
+      "visibility": "private",
+      "name": "requestedCredentialKeys##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1745428021511,
+      "fields": {
+        "type": "string",
+        "displayName": "Type of credential to verify. Must be the name of a PingOne credential type issued by the credential issuer.",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "dbbffd2a-6f00-41d0-86ad-de4d8046fd2f",
+      "type": "property",
+      "visibility": "private",
+      "name": "requestedCredentialType##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1745428021513,
+      "fields": {
+        "type": "object",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "e769bc60-7717-4a5f-829f-79135485f758",
+      "type": "property",
+      "visibility": "private",
+      "name": "trustedIssuers##SK##flowInstance",
+      "companyId": "be6e7430-f29e-4321-8e66-1bab18dd8da8"
+    }
+  ],
+  "connections": []
+}

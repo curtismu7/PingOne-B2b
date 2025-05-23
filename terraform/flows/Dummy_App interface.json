@@ -1,0 +1,938 @@
+{
+  "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "httpConnector",
+    "functionsConnector",
+    "pingOneAuthenticationConnector",
+    "pingOneSSOConnector",
+    "variablesConnector",
+    "codeSnippetConnector",
+    "flowConnector"
+  ],
+  "createdDate": 1748019799159,
+  "currentVersion": 120,
+  "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
+  "deployedDate": 1748019800734,
+  "description": "",
+  "flowStatus": "enabled",
+  "isOutputSchemaSaved": false,
+  "name": "Dummy App interface",
+  "publishedVersion": 120,
+  "settings": {
+    "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
+    "intermediateLoadingScreenCSS": "",
+    "intermediateLoadingScreenHTML": "",
+    "useCustomCSS": true,
+    "cssLinks": [
+      "https://assets.pingone.com/ux/astro-nano/0.1.0-alpha.11/icons.css",
+      "https://assets.pingone.com/ux/end-user-nano/0.1.0-alpha.9/end-user-nano.css"
+    ],
+    "logLevel": 3,
+    "validateOnSave": false,
+    "pingOneFlow": true,
+    "css": ".companyLogo {\n    height: 65px;\n}\n\n.icon-padding::before {\n  padding-right: 5px;\n}"
+  },
+  "timeouts": "null",
+  "trigger": {
+    "type": "AUTHENTICATION"
+  },
+  "updatedDate": 1748019800771,
+  "flowId": "3bac1e54a7006a22ddc7c0d207093f7e",
+  "versionId": 120,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "4khe5056le",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHTMLTemplate",
+            "type": "trigger",
+            "properties": {
+              "customHTML": {
+                "value": "<div class=\"end-user-nano\">\n  <div class=\"bg-light d-flex flex-column justify-content-center align-items-center position-absolute top-0 start-0 bottom-0 end-0\">\n    <div style=\"max-width: 800px; width: 100%;\">\n      <div class=\"card shadow mb-5\">\n        <div class=\"card-body p-5\">\n\n          <!-- Title and Logo on Same Line -->\n          <div class=\"d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3\">\n            <img class=\"companyLogo\" src=\"{{global.variables.companyLogo}}\" alt=\"{{global.variables.companyName}}\" style=\"max-height: 50px;\">\n            \n            {{#if title}}\n            <p id=\"title\" class=\"text-muted mb-4\">{{title}}</p>\n            {{/if}}\n          </div>\n\n\n          <!-- Logo or Branding -->\n          <!-- <img class=\"companyLogo align-self-center mb-5\" src=\"{{global.variables.companyLogo}}\" alt=\"{{global.variables.companyName}}\"> -->\n\n          <!-- Header -->\n          <!-- {{#if title}}\n          <h1 id=\"title\" class=\"text-center mb-4\">{{title}}</h1>\n          {{/if}} -->\n\n          {{#if textOne}}\n          <h1 class=\"text-center mb-3\">{{textOne}}</h1>\n          {{/if}}\n\n          {{#if verticalObject/heading}}\n          <p class=\"text-muted text-center mb-4\">{{verticalObject/heading}}</p>\n          {{/if}}\n\n          <!-- Summary Metrics -->\n          <div class=\"d-flex flex-wrap justify-content-center gap-4 mb-5\">\n            {{#each verticalObject/metrics}}\n            <div class=\"border rounded p-3 text-center\" style=\"min-width: 180px;\">\n              <p class=\"text-muted mb-1\">{{this/label}}</p>\n              <h2>{{this/value}}</h2>\n            </div>\n            {{/each}}\n          </div>\n          <!-- <div class=\"d-flex flex-wrap justify-content-center gap-4 mb-5\">\n            <div class=\"border rounded p-3 text-center\" style=\"min-width: 180px;\">\n              <p class=\"text-muted mb-1\">Account Balance</p>\n              <h2>$12,580.40</h2>\n            </div>\n            <div class=\"border rounded p-3 text-center\" style=\"min-width: 180px;\">\n              <p class=\"text-muted mb-1\">Monthly Spending</p>\n              <h2>$1,260.75</h2>\n            </div>\n            <div class=\"border rounded p-3 text-center\" style=\"min-width: 180px;\">\n              <p class=\"text-muted mb-1\">Investments</p>\n              <h2>$8,440.00</h2>\n            </div>\n          </div> -->\n\n          <!-- Transactions Table -->\n          <!-- <div class=\"table-responsive\">\n            <table class=\"table table-striped\">\n              <thead class=\"text-muted\">\n                <tr>\n                  {{#each verticalObject/table/headers}}\n                  <th class=\"{{#if @last}}text-end{{/if}}\">{{this}}</th>\n                  {{/each}}\n                </tr>\n              </thead>\n              <tbody>\n                {{#each verticalObject/table/rows}}\n                <tr>\n                  <td>{{col1}}</td>\n                  <td class=\"text-end\">{{col2}}</td>\n                </tr>\n                {{/each}}\n              </tbody>\n            </table>\n          </div> -->\n          <div class=\"table-responsive\">\n            <table class=\"table table-striped\">\n              <thead class=\"text-muted\">\n                <tr>\n                  {{#each verticalObject/table/headers}}\n                  <th class=\"{{#if @last}}text-end{{/if}}\">{{this}}</th>\n                  {{/each}}\n                </tr>\n              </thead>\n              <tbody>\n                {{#each verticalObject/table/rows}}\n                <tr>\n                  <td>{{col1}}</td>\n                  {{#if col3}}\n                  <td>{{col2}}</td>\n                  <td class=\"text-end\">{{col3}}</td>\n                  {{else}}\n                  <td class=\"text-end\">{{col2}}</td>\n                  {{/if}}\n                </tr>\n                {{/each}}\n              </tbody>\n            </table>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+              },
+              "inputSchema": {
+                "value": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"displayName\": \"Title\",\n      \"preferredControlType\": \"textField\",\n      \"enableParameters\": true,\n      \"propertyName\": \"title\"\n    },\n    \"textOne\": {\n      \"type\": \"string\",\n      \"displayName\": \"Text One\",\n      \"preferredControlType\": \"textField\",\n      \"enableParameters\": true,\n      \"propertyName\": \"textOne\"\n    },\n    \"textTwo\": {\n      \"type\": \"string\",\n      \"displayName\": \"Text Two\",\n      \"preferredControlType\": \"textField\",\n      \"enableParameters\": true,\n      \"propertyName\": \"textTwo\"\n    } ,\n    \"verticalObject\": {\n      \"type\": \"string\",\n      \"displayName\": \"Vertical Object\",\n      \"preferredControlType\": \"textField\",\n      \"enableParameters\": true,\n      \"propertyName\": \"verticalObject\"\n    }\n  }\n}"
+              },
+              "textOne": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Hello, \"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"given\",\n        \"data\": \"{{local.79unf88fkp.payload.output.matchedUser.name.given}}\",\n        \"tooltip\": \"{{local.79unf88fkp.payload.output.matchedUser.name.given}}\",\n        \"children\": [\n          {\n            \"text\": \"given\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "title": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"moustache\",\n        \"data\": \"{{global.parameters.application.name}}\",\n        \"name\": \"name\",\n        \"children\": [\n          {\n            \"text\": \"\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "textTwo": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "verticalObject": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"dynamicVariables\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.dynamicVariables}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.dynamicVariables}}\",\n        \"children\": [\n          {\n            \"text\": \"dynamicVariables\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "customCSS": {
+                "value": ".btn-primary {\n  background-color: {{global.variables.buttonColor}} !important;\n}\n\n.form-control {\n  border-color: {{global.variables.buttonColor}} !important;\n}\n\n.end-user-nano .bg-light {\n  background-color: {{global.variables.backgroundColor}} !important;\n}\n\n.end-user-nano .card {\n  background-color: {{global.variables.cardColor}} !important;\n \n}"
+              }
+            },
+            "idUnique": "wzmde9o4nv"
+          },
+          "position": {
+            "x": 2370,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "brgzdc0c23",
+            "nodeType": "CONNECTION",
+            "connectionId": "de650ca45593b82c49064ead10b9fe17",
+            "connectorId": "functionsConnector",
+            "name": "Functions",
+            "label": "Functions",
+            "status": "configured",
+            "capabilityName": "customFunction",
+            "type": "trigger",
+            "properties": {
+              "outputSchema": {
+                "value": "{\n\t\"output\": {\n\t\t\"type\": \"object\",\n\t\t\"properties\": {\n\t\t\t\"dynamicVariables\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t},\n\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"themeObject\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"backgroundColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"buttonColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"footer\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"cardColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"headingTextColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"applicationBackgroundColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"name\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"logo\": {\n\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"href\": {\n\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"id\": {\n\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"id\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"linkTextColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"buttonTextColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"logoType\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"bodyTextColor\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t},\n\t\t\t\t\t\"backgroundType\": {\n\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"fullVariable\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"dashboards\": {\n\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"insurance\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"education\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"sports\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"realty\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"health\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"generic\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"retail\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"government\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"eats\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"hotels\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"manufacturing\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"pharmacy\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col3\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"airlines\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"company\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"finance\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"heading\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"metrics\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"label\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\"value\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\"table\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\"headers\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\"rows\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col2\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"col1\": {\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t\t]\n\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}"
+              },
+              "code": {
+                "value": "// Write your code here\n// Supported language: Javascript \n\nvar dashboardJson = {\n    \"dashboards\": {\n        \"airlines\": {\n            \"heading\": \"An overview of your current flight operations and performance metrics.\",\n            \"metrics\": [\n                { \"label\": \"Flights Today\", \"value\": \"145\" },\n                { \"label\": \"On-Time Rate\", \"value\": \"92%\" },\n                { \"label\": \"Passengers\", \"value\": \"18,420\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Flight\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"BX102\", \"col2\": \"On Time\" },\n                    { \"col1\": \"BX203\", \"col2\": \"Delayed\" },\n                    { \"col1\": \"BX305\", \"col2\": \"Cancelled\" }\n                ]\n            }\n        },\n        \"company\": {\n            \"heading\": \"A quick snapshot of your organization’s performance and engagement.\",\n            \"metrics\": [\n                { \"label\": \"Employees\", \"value\": \"1,220\" },\n                { \"label\": \"Active Projects\", \"value\": \"35\" },\n                { \"label\": \"Customer NPS\", \"value\": \"74\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Department\", \"Headcount\"],\n                \"rows\": [\n                    { \"col1\": \"Engineering\", \"col2\": \"420\" },\n                    { \"col1\": \"Sales\", \"col2\": \"230\" },\n                    { \"col1\": \"Support\", \"col2\": \"150\" }\n                ]\n            }\n        },\n        \"eats\": {\n            \"heading\": \"Real-time insights into orders, delivery trends, and customer satisfaction.\",\n            \"metrics\": [\n                { \"label\": \"Orders Today\", \"value\": \"8,320\" },\n                { \"label\": \"Avg. Delivery Time\", \"value\": \"28 min\" },\n                { \"label\": \"Customer Rating\", \"value\": \"4.7★\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Order ID\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"#3482\", \"col2\": \"Delivered\" },\n                    { \"col1\": \"#3483\", \"col2\": \"Preparing\" },\n                    { \"col1\": \"#3484\", \"col2\": \"Cancelled\" }\n                ]\n            }\n        },\n        \"education\": {\n            \"heading\": \"This semester at a glance—track grades, courses, and academic progress.\",\n            \"metrics\": [\n                { \"label\": \"GPA\", \"value\": \"3.78\" },\n                { \"label\": \"Credit Hours\", \"value\": \"14\" },\n                { \"label\": \"Classes Enrolled\", \"value\": \"5\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Course\", \"Grade\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"Calculus\", \"col2\": \"A-\", \"col3\": \"Ongoing\" },\n                    { \"col1\": \"Biology Lab\", \"col2\": \"B+\", \"col3\": \"Ongoing\" },\n                    { \"col1\": \"English Lit\", \"col2\": \"A\", \"col3\": \"Completed\" }\n                ]\n            }\n        },\n        \"finance\": {\n            \"heading\": \"Here’s a snapshot of your current finances.\",\n            \"metrics\": [\n                { \"label\": \"Account Balance\", \"value\": \"$12,580.40\" },\n                { \"label\": \"Monthly Spending\", \"value\": \"$1,260.75\" },\n                { \"label\": \"Investments\", \"value\": \"$8,440.00\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Transaction\", \"Amount\"],\n                \"rows\": [\n                    { \"col1\": \"Starbucks\", \"col2\": \"- $5.60\" },\n                    { \"col1\": \"Salary\", \"col2\": \"+ $3,200.00\" },\n                    { \"col1\": \"Amazon Purchase\", \"col2\": \"- $85.00\" }\n                ]\n            }\n        },\n        \"generic\": {\n            \"heading\": \"Your system overview and key business metrics.\",\n            \"metrics\": [\n                { \"label\": \"Users Online\", \"value\": \"324\" },\n                { \"label\": \"System Load\", \"value\": \"72%\" },\n                { \"label\": \"Uptime\", \"value\": \"99.98%\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Service\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"API Gateway\", \"col2\": \"Running\" },\n                    { \"col1\": \"Auth Server\", \"col2\": \"Running\" },\n                    { \"col1\": \"DB Cluster\", \"col2\": \"Degraded\" }\n                ]\n            }\n        },\n        \"government\": {\n            \"heading\": \"Your department’s activity and citizen service data at a glance.\",\n            \"metrics\": [\n                { \"label\": \"Cases Open\", \"value\": \"512\" },\n                { \"label\": \"Avg. Resolution Time\", \"value\": \"3.2 days\" },\n                { \"label\": \"Staff Assigned\", \"value\": \"94\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Case ID\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"#1024\", \"col2\": \"In Progress\" },\n                    { \"col1\": \"#1025\", \"col2\": \"Resolved\" },\n                    { \"col1\": \"#1026\", \"col2\": \"Pending Review\" }\n                ]\n            }\n        },\n        \"health\": {\n            \"heading\": \"Your current healthcare overview—appointments, prescriptions, and billing.\",\n            \"metrics\": [\n                { \"label\": \"Appointments\", \"value\": \"3\" },\n                { \"label\": \"Active Prescriptions\", \"value\": \"2\" },\n                { \"label\": \"Bills Due\", \"value\": \"$245.00\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Service\", \"Date\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"Checkup\", \"col2\": \"May 22\", \"col3\": \"Confirmed\" },\n                    { \"col1\": \"Dental Cleaning\", \"col2\": \"Jun 4\", \"col3\": \"Pending\" }\n                ]\n            }\n        },\n        \"hotels\": {\n            \"heading\": \"Today’s performance snapshot—bookings, occupancy, and guest satisfaction.\",\n            \"metrics\": [\n                { \"label\": \"Rooms Booked\", \"value\": \"132\" },\n                { \"label\": \"Occupancy Rate\", \"value\": \"76%\" },\n                { \"label\": \"Guest Rating\", \"value\": \"4.5★\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Room\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"102\", \"col2\": \"Occupied\" },\n                    { \"col1\": \"204\", \"col2\": \"Vacant\" },\n                    { \"col1\": \"311\", \"col2\": \"Reserved\" }\n                ]\n            }\n        },\n        \"insurance\": {\n            \"heading\": \"Policy performance, claims status, and customer activity overview.\",\n            \"metrics\": [\n                { \"label\": \"Policies Active\", \"value\": \"3,422\" },\n                { \"label\": \"Claims This Month\", \"value\": \"187\" },\n                { \"label\": \"Pending Approvals\", \"value\": \"42\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Claim ID\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"#9087\", \"col2\": \"Approved\" },\n                    { \"col1\": \"#9088\", \"col2\": \"Pending\" },\n                    { \"col1\": \"#9089\", \"col2\": \"Denied\" }\n                ]\n            }\n        },\n        \"manufacturing\": {\n            \"heading\": \"Live production data, downtime alerts, and supply chain insights.\",\n            \"metrics\": [\n                { \"label\": \"Units Today\", \"value\": \"8,950\" },\n                { \"label\": \"Downtime\", \"value\": \"12 min\" },\n                { \"label\": \"Defect Rate\", \"value\": \"1.2%\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Line\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"A1\", \"col2\": \"Running\" },\n                    { \"col1\": \"B2\", \"col2\": \"Paused\" },\n                    { \"col1\": \"C3\", \"col2\": \"Maintenance\" }\n                ]\n            }\n        },\n        \"pharmacy\": {\n            \"heading\": \"Medication inventory, prescription activity, and patient pickup status.\",\n            \"metrics\": [\n                { \"label\": \"Prescriptions Ready\", \"value\": \"48\" },\n                { \"label\": \"Pickups Today\", \"value\": \"36\" },\n                { \"label\": \"Low Stock\", \"value\": \"5 items\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Rx ID\", \"Patient\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"RX245\", \"col2\": \"J. Smith\", \"col3\": \"Ready\" },\n                    { \"col1\": \"RX246\", \"col2\": \"M. Davis\", \"col3\": \"Processing\" }\n                ]\n            }\n        },\n        \"realty\": {\n            \"heading\": \"Track your active listings, leads, and closing performance in real time.\",\n            \"metrics\": [\n                { \"label\": \"Active Listings\", \"value\": \"54\" },\n                { \"label\": \"New Leads\", \"value\": \"12\" },\n                { \"label\": \"Closings This Month\", \"value\": \"6\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Property\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"123 Elm St\", \"col2\": \"For Sale\" },\n                    { \"col1\": \"45 Oak Rd\", \"col2\": \"Under Contract\" }\n                ]\n            }\n        },\n        \"retail\": {\n            \"heading\": \"Sales, inventory, and customer insights across your retail locations.\",\n            \"metrics\": [\n                { \"label\": \"Sales Today\", \"value\": \"$8,430\" },\n                { \"label\": \"Inventory Alerts\", \"value\": \"3\" },\n                { \"label\": \"Returns\", \"value\": \"5\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Item\", \"Status\"],\n                \"rows\": [\n                    { \"col1\": \"Headphones\", \"col2\": \"In Stock\" },\n                    { \"col1\": \"Laptops\", \"col2\": \"Low Stock\" },\n                    { \"col1\": \"Cameras\", \"col2\": \"Out of Stock\" }\n                ]\n            }\n        },\n        \"sports\": {\n            \"heading\": \"Performance metrics, ticket sales, and fan engagement summary.\",\n            \"metrics\": [\n                { \"label\": \"Games Played\", \"value\": \"12\" },\n                { \"label\": \"Tickets Sold\", \"value\": \"8,500\" },\n                { \"label\": \"Fan Rating\", \"value\": \"4.9★\" }\n            ],\n            \"table\": {\n                \"headers\": [\"Opponent\", \"Result\"],\n                \"rows\": [\n                    { \"col1\": \"Raptors\", \"col2\": \"W 102-89\" },\n                    { \"col1\": \"Lions\", \"col2\": \"L 85-91\" }\n                ]\n            }\n        }\n    }\n}\n\n\n// module.exports = a = async ({ params }) => {\n//     // const variableObject = JSON.parse(params.companyVariable);\n//     return { variables: dashboardJson };\n// }\n\nmodule.exports = a = async ({ params }) => {\n  const appName = (params.appName || \"\").toLowerCase();\n\n  // List of supported verticals\n  const verticals = [\n    \"airlines\", \"company\", \"eats\", \"education\", \"finance\", \"generic\",\n    \"government\", \"health\", \"hotels\", \"insurance\", \"manufacturing\",\n    \"pharmacy\", \"realty\", \"retail\", \"sports\"\n  ];\n\n  // Find matching vertical or fallback to \"generic\"\n  const matchedVertical = verticals.find(v => appName.includes(v)) || \"generic\";\n\n  // Extract potential theme name (e.g., 'verdepersona' from 'verdepersona_manufacturing')\n  const themeKey = appName\n    .replace(/[^a-z0-9_ ]/gi, \"\") // sanitize\n    .split(/[\\s_]/)[0] // take the first word\n    .toLowerCase();\n\n  // Theme resolution logic\n  function getThemeConfig() {\n    const themes = params.themeObject || null;\n    const themeId = params.themeId || null;\n\n    if (!themes || themes.length === 0) return null;\n\n    let selectedTheme = null;\n\n    // Try finding by themeKey (matches config.name includes themeKey)\n    selectedTheme = themes.find(theme =>\n      theme.configuration?.name?.toLowerCase().includes(themeKey)\n    );\n\n    // Fallback to themeId\n    if (!selectedTheme && themeId) {\n      selectedTheme = themes.find(theme => theme.id === themeId);\n    }\n\n    // Fallback to default\n    if (!selectedTheme) {\n      selectedTheme = themes.find(theme => theme.default === true);\n    }\n\n    if (selectedTheme && selectedTheme.configuration) {\n      return {\n        id: selectedTheme.id,\n        ...selectedTheme.configuration\n      };\n    }\n\n    return null;\n  }\n\n  const themeObject = getThemeConfig();\n\n  return {\n    dynamicVariables: dashboardJson.dashboards[matchedVertical],\n    fullVariable: dashboardJson,\n    themeObject: themeObject\n  };\n};\n"
+              },
+              "variableInputList": {
+                "value": [
+                  {
+                    "name": "appName",
+                    "preferredDataType": "string",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"moustache\",\n        \"data\": \"{{global.parameters.application.name}}\",\n        \"name\": \"name\",\n        \"children\": [\n          {\n            \"text\": \"\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                  },
+                  {
+                    "name": "themeObject",
+                    "preferredDataType": "object",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"code-snippet.svg\",\n        \"url\": \"themes\",\n        \"data\": \"{{local.za2rdheh41.payload.output.variables._embedded.themes}}\",\n        \"tooltip\": \"{{local.za2rdheh41.payload.output.variables._embedded.themes}}\",\n        \"children\": [\n          {\n            \"text\": \"themes\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"themeObject\",\n        \"data\": \"{{local.1oafi2w9v0.payload.output.themeObject}}\",\n        \"tooltip\": \"{{local.1oafi2w9v0.payload.output.themeObject}}\",\n        \"children\": [\n          {\n            \"text\": \"themeObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                  }
+                ]
+              }
+            },
+            "idUnique": "u983xnt8en"
+          },
+          "position": {
+            "x": 1770,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "0mmwx8c8x4",
+            "nodeType": "CONNECTION",
+            "connectionId": "c3e6a164bde107954e93f5c09f0c8bce",
+            "connectorId": "pingOneAuthenticationConnector",
+            "name": "PingOne Authentication",
+            "label": "PingOne Authentication",
+            "status": "configured",
+            "capabilityName": "checkSession",
+            "type": "action",
+            "properties": {
+              "authenticationMethodLastUsedIn": {
+                "value": 43200
+              },
+              "checkSessionAuthenticator": {
+                "value": "anyAuthenticationMethod"
+              }
+            },
+            "idUnique": "9leqbzvzsa"
+          },
+          "position": {
+            "x": 360,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "vdlzp2ll8x",
+            "nodeType": "EVAL",
+            "label": "Evaluator",
+            "properties": {
+              "79unf88fkp": {
+                "value": "always"
+              }
+            },
+            "idUnique": "ivuiywsxrs"
+          },
+          "position": {
+            "x": 480,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "79unf88fkp",
+            "nodeType": "CONNECTION",
+            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectorId": "pingOneSSOConnector",
+            "name": "PingOne",
+            "label": "PingOne",
+            "status": "configured",
+            "capabilityName": "userLookup",
+            "type": "action",
+            "properties": {
+              "matchAttributes": {
+                "value": [
+                  "id"
+                ]
+              },
+              "userIdentifierForFindUser": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.0mmwx8c8x4.payload.output.session.user.id}}\",\n        \"tooltip\": \"{{local.0mmwx8c8x4.payload.output.session.user.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            },
+            "idUnique": "vcfg2ukznc"
+          },
+          "position": {
+            "x": 750,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "5z1lpt9xbf",
+            "nodeType": "EVAL",
+            "properties": {
+              "brgzdc0c23": {
+                "value": "always"
+              },
+              "za2rdheh41": {
+                "value": "always"
+              }
+            },
+            "idUnique": "6z1wniwd91"
+          },
+          "position": {
+            "x": 870,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "fs6t033y6l",
+            "nodeType": "CONNECTION",
+            "connectionId": "06922a684039827499bdbdd97f49827b",
+            "connectorId": "variablesConnector",
+            "name": "Variables",
+            "label": "Variables",
+            "status": "configured",
+            "capabilityName": "saveValue",
+            "type": "trigger",
+            "properties": {
+              "saveVariables": {
+                "value": [
+                  {
+                    "name": "companyLogo",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"href\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.themeObject.logo.href}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.themeObject.logo.href}}\",\n        \"children\": [\n          {\n            \"text\": \"href\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.3651977481717872,
+                    "label": "companyLogo (string - flowInstance)",
+                    "type": "string",
+                    "nameDefault": "href"
+                  },
+                  {
+                    "name": "companyName",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"name\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.themeObject.name}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.themeObject.name}}\",\n        \"children\": [\n          {\n            \"text\": \"name\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.2827866731051578,
+                    "label": "companyName (string - flowInstance)",
+                    "type": "string",
+                    "nameDefault": "name"
+                  },
+                  {
+                    "name": "buttonColor",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"buttonColor\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.themeObject.buttonColor}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.themeObject.buttonColor}}\",\n        \"children\": [\n          {\n            \"text\": \"buttonColor\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.21200358413206155,
+                    "label": "buttonColor (string - flowInstance)",
+                    "type": "string",
+                    "nameDefault": "buttonColor"
+                  },
+                  {
+                    "name": "backgroundColor",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"backgroundColor\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.themeObject.backgroundColor}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.themeObject.backgroundColor}}\",\n        \"children\": [\n          {\n            \"text\": \"backgroundColor\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.7849232763085996,
+                    "label": "backgroundColor (string - flowInstance)",
+                    "type": "string",
+                    "nameDefault": "backgroundColor"
+                  },
+                  {
+                    "name": "cardColor",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"functions.svg\",\n        \"url\": \"cardColor\",\n        \"data\": \"{{local.brgzdc0c23.payload.output.themeObject.cardColor}}\",\n        \"tooltip\": \"{{local.brgzdc0c23.payload.output.themeObject.cardColor}}\",\n        \"children\": [\n          {\n            \"text\": \"cardColor\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.15848730485133755,
+                    "label": "cardColor (string - flowInstance)",
+                    "type": "string",
+                    "nameDefault": "cardColor"
+                  }
+                ]
+              },
+              "nodeTitle": {
+                "value": "companyName & companyLogo"
+              },
+              "nodeDescription": {
+                "value": "Set variables used in flow execution"
+              }
+            },
+            "idUnique": "vblf9ymcjb"
+          },
+          "position": {
+            "x": 2070,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "za2rdheh41",
+            "nodeType": "CONNECTION",
+            "connectionId": "fd832a43c8b719d39d57ba1079dc1bea",
+            "connectorId": "codeSnippetConnector",
+            "name": "gvVariableParse",
+            "label": "gvVariableParse",
+            "status": "configured",
+            "capabilityName": "snippet",
+            "type": "trigger",
+            "properties": {
+              "functionArgumentList": {
+                "value": {
+                  "companyVariable": {
+                    "type": "string",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"gv-VariableObject\",\n        \"data\": \"{{global.company.variables.gv-VariableObject}}\",\n        \"tooltip\": \"{{global.company.variables.gv-VariableObject}}\",\n        \"children\": [\n          {\n            \"text\": \"gv-VariableObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                  }
+                }
+              },
+              "nodeTitle": {
+                "value": "Global Variable Parse"
+              },
+              "nodeDescription": {
+                "value": "Parses your global variable object"
+              }
+            },
+            "idUnique": "79kmbjj20z"
+          },
+          "position": {
+            "x": 1140,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "v0gfmg7fzr",
+            "nodeType": "EVAL",
+            "properties": {
+              "1oafi2w9v0": {
+                "value": "anyTriggersFalse"
+              }
+            },
+            "idUnique": "sc1n2376cz"
+          },
+          "position": {
+            "x": 1290,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "1oafi2w9v0",
+            "nodeType": "CONNECTION",
+            "connectionId": "2581eb287bb1d9bd29ae9886d675f89f",
+            "connectorId": "flowConnector",
+            "name": "Flow Connector",
+            "label": "Flow Connector",
+            "status": "configured",
+            "capabilityName": "startSubFlow",
+            "type": "action",
+            "properties": {
+              "subFlowId": {
+                "value": {
+                  "label": "Obtain Theme Object",
+                  "value": "aa66043a926651df81adcb6286d5e0c6"
+                }
+              },
+              "subFlowVersionId": {
+                "value": -1
+              },
+              "nodeTitle": {
+                "value": "Get Theme if null"
+              },
+              "nodeDescription": {
+                "value": "Get themes if the Variable is null"
+              }
+            },
+            "idUnique": "eq2tjm8sut"
+          },
+          "position": {
+            "x": 1440,
+            "y": 420
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "vv79cgpah3",
+            "nodeType": "EVAL",
+            "properties": {
+              "undefined": {
+                "value": "always"
+              },
+              "8gm0a2a9bv": {
+                "value": "always"
+              }
+            },
+            "idUnique": "9en4kwmgfu"
+          },
+          "position": {
+            "x": 1560,
+            "y": 420
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "080zqclez9",
+            "nodeType": "EVAL",
+            "idUnique": "lsvf7jhljb"
+          },
+          "position": {
+            "x": 1920,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "vrq9sfjruc",
+            "nodeType": "EVAL",
+            "idUnique": "y7dqdmssph"
+          },
+          "position": {
+            "x": 2220,
+            "y": 270
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "m4cw2pggem",
+            "source": "fs6t033y6l",
+            "target": "vrq9sfjruc"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "hlgg73fad5",
+            "source": "brgzdc0c23",
+            "target": "080zqclez9"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "64nv4m6rug",
+            "source": "79unf88fkp",
+            "target": "5z1lpt9xbf"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "0tn8chl06r",
+            "source": "v0gfmg7fzr",
+            "target": "1oafi2w9v0"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ycc0ufqwzp",
+            "source": "v0gfmg7fzr",
+            "target": "brgzdc0c23"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "b6uamos9cq",
+            "source": "1oafi2w9v0",
+            "target": "vv79cgpah3"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "grcknn1ddq",
+            "source": "vv79cgpah3",
+            "target": "brgzdc0c23"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "kfs9i4yzr6",
+            "source": "080zqclez9",
+            "target": "fs6t033y6l"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "h7hzjn7let",
+            "source": "vrq9sfjruc",
+            "target": "4khe5056le"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "zvxj5nt677",
+            "source": "5z1lpt9xbf",
+            "target": "za2rdheh41"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "r2gq5xq0mi",
+            "source": "za2rdheh41",
+            "target": "v0gfmg7fzr"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ofyewo95tl",
+            "source": "0mmwx8c8x4",
+            "target": "vdlzp2ll8x"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "nw1k4cmzw4",
+            "source": "vdlzp2ll8x",
+            "target": "79unf88fkp"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "flowColor": "#e4e2e1",
+  "savedDate": 1748019798801,
+  "variables": [
+    {
+      "context": "flowInstance",
+      "createdDate": 1739917518387,
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "41a24177-0aa7-40c6-8043-1247c7791659",
+      "type": "property",
+      "visibility": "private",
+      "name": "backgroundColor##SK##flowInstance",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1739917518388,
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "d34ad6d6-8d8a-4234-9583-a98246f806d8",
+      "type": "property",
+      "visibility": "private",
+      "name": "buttonColor##SK##flowInstance",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1743460552544,
+      "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "1c3f31b0-005b-4bef-91aa-77d49a4c5130",
+      "type": "property",
+      "visibility": "private",
+      "name": "cardColor##SK##flowInstance",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1739917504087,
+      "fields": {
+        "type": "string",
+        "displayName": "Url for company's logo image",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "0efdada9-e3d3-4561-8d42-d9dfd78e8439",
+      "type": "property",
+      "visibility": "private",
+      "name": "companyLogo##SK##flowInstance",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    },
+    {
+      "context": "flowInstance",
+      "createdDate": 1739917504088,
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "24c2f7ee-9222-4e1e-bc22-4a458915281d",
+      "type": "property",
+      "visibility": "private",
+      "name": "companyName##SK##flowInstance",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    },
+    {
+      "context": "company",
+      "createdDate": 1741206943725,
+      "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
+      "fields": {
+        "type": "string",
+        "displayName": "Variable to hold all main ping company objects",
+        "value": "{     \"_links\": {         \"self\": {             \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes\"         }     },     \"_embedded\": {         \"themes\": [             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/2e8caf25-c5f4-4fc0-8fff-b9fbe4c10cb1\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"2e8caf25-c5f4-4fc0-8fff-b9fbe4c10cb1\",                 \"template\": \"default\",                 \"default\": false,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/ec4cd379-4a86-4aa8-9f1d-e3453ea51169_f6fd9e32-ce68-447f-b2dd-8b79a12cb319_original.png\",                         \"id\": \"ec4cd379-4a86-4aa8-9f1d-e3453ea51169\"                     },                     \"applicationBackgroundColor\": \"#f8f8f8\",                     \"backgroundColor\": \"#264064\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#686f77\",                     \"cardColor\": \"#ffffff\",                     \"headingTextColor\": \"#264064\",                     \"linkTextColor\": \"#264064\",                     \"buttonColor\": \"#264064\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"BlueShield Systems\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-02-18T23:17:56.834Z\"             },             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/5628c2b3-f6e6-40e0-a257-30543825aa98\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"5628c2b3-f6e6-40e0-a257-30543825aa98\",                 \"template\": \"default\",                 \"default\": false,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/597fd127-6478-47bb-ae7c-17649ffc8085_708890dc-3385-4912-80c8-bf5d2963d0be_original.png\",                         \"id\": \"597fd127-6478-47bb-ae7c-17649ffc8085\"                     },                     \"applicationBackgroundColor\": \"#d6e2d6\",                     \"backgroundColor\": \"#d6e2d6\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#333333\",                     \"cardColor\": \"#efede2\",                     \"headingTextColor\": \"#333333\",                     \"linkTextColor\": \"#4caf50\",                     \"buttonColor\": \"#377542\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"VerdePersona\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-04-14T16:56:14.470Z\"             },             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/de6511c9-1e97-4fdf-8f8d-9b903db3ad7a\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"de6511c9-1e97-4fdf-8f8d-9b903db3ad7a\",                 \"template\": \"default\",                 \"default\": false,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/51b83a47-4c0b-4eea-b4c8-cae85649e910_b4abef16-67f5-4d44-b236-eeb0129505ab_original.png\",                         \"id\": \"51b83a47-4c0b-4eea-b4c8-cae85649e910\"                     },                     \"applicationBackgroundColor\": \"#f8f8f8\",                     \"backgroundColor\": \"#ba0003\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#000000\",                     \"cardColor\": \"#ffffff\",                     \"headingTextColor\": \"#ba0003\",                     \"linkTextColor\": \"#ba0003\",                     \"buttonColor\": \"#ba0003\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"CrimsonTrust\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-04-15T21:12:28.608Z\"             },             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/f5fa189e-9b85-4c53-a4c1-89df4c3ededa\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"f5fa189e-9b85-4c53-a4c1-89df4c3ededa\",                 \"template\": \"default\",                 \"default\": false,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/4df9cbe1-08be-4044-85d3-51a24fcf9092_e5b68e98-0f15-4527-9fa4-7c4ba2fb2182_original.png\",                         \"id\": \"4df9cbe1-08be-4044-85d3-51a24fcf9092\"                     },                     \"applicationBackgroundColor\": \"#f8f8f8\",                     \"backgroundColor\": \"#c4a902\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#686f77\",                     \"cardColor\": \"#ffffff\",                     \"headingTextColor\": \"#c4a902\",                     \"linkTextColor\": \"#c4a902\",                     \"buttonColor\": \"#c4a902\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"GoldenGate\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-02-18T23:17:56.834Z\"             },             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/f6348d2c-117e-48b9-97e4-53e9836dce4b\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"f6348d2c-117e-48b9-97e4-53e9836dce4b\",                 \"template\": \"default\",                 \"default\": true,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/bbe7abe7-de42-4a26-a800-007890d4f50c_594f5025-20c7-42f1-aea3-4b6a01fb3e41_original.png\",                         \"id\": \"bbe7abe7-de42-4a26-a800-007890d4f50c\"                     },                     \"applicationBackgroundColor\": \"#f8f8f8\",                     \"backgroundColor\": \"#4b4e57\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#4b4e57\",                     \"cardColor\": \"#ffffff\",                     \"headingTextColor\": \"#4b4e57\",                     \"linkTextColor\": \"#4b4e57\",                     \"buttonColor\": \"#4b4e57\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"TitanID Solutions\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-02-18T23:17:56.834Z\"             },             {                 \"_links\": {                     \"environment\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                     },                     \"self\": {                         \"href\": \"https://api.pingone.com/v1/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/themes/f7297165-223c-4f3f-8b76-8704fca239b4\"                     }                 },                 \"environment\": {                     \"id\": \"4ae5ce1a-2b36-4abd-97b5-844408b2e86c\"                 },                 \"id\": \"f7297165-223c-4f3f-8b76-8704fca239b4\",                 \"template\": \"split\",                 \"default\": false,                 \"configuration\": {                     \"logoType\": \"IMAGE\",                     \"logo\": {                         \"href\": \"https://uploads.pingone.com/environments/4ae5ce1a-2b36-4abd-97b5-844408b2e86c/images/a2b63c3d-58e5-4860-b7a3-388d6bfea734_258bde01-ccf6-4b4d-9a1f-df735caa942c_original.png\",                         \"id\": \"a2b63c3d-58e5-4860-b7a3-388d6bfea734\"                     },                     \"applicationBackgroundColor\": \"#f8f8f8\",                     \"backgroundColor\": \"#5a5a5a\",                     \"backgroundType\": \"COLOR\",                     \"bodyTextColor\": \"#5a5a5a\",                     \"cardColor\": \"#f3f3f3\",                     \"headingTextColor\": \"#5a5a5a\",                     \"linkTextColor\": \"#5a5a5a\",                     \"buttonColor\": \"#5a5a5a\",                     \"buttonTextColor\": \"#ffffff\",                     \"name\": \"SilverSurfers\",                     \"footer\": \"\"                 },                 \"modified\": \"2025-04-15T16:07:28.624Z\"             }         ]     },     \"size\": 6 }",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "81a077ab-238a-45a6-b742-00bfc079c36d",
+      "type": "property",
+      "updatedDate": 1744751574845,
+      "visibility": "private",
+      "name": "gv-VariableObject##SK##company",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    }
+  ],
+  "connections": [
+    {
+      "connectorId": "codeSnippetConnector",
+      "createdDate": 1741206376001,
+      "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
+      "name": "gvVariableParse",
+      "properties": {
+        "code": {
+          "type": "string",
+          "displayName": "Code Snippet",
+          "createdDate": 1694542156340,
+          "customerId": "ecb9bf8a2fab854e65045d02cb6bab50",
+          "companyId": "singularkey",
+          "preferredControlType": "codeEditor",
+          "value": "// Write your code here\n// Supported language: Javascript \nmodule.exports = a = async ({ params }) => {\n\t// const variableObject = JSON.parse(params.companyVariable);\n\t// return {'variables': variableObject}\n\tif (!params.companyVariable) {\n\t\treturn false;\n\t}\n\n\tconst variableObject = JSON.parse(params.companyVariable);\n\treturn { variables: variableObject };\n}",
+          "language": "javascript",
+          "info": "Follow example for code. Caution: Custom code is for advanced users only. Before using custom code, review the security risks in the DaVinci documentation by searching for \"Using custom code safely\".",
+          "maximizeToggle": true
+        },
+        "inputSchema": {
+          "type": "string",
+          "displayName": "Input Schema",
+          "createdDate": 1694542156288,
+          "customerId": "ecb9bf8a2fab854e65045d02cb6bab50",
+          "companyId": "singularkey",
+          "preferredControlType": "codeEditor",
+          "value": "{\n\t\"input\": {\n\t\t\"type\": \"object\",\n\t\t\"properties\": {\n\t\t\t\"companyVariable\": {\n\t\t\t\t\"type\": \"string\"\n\t\t\t}\n\t\t}\n\t}\n}",
+          "language": "json",
+          "info": "Follow example for JSON schema.",
+          "maximizeToggle": true
+        },
+        "outputSchema": {
+          "type": "string",
+          "displayName": "Output Schema",
+          "createdDate": 1694542156271,
+          "customerId": "ecb9bf8a2fab854e65045d02cb6bab50",
+          "companyId": "singularkey",
+          "preferredControlType": "codeEditor",
+          "value": "{\n\t\"output\": {\n\t\t\"type\": \"object\",\n\t\t\"properties\": {\n\t\t\t\"variables\": {\n\t\t\t\t\"type\": \"object\",\n\t\t\t\t\"properties\": {\n\t\t\t\t\t\"_links\": {\n\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"self\": {\n\t\t\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\t\t\"href\": {\n\t\t\t\t\t\t\t\t\t\t\"type\": \"string\"\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"_embedded\": {\n\t\t\t\t\t\t\"type\": \"object\",\n\t\t\t\t\t\t\"properties\": {\n\t\t\t\t\t\t\t\"themes\": {\n\t\t\t\t\t\t\t\t\"type\": \"array\",\n\t\t\t\t\t\t\t\t\"items\": []\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"size\": {\n\t\t\t\t\t\t\"type\": \"integer\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+          "language": "json",
+          "info": "Follow example for JSON schema.",
+          "maximizeToggle": true
+        }
+      },
+      "updatedDate": 1744909113516,
+      "connectionId": "fd832a43c8b719d39d57ba1079dc1bea",
+      "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c"
+    }
+  ]
+}

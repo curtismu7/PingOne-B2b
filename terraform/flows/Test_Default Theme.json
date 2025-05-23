@@ -1,0 +1,261 @@
+{
+  "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "pingOneSSOConnector",
+    "httpConnector"
+  ],
+  "createdDate": 1741617363337,
+  "currentVersion": 2,
+  "customerId": "9e7a1b9c40541ad3300834c5539253e7",
+  "deployedDate": 1741617365075,
+  "description": "",
+  "flowStatus": "enabled",
+  "isOutputSchemaSaved": false,
+  "name": "Test Default Theme",
+  "publishedVersion": 2,
+  "timeouts": "null",
+  "updatedDate": 1741617365095,
+  "flowId": "8e77ff850e91b18b463e75f295fbf9de",
+  "versionId": 2,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "ekpc44z7tl",
+            "nodeType": "CONNECTION",
+            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectorId": "pingOneSSOConnector",
+            "name": "PingOne",
+            "label": "PingOne",
+            "status": "configured",
+            "capabilityName": "userLookup",
+            "type": "action",
+            "properties": {
+              "matchAttributes": {
+                "value": [
+                  "username"
+                ]
+              },
+              "userIdentifierForFindUser": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"user.1@silversurfers.com\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 762.2222290039062
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "43s6h3m8kk",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 543.500205906282,
+            "y": 762.4279173547317
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "s07rh8yx7w",
+            "nodeType": "CONNECTION",
+            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectorId": "pingOneSSOConnector",
+            "name": "PingOne",
+            "label": "PingOne",
+            "status": "configured",
+            "capabilityName": "readPopulation",
+            "type": "action",
+            "properties": {
+              "population": {
+                "value": "42f39931-9c30-4e8a-9512-bc9c691800b6"
+              }
+            }
+          },
+          "position": {
+            "x": 687.0004118125638,
+            "y": 762.6336057055571
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "q2rxwqc592",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 835.0005154298783,
+            "y": 762.6336057055571
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "nyql49gad3",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "customHtmlMessage",
+            "type": "trigger",
+            "properties": {
+              "messageTitle": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Population Data\"\n      }\n    ]\n  }\n]"
+              },
+              "message": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"theme\",\n        \"data\": \"{{local.s07rh8yx7w.payload.output.population.theme}}\",\n        \"tooltip\": \"{{local.s07rh8yx7w.payload.output.population.theme}}\",\n        \"children\": [\n          {\n            \"text\": \"theme\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 983.0006190471927,
+            "y": 762.6336057055571
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "wajoz78lxv",
+            "source": "ekpc44z7tl",
+            "target": "43s6h3m8kk"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "nq4q6539vi",
+            "source": "43s6h3m8kk",
+            "target": "s07rh8yx7w"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "2kw6zji37f",
+            "source": "s07rh8yx7w",
+            "target": "q2rxwqc592"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "yv822h4ota",
+            "source": "q2rxwqc592",
+            "target": "nyql49gad3"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "flowColor": "#CACED3",
+  "savedDate": 1741617363155,
+  "variables": [],
+  "connections": []
+}

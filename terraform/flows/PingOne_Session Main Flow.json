@@ -1,0 +1,839 @@
+{
+  "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "annotationConnector",
+    "flowConnector",
+    "pingOneAuthenticationConnector",
+    "nodeConnector"
+  ],
+  "createdDate": 1739917505932,
+  "currentVersion": 1,
+  "customerId": "1d897d0ab2f9d0b8dc75c0bb15c6bd11",
+  "deployedDate": 1739917505977,
+  "description": "Imported on Tue Feb 18 2025 22:25:04 GMT+0000 (Coordinated Universal Time)",
+  "flowStatus": "enabled",
+  "isOutputSchemaSaved": false,
+  "name": "PingOne Session Main Flow",
+  "publishedVersion": 1,
+  "settings": {
+    "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
+    "intermediateLoadingScreenCSS": "",
+    "intermediateLoadingScreenHTML": "",
+    "debugMode": false,
+    "cssLinks": [
+      "https://assets.pingone.com/ux/end-user-nano/0.1.0-alpha.9/end-user-nano.css",
+      "https://assets.pingone.com/ux/astro-nano/0.1.0-alpha.11/icons.css"
+    ],
+    "useCustomCSS": true,
+    "logLevel": 2,
+    "scrubSensitiveInfo": false,
+    "sensitiveInfoFields": [],
+    "useBetaAlgorithm": true,
+    "pingOneFlow": true,
+    "css": ".companyLogo {\n    height: 65px;\n}",
+    "customTitle": "Sign On",
+    "customFaviconLink": "https://assets.pingone.com/ux/ui-library/5.0.2/images/logo-pingidentity.png"
+  },
+  "trigger": {
+    "type": "AUTHENTICATION"
+  },
+  "updatedDate": 1739917506007,
+  "flowId": "44773839e1a9fe13bbb02ebe3d26d358",
+  "versionId": 1,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "tbhg5pamsd",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#f2f3f4ff"
+              },
+              "annotationTextColor": {
+                "value": "#000000"
+              },
+              "annotation": {
+                "value": "No Active Session, Go to Sign In"
+              },
+              "width": {
+                "value": 250
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              },
+              "strokeEnabled": {
+                "value": true
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "strokeColor": {
+                "value": "#181818ff"
+              }
+            },
+            "status": "configured"
+          },
+          "position": {
+            "x": 510,
+            "y": 570
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "df9ia9vsmb",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#5D00D6ff"
+              },
+              "annotationTextColor": {
+                "value": "#ffffffff"
+              },
+              "annotation": {
+                "value": "Sign On Success"
+              },
+              "width": {
+                "value": 700
+              },
+              "fontStyle": {
+                "value": "bold"
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              }
+            },
+            "status": "configured"
+          },
+          "position": {
+            "x": 218,
+            "y": 848
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "fzhvaepr0k",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#f7f7adff"
+              },
+              "annotationTextColor": {
+                "value": "#000000"
+              },
+              "annotation": {
+                "value": "Input Schema: p1UserId, authMethod (optional)"
+              },
+              "width": {
+                "value": 0
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              },
+              "strokeEnabled": {
+                "value": false
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "strokeColor": {
+                "value": "#181818ff"
+              }
+            },
+            "status": "configured",
+            "idUnique": "xefq4liuut"
+          },
+          "position": {
+            "x": 214,
+            "y": 904
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ubm8paq1y5",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#f2f3f4ff"
+              },
+              "annotationTextColor": {
+                "value": "#000000"
+              },
+              "annotation": {
+                "value": "Session Exists, Go to Sign On Success"
+              },
+              "width": {
+                "value": 300
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              },
+              "strokeEnabled": {
+                "value": true
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "strokeColor": {
+                "value": "#181818ff"
+              }
+            },
+            "status": "configured"
+          },
+          "position": {
+            "x": 784,
+            "y": 364
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "9b7cgoyv9z",
+            "nodeType": "EVAL",
+            "label": "Evaluator",
+            "properties": {
+              "howu8n9hsc": {
+                "value": "anyTriggersFalse"
+              },
+              "z98ot8mzk7": {
+                "value": "anyTriggersFalse"
+              }
+            }
+          },
+          "position": {
+            "x": 454,
+            "y": 484
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "z98ot8mzk7",
+            "nodeType": "CONNECTION",
+            "connectionId": "2581eb287bb1d9bd29ae9886d675f89f",
+            "connectorId": "flowConnector",
+            "name": "Flow Connector",
+            "label": "Flow",
+            "status": "configured",
+            "capabilityName": "startUiSubFlow",
+            "type": "trigger",
+            "properties": {
+              "subFlowId": {
+                "value": {
+                  "label": "PingOne Sign On with Registration, Password Reset and Recovery",
+                  "value": "253db38b908492e90b5559963eb567a2"
+                }
+              },
+              "subFlowVersionId": {
+                "value": -1
+              },
+              "nodeTitle": {
+                "value": "Sign On Flow"
+              }
+            },
+            "idUnique": "vfcvshnz3c"
+          },
+          "position": {
+            "x": 634,
+            "y": 694
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "fbx7x6gnus",
+            "nodeType": "CONNECTION",
+            "connectionId": "c3e6a164bde107954e93f5c09f0c8bce",
+            "connectorId": "pingOneAuthenticationConnector",
+            "name": "PingOne Authentication",
+            "label": "PingOne Authentication",
+            "status": "configured",
+            "capabilityName": "returnSuccessResponseRedirect",
+            "type": "action",
+            "properties": {
+              "userId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"p1UserId\",\n        \"data\": \"{{local.ofk8hitz8r.payload.output.p1UserId}}\",\n        \"tooltip\": \"{{local.ofk8hitz8r.payload.output.p1UserId}}\",\n        \"children\": [\n          {\n            \"text\": \"p1UserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "authenticationMethods": {
+                "value": "useCustomAuthenticationMethods"
+              },
+              "idleTimeout": {
+                "value": 43200
+              },
+              "backgroundColor": {
+                "value": "#9dc967ff"
+              },
+              "nodeTitle": {
+                "value": "Return success"
+              },
+              "nodeDescription": {
+                "value": "Returns Successful Flow Completion Back To The PingOne Application Connection"
+              },
+              "oeInteractionCacheExpire": {
+                "value": true
+              },
+              "customAuthenticationMethods": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"authMethod\",\n        \"data\": \"{{local.ofk8hitz8r.payload.output.authMethod}}\",\n        \"tooltip\": \"{{local.ofk8hitz8r.payload.output.authMethod}}\",\n        \"children\": [\n          {\n            \"text\": \"authMethod\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 634,
+            "y": 1054
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "dbcjwy026h",
+            "nodeType": "CONNECTION",
+            "connectionId": "c3e6a164bde107954e93f5c09f0c8bce",
+            "connectorId": "pingOneAuthenticationConnector",
+            "name": "PingOne Authentication",
+            "label": "PingOne Authentication 2",
+            "status": "configured",
+            "capabilityName": "checkSession",
+            "type": "action",
+            "properties": {
+              "authenticatorLastSignOnQuantity": {
+                "value": "1"
+              },
+              "authenticatorLastSignOnUnit": {
+                "value": "minute"
+              },
+              "checkSessionAuthenticator": {
+                "value": "pwd"
+              },
+              "authenticationMethodLastUsedIn": {
+                "value": 480
+              },
+              "nodeTitle": {
+                "value": "Check for a session"
+              },
+              "nodeDescription": {
+                "value": "Checks If The User Has Logged In With A Password In The Last 8 Hours"
+              }
+            }
+          },
+          "position": {
+            "x": 334,
+            "y": 484
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "h9zati6tdm",
+            "nodeType": "CONNECTION",
+            "connectionId": "3566e86a35c26e575396dcfb89a3dcc0",
+            "connectorId": "nodeConnector",
+            "name": "Teleport",
+            "label": "Teleport",
+            "status": "configured",
+            "capabilityName": "goToNode",
+            "type": "action",
+            "properties": {
+              "nodeInstanceId": {
+                "value": "ofk8hitz8r"
+              },
+              "nodeTitle": {
+                "value": "Go to Sign On Success"
+              },
+              "p1UserId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"moustache\",\n        \"data\": \"{{local.dbcjwy026h.payload.output.session.user.id}}\",\n        \"name\": \"id\",\n        \"children\": [\n          {\n            \"text\": \"\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 934,
+            "y": 484
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "ofk8hitz8r",
+            "nodeType": "CONNECTION",
+            "connectionId": "3566e86a35c26e575396dcfb89a3dcc0",
+            "connectorId": "nodeConnector",
+            "name": "Teleport",
+            "label": "Node [2023-01-09]",
+            "status": "configured",
+            "capabilityName": "startNode",
+            "type": "trigger",
+            "properties": {
+              "inputSchema": {
+                "value": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"p1UserId\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"displayName\": \"PingOne User Id\",\n\t\t\t\"preferredControlType\": \"textField\",\n\t\t\t\"enableParameters\": true,\n\t\t\t\"propertyName\": \"p1UserId\"\n\t\t},\n\t\t\"authMethod\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"displayName\": \"Authentication Method\",\n\t\t\t\"preferredControlType\": \"textField\",\n\t\t\t\"enableParameters\": true,\n\t\t\t\"propertyName\": \"authMethod\"\n\t\t}\n\t}\n}"
+              },
+              "nodeTitle": {
+                "value": "Sign On Success"
+              }
+            }
+          },
+          "position": {
+            "x": 334,
+            "y": 1054
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "zkumd1hvz",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 454,
+            "y": 1054
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "t0im3zjpdh",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 754,
+            "y": 694
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "qklq9dhol4",
+            "nodeType": "CONNECTION",
+            "connectionId": "3566e86a35c26e575396dcfb89a3dcc0",
+            "connectorId": "nodeConnector",
+            "name": "Teleport",
+            "label": "Node",
+            "status": "configured",
+            "capabilityName": "goToNode",
+            "type": "action",
+            "properties": {
+              "nodeInstanceId": {
+                "value": "ofk8hitz8r"
+              },
+              "nodeTitle": {
+                "value": "Go to Sign On Success"
+              },
+              "p1UserId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"p1UserId\",\n        \"data\": \"{{local.z98ot8mzk7.payload.output.p1UserId}}\",\n        \"tooltip\": \"{{local.z98ot8mzk7.payload.output.p1UserId}}\",\n        \"children\": [\n          {\n            \"text\": \"p1UserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "authMethod": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"authMethod\",\n        \"data\": \"{{local.z98ot8mzk7.payload.output.authMethod}}\",\n        \"tooltip\": \"{{local.z98ot8mzk7.payload.output.authMethod}}\",\n        \"children\": [\n          {\n            \"text\": \"authMethod\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              }
+            }
+          },
+          "position": {
+            "x": 934,
+            "y": 694
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "gad1f2fltk",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#4462edff"
+              },
+              "annotationTextColor": {
+                "value": "#ffffffff"
+              },
+              "annotation": {
+                "value": "PingOne Session Main Flow"
+              },
+              "width": {
+                "value": 1000
+              },
+              "fontStyle": {
+                "value": "bold"
+              },
+              "fontSize": {
+                "value": 16
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              }
+            },
+            "status": "configured"
+          },
+          "position": {
+            "x": 214,
+            "y": 274
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "lawat0pk0m",
+            "nodeType": "ANNOTATION",
+            "name": "Annotation",
+            "connectionId": "921bfae85c38ed45045e07be703d86b8",
+            "connectorId": "annotationConnector",
+            "capabilityName": "updateAnnotationProperties",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#ffffffff"
+              },
+              "annotationTextColor": {
+                "value": "#000000"
+              },
+              "annotation": {
+                "value": "Last Updated: October 8th, 2024"
+              },
+              "width": {
+                "value": 240
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontFamily": {
+                "value": "sans-serif"
+              },
+              "cornerRadius": {
+                "value": 8
+              },
+              "strokeEnabled": {
+                "value": false
+              },
+              "strokeWidth": {
+                "value": 1
+              },
+              "strokeColor": {
+                "value": "#181818ff"
+              }
+            },
+            "status": "configured",
+            "idUnique": "o2v5xhdcbc"
+          },
+          "position": {
+            "x": 214,
+            "y": 214
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "emucb01so1",
+            "source": "ofk8hitz8r",
+            "target": "zkumd1hvz"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "c7trfkylri",
+            "source": "t0im3zjpdh",
+            "target": "qklq9dhol4"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "2to7volmnk",
+            "source": "dbcjwy026h",
+            "target": "9b7cgoyv9z"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "mwnduzih46",
+            "source": "9b7cgoyv9z",
+            "target": "z98ot8mzk7"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "9elw1pkfp4",
+            "source": "9b7cgoyv9z",
+            "target": "h9zati6tdm"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "7xytgqexja",
+            "source": "z98ot8mzk7",
+            "target": "t0im3zjpdh"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "jt1ukcyycl",
+            "source": "zkumd1hvz",
+            "target": "fbx7x6gnus"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "flowColor": "#ff661c",
+  "savedDate": 1739917505889,
+  "variables": [],
+  "connections": []
+}

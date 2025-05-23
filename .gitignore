@@ -1,0 +1,8 @@
+.DS_Store
+terraform/.terraform.lock.hcl
+/terraform/.terraform
+terraform/terraform-uat.tfvars
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+/terraform/terraform.tfstate.d
+terraform/tf-release.zip

@@ -1,0 +1,393 @@
+{
+  "companyId": "4ae5ce1a-2b36-4abd-97b5-844408b2e86c",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "genericConnector",
+    "httpConnector"
+  ],
+  "createdDate": 1747653341795,
+  "currentVersion": 10,
+  "customerId": "9e7a1b9c40541ad3300834c5539253e7",
+  "deployedDate": 1747654491052,
+  "description": "Imported on Tue Feb 18 2025 22:25:18 GMT+0000 (Coordinated Universal Time)",
+  "flowStatus": "enabled",
+  "inputSchemaCompiled": {
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "themeId": {
+          "description": "",
+          "preferredDataType": "string",
+          "isExpanded": true,
+          "type": "string",
+          "name": "themeId"
+        }
+      },
+      "additionalProperties": false,
+      "required": []
+    }
+  },
+  "isInputSchemaSaved": true,
+  "isOutputSchemaSaved": false,
+  "name": "Obtain Theme Details",
+  "publishedVersion": 10,
+  "settings": {
+    "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
+    "intermediateLoadingScreenCSS": "",
+    "intermediateLoadingScreenHTML": "",
+    "logLevel": 2,
+    "flowTimeoutInSeconds": 3000
+  },
+  "timeouts": "null",
+  "updatedDate": 1747654491069,
+  "flowId": "584e967db4f6f9795439897a9ff9704d",
+  "versionId": 10,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "m5uy1s79v2",
+            "nodeType": "CONNECTION",
+            "connectionId": "3b51289bf0126ac190d61284920d99e4",
+            "connectorId": "genericConnector",
+            "name": "OIDC & OAuth IdP",
+            "label": "OIDC & OAuth IdP",
+            "status": "configured",
+            "capabilityName": "getAccessTokenClientCredentialsGrant",
+            "type": "trigger",
+            "properties": {
+              "customAuth": {
+                "properties": {
+                  "grant": {
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"client_credentials\"\n      }\n    ]\n  }\n]"
+                  }
+                }
+              }
+            },
+            "idUnique": "tvzi0f4nt7"
+          },
+          "position": {
+            "x": 277,
+            "y": 236
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "7nvcl1z7gf",
+            "nodeType": "EVAL",
+            "label": "Evaluator",
+            "properties": {
+              "cz5xaq1ps6": {
+                "value": "anyTriggersFalse"
+              }
+            }
+          },
+          "position": {
+            "x": 389.5,
+            "y": 246.25
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "2chi1xkc31",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "makeRestApiCall",
+            "type": "trigger",
+            "properties": {
+              "nodeTitle": {
+                "value": "Get Theme Details"
+              },
+              "url": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"https://api.pingone.com/v1/\"\n      },\n      {\n        \"text\": \"environments/8396453a-edcb-48e9-8c5d-736fdd3509ea\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"/themes/\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"themeId\",\n        \"data\": \"{{global.parameters.themeId}}\",\n        \"tooltip\": \"{{global.parameters.themeId}}\",\n        \"children\": [\n          {\n            \"text\": \"themeId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "headers": {
+                "value": [
+                  {
+                    "key": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Authorization\"\n      }\n    ]\n  }\n]",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Bearer \"\n      },\n      {\n        \"text\": \"{{local.m5uy1s79v2.payload.output.rawResponse.body.access_token}}\"\n      }\n    ]\n  }\n]"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 547,
+            "y": 236
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "pvwt9d25qm",
+            "nodeType": "EVAL",
+            "label": "Evaluator",
+            "properties": {
+              "cz5xaq1ps6": {
+                "value": "anyTriggersFalse"
+              }
+            }
+          },
+          "position": {
+            "x": 647.5,
+            "y": 236.25
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "0g94cbtu36",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "createSuccessResponse",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#4be05dff"
+              },
+              "claimsNameValuePairs": {
+                "value": [
+                  {
+                    "name": "themeConfiguration",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"moustache\",\n        \"data\": \"{{local.2chi1xkc31.payload.output.rawResponse.body.configuration}}\",\n        \"name\": \"configuration\",\n        \"children\": [\n          {\n            \"text\": \"\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
+                    "key": 0.8719124074548836,
+                    "label": "themeConfiguration (object - flowInstance)",
+                    "type": "object",
+                    "nameDefault": "body"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 817,
+            "y": 236
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "cz5xaq1ps6",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "Http",
+            "status": "configured",
+            "capabilityName": "createErrorResponse",
+            "type": "action",
+            "properties": {
+              "backgroundColor": {
+                "value": "#f44759ff"
+              }
+            }
+          },
+          "position": {
+            "x": 814,
+            "y": 352.5
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "id": "h7sjn34oxo",
+            "source": "m5uy1s79v2",
+            "target": "7nvcl1z7gf"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "op4dmrcy75",
+            "source": "7nvcl1z7gf",
+            "target": "2chi1xkc31"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "yatp19y287",
+            "source": "2chi1xkc31",
+            "target": "pvwt9d25qm"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "mldtqamebi",
+            "source": "pvwt9d25qm",
+            "target": "0g94cbtu36"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "iwybabs0lz",
+            "source": "pvwt9d25qm",
+            "target": "cz5xaq1ps6"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "lbyaluys9b",
+            "source": "7nvcl1z7gf",
+            "target": "cz5xaq1ps6"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "inputSchema": [
+    {
+      "propertyName": "themeId",
+      "description": "",
+      "preferredDataType": "string",
+      "preferredControlType": "textField",
+      "isExpanded": true,
+      "required": false
+    }
+  ],
+  "flowColor": "#1da060",
+  "savedDate": 1746789722565,
+  "variables": [],
+  "connections": []
+}

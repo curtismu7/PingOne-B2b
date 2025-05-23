@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Pairing Code</title>
+    <style>
+        /* Dynamic styles from configuration object */
+        body {
+            font-family: sans-serif;
+            background-color: ${backgroundColor};
+            color: ${bodyTextColor};
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: ${cardColor};
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: ${headingTextColor};
+            margin-bottom: 10px;
+        }
+        p {
+            color: ${bodyTextColor};
+            line-height: 1.5;
+        }
+        a {
+            color: ${linkTextColor};
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            background-color: ${buttonColor};
+            color: ${buttonTextColor};
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #2b5e35;
+        }
+        .otp-code {
+            font-size: 24px;
+            font-weight: bold;
+            color: ${buttonColor};
+            padding: 10px;
+            border: 1px solid ${buttonColor};
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+            background-color: #f8f8f8;
+        }
+        .logo {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body style="background-color: ${backgroundColor}; color: ${bodyTextColor}; font-family: sans-serif; margin: 0; padding: 0;">
+    <div class="container" style="background-color: ${cardColor}; padding: 20px; border-radius: 8px; margin: 20px auto; max-width: 600px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <div style="text-align: center;">
+            <img src="${companyLogo}" alt="${companyName} Logo" class="logo" style="max-width: 100px; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">
+        </div>
+        <h2 style="color: ${headingTextColor}; margin-bottom: 10px;">Finish Pairing Your Device</h2>
+        <p style="color: ${bodyTextColor}; line-height: 1.5;">To complete the device pairing process, please enter the following code:</p>
+        <p style="text-align: center;">
+            <strong class="otp-code" style="font-size: 24px; font-weight: bold; color: ${buttonColor}; padding: 10px; border: 1px solid ${buttonColor}; border-radius: 5px; margin: 10px 0; display: inline-block; background-color: #f8f8f8;">${otp}</strong>
+        </p>
+        <p style="color: ${bodyTextColor}; line-height: 1.5;">This code is valid for a limited time.</p>
+    </div>
+</body>
+</html>
