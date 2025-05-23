@@ -28,7 +28,7 @@ jobs:
         with:
           type: 'zip'
           filename: 'tf-release.zip'
-          exclusions: '*.git* *.DS_* /images/* TODO.md .editorconfig'
+          exclusions: '*.git* *.DS_* TODO.md .editorconfig'
           directory: 'terraform'
       - run: |
           RELEASE="1.0.0"
