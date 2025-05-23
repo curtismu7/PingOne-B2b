@@ -18,22 +18,18 @@ admin_group_id          = "" # Administrator Environment
 #############
 
 environment_type = "SANDBOX"
-
 # Change the name as needed for your P1 environment #
 environment_name_master = "B2B_Internal_Master"
-environment_description_master = ""
-
+environment_description_master = "Main Flow for B2B Demo"
 environment_name_credentials = "B2B_Credentials"
-environment_description_credentials = ""
-
+environment_description_credentials = "Neo demo for onboarding and validating Partners"
 # Probably want to rename these to something more descriptive - not sure what makes sense right now.
 environment_name_3 = "B2B_SilverSurfers"
-environment_description_3 = ""
+environment_description_3 = "PingOne environment for External IDP to Microsoft"
 microsoft_client_id = ""
 microsoft_client_secret = ""
-
 environment_name_4 = "B2B_GoldenGate"
-environment_description_4 = ""
+environment_description_4 = "PingOne Extnernal IDP"
 
 pingone_agreement_localization_revision_im_titanid_agreement_en_now_text = <<EOT
 AI Overview
