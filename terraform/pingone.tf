@@ -1751,8 +1751,7 @@ resource "pingone_agreement_localization" "im_titanid_agreement_en" {
   }
 }
 
-resource "time_static" "now" {
-  
+resource "time_static" "now" { 
 }
 
 resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
