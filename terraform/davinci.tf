@@ -420,10 +420,9 @@ resource "davinci_connection" "PingOne-MFA" {
   }
 
    depends_on = [
-    pingone_application_secret.im_dv_worker_secret
+    pingone_application_secret.im_dv_worker_secret,
+    pingone_user_role_assignment.davinci_admin
   ] 
-
-  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Notifications" {
@@ -480,10 +479,9 @@ resource "davinci_connection" "PingOne-Protect" {
   }
 
    depends_on = [
-    pingone_application_secret.im_dv_worker_secret
+    pingone_application_secret.im_dv_worker_secret,
+    pingone_user_role_assignment.davinci_admin
   ] 
-
-  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Verify" {
