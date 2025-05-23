@@ -59,8 +59,8 @@ Keep this environment handy. We will need to get a number of IDs from it later.
 ### Download and extract the latest release from Github
 
 ```bash
-mkdir -p ~/Terraform/pingone-b2b && cd ~/Terraform/pingone-b2b
-curl -L https://github.com/kylemoorehead-pingidentity/PingOne-B2B/releases/download/0.0.2/tf-release.zip > tf-release.zip
+mkdir -p ~/terraform/pingone-b2b && cd ~/terraform/pingone-b2b
+curl -L https://github.com/curtismu7/PingOne-B2b/releases/download/0.0.2/tf-release.zip > tf-release.zip
 unzip ./tf-release.zip && rm ./tf-release.zip
 ```
 
