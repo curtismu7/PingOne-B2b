@@ -33,12 +33,16 @@ resource "davinci_connection" "Annotation" {
   connector_id   = "annotationConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Annotation"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Challenge" {
   connector_id   = "challengeConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Challenge"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Code-Snippet" {
@@ -126,30 +130,40 @@ EOT
 }
     EOT
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Error-Message" {
   connector_id   = "errorConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Error Message"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Flow-Connector" {
   connector_id   = "flowConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Flow Connector"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Flow-Analytics" {
   connector_id   = "analyticsConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Flow Analytics"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Functions" {
   connector_id   = "functionsConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Functions"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Generic" {
@@ -308,7 +322,8 @@ resource "davinci_connection" "Generic" {
   }
 
    depends_on = [
-    pingone_application_secret.im_theme_worker_secret
+    pingone_application_secret.im_theme_worker_secret,
+    pingone_user_role_assignment.davinci_admin
   ] 
 }
 
@@ -316,24 +331,31 @@ resource "davinci_connection" "Http" {
   connector_id   = "httpConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Http"
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Node" {
   connector_id   = "nodeConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Teleport"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Strings" {
   connector_id   = "stringsConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Strings"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Device-Policy" {
   connector_id   = "devicePolicyConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Device Policy"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne" {
@@ -360,12 +382,16 @@ resource "davinci_connection" "PingOne" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Authentication" {
   connector_id   = "pingOneAuthenticationConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "PingOne Authentication"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-MFA" {
@@ -396,6 +422,8 @@ resource "davinci_connection" "PingOne-MFA" {
    depends_on = [
     pingone_application_secret.im_dv_worker_secret
   ] 
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Notifications" {
@@ -422,6 +450,8 @@ resource "davinci_connection" "PingOne-Notifications" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Protect" {
@@ -452,6 +482,8 @@ resource "davinci_connection" "PingOne-Protect" {
    depends_on = [
     pingone_application_secret.im_dv_worker_secret
   ] 
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Verify" {
@@ -478,6 +510,8 @@ resource "davinci_connection" "PingOne-Verify" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "PingOne-Credentials" {
@@ -504,24 +538,32 @@ resource "davinci_connection" "PingOne-Credentials" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Token-Management" {
   connector_id   = "skOpenIdConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Token Management"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "User-Policy" {
   connector_id   = "userPolicyConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "User Policy"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Variables" {
   connector_id   = "variablesConnector"
   environment_id = pingone_environment.internal_master_environment.id
   name           = "Variables"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 #####################################################
@@ -1823,8 +1865,6 @@ resource "davinci_application" "Credentials-PingOne-SSO-Connection" {
       redirect_uris                 = ["https://auth.pingone.com/${pingone_environment.credentials_environment.id}/rp/callback/openid_connect"]
     }
   }
-
-  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_application_flow_policy" "Verified-Employee-Internal-Access" {
