@@ -60,7 +60,7 @@ Keep this environment handy. We will need to get a number of IDs from it later.
 
 ```bash
 mkdir -p ~/terraform/pingone-b2b && cd ~/terraform/pingone-b2b
-curl -L https://github.com/curtismu7/PingOne-B2b/releases/download/0.0.2/tf-release.zip > tf-release.zip
+curl -L https://github.com/curtismu7/PingOne-B2b/releases/download/0.0.1/tf-release.zip > tf-release.zip
 unzip ./tf-release.zip && rm ./tf-release.zip
 ```
 
