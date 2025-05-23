@@ -1,9 +1,3 @@
-## General Questions:
-#
-# PingID doesn't appear to deploy correctly to Terraform with the PID->P1MFA migration stuff happening, but it is still needed for credentials.
-
-
-
 ##################
 #  Data Sources  #
 ##################
@@ -1751,7 +1745,8 @@ resource "pingone_agreement_localization" "im_titanid_agreement_en" {
   }
 }
 
-resource "time_static" "now" { 
+resource "time_offset" "now" { 
+  offset_seconds = 60
 }
 
 resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
@@ -1759,7 +1754,7 @@ resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now"
   agreement_id              = pingone_agreement.im_titanid_agreement.id
   agreement_localization_id = pingone_agreement_localization.im_titanid_agreement_en.id
 
-  effective_at      = time_static.now.rfc3339
+  effective_at      = time_offset.now.rfc3339
   content_type      = "text/plain"
   require_reconsent = true
   text              = var.pingone_agreement_localization_revision_im_titanid_agreement_en_now_text

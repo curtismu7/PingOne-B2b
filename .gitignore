@@ -6,3 +6,5 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 /terraform/terraform.tfstate.d
 terraform/tf-release.zip
+terraform/terraform.tfvars
+terraform/terraform.tfvars

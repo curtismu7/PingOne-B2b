@@ -535,6 +535,8 @@ resource "davinci_variable" "workerId" {
   name           = "workerId"
   type           = "string"
   value          = pingone_application.im_dv_worker_app.oidc_options.client_id
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "workerSecret" {
@@ -544,6 +546,8 @@ resource "davinci_variable" "workerSecret" {
   name           = "workerSecret"
   type           = "secret"
   value          = pingone_application_secret.im_dv_worker_secret.secret
+  
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "cv-ThemeObject" {
@@ -553,6 +557,8 @@ resource "davinci_variable" "cv-ThemeObject" {
   name           = "cv-ThemeObject"
   description    = "Object to hold the Theme Object"
   type           = "string"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "cv-riskPolicyId" {
@@ -563,6 +569,8 @@ resource "davinci_variable" "cv-riskPolicyId" {
   description    = "Company Variable for Risk Policy" 
   type           = "string"
   value          = pingone_risk_policy.im_risk_policy.id
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "requestedCredentialKeys" {
@@ -572,6 +580,7 @@ resource "davinci_variable" "requestedCredentialKeys" {
   name           = "requestedCredentialKeys"
   description    = "Optional. If not defined, all keys are returned. Comma-delimited list of requested credential keys if specific keys from the credential are desired." 
   type           = "string"
+depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "requestedCredentialType" {
@@ -581,6 +590,8 @@ resource "davinci_variable" "requestedCredentialType" {
   name           = "requestedCredentialType"
   description    = "Type of credential to verify. Must be the name of a PingOne credential type issued by the credential issuer." 
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "trustedIssuers" {
@@ -589,6 +600,8 @@ resource "davinci_variable" "trustedIssuers" {
   mutable        = "true"
   name           = "trustedIssuers"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "requestMessage" {
@@ -598,6 +611,8 @@ resource "davinci_variable" "requestMessage" {
   name           = "requestMessage"
   description    = "Request message to display on the credential wallet, if supported."
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "credentialTypeId" {
@@ -607,6 +622,8 @@ resource "davinci_variable" "credentialTypeId" {
   name           = "credentialTypeId"
   type           = "string"
   value          = pingone_credential_type.im_verified_employee_credential_type.id
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "p1PopulationId" {
@@ -615,6 +632,8 @@ resource "davinci_variable" "p1PopulationId" {
   mutable        = "true"
   name           = "p1PopulationId"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "gv-byPassMFADate" {
@@ -624,6 +643,8 @@ resource "davinci_variable" "gv-byPassMFADate" {
   name           = "gv-byPassMFADate"
   description    = "Date at which bypassing MFA registration is allowed. [YYYY-MM-DD]"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "gv-allowedBackUpMethods" {
@@ -633,6 +654,8 @@ resource "davinci_variable" "gv-allowedBackUpMethods" {
   name           = "gv-allowedBackUpMethods"
   description    = "Variable for allowed backup Methods for PingID - Only options available are SMS, Voice and Email. Example: ['SMS', 'EMAIL', 'VOICE']"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "themeObject" {
@@ -641,6 +664,8 @@ resource "davinci_variable" "themeObject" {
   mutable        = "true"
   name           = "themeObject"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "isMandatoryFlow" {
@@ -649,6 +674,8 @@ resource "davinci_variable" "isMandatoryFlow" {
   mutable        = "true"
   name           = "isMandatoryFlow"
   type           = "boolean"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "cardColor" {
@@ -657,6 +684,8 @@ resource "davinci_variable" "cardColor" {
   mutable        = "true"
   name           = "cardColor"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "canChangeDevice" {
@@ -666,6 +695,8 @@ resource "davinci_variable" "canChangeDevice" {
   name           = "canChangeDevice"
   description    = "Internal variable" 
   type           = "boolean"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "devices" {
@@ -674,6 +705,8 @@ resource "davinci_variable" "devices" {
   mutable        = "true"
   name           = "devices"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "pingIdCopyrightFooter" {
@@ -682,6 +715,8 @@ resource "davinci_variable" "pingIdCopyrightFooter" {
   mutable        = "true"
   name           = "pingIdCopyrightFooter"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "preppedDevices" {
@@ -691,6 +726,8 @@ resource "davinci_variable" "preppedDevices" {
   name           = "preppedDevices"
   description    = "Internal variable"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "publicKeyCredentialRequestOptions" {
@@ -699,6 +736,8 @@ resource "davinci_variable" "publicKeyCredentialRequestOptions" {
   mutable        = "true"
   name           = "publicKeyCredentialRequestOptions"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "showRegButton" {
@@ -708,6 +747,8 @@ resource "davinci_variable" "showRegButton" {
   name           = "showRegButton"
   type           = "boolean"
   value          = false
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "webAuthNSupport" {
@@ -717,6 +758,8 @@ resource "davinci_variable" "webAuthNSupport" {
   name           = "webAuthNSupport"
   description    = "Flow variable for the type of WebAuthN supported for the end user"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "deviceCount" {
@@ -726,6 +769,8 @@ resource "davinci_variable" "deviceCount" {
   name           = "deviceCount"
   description    = "Internal variable"
   type           = "number"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "adminMessage" {
@@ -734,6 +779,8 @@ resource "davinci_variable" "adminMessage" {
   mutable        = "true"
   name           = "adminMessage"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "numberOfOTPRetries" {
@@ -744,6 +791,8 @@ resource "davinci_variable" "numberOfOTPRetries" {
   description    = "Defines the number of incorrect OTP entries allowed"
   type           = "number"
   value          = 3
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "numberMatching" {
@@ -752,6 +801,8 @@ resource "davinci_variable" "numberMatching" {
   mutable        = "true"
   name           = "numberMatching"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "p1DeviceAuthenticationStatus" {
@@ -761,6 +812,8 @@ resource "davinci_variable" "p1DeviceAuthenticationStatus" {
   name           = "p1DeviceAuthenticationStatus"
   description    = "Defines the authentication action the user should preform"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "p1DeviceId" {
@@ -770,6 +823,8 @@ resource "davinci_variable" "p1DeviceId" {
   name           = "p1DeviceId"
   description    = "local device ID variable to manage the most current user device being used"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "selectedDeviceIcon" {
@@ -778,6 +833,8 @@ resource "davinci_variable" "selectedDeviceIcon" {
   mutable        = "true"
   name           = "selectedDeviceIcon"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "selectedDeviceType" {
@@ -787,6 +844,8 @@ resource "davinci_variable" "selectedDeviceType" {
   name           = "selectedDeviceType"
   description    = "Selected device type to register"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "gv-pingIdFooterMessage" {
@@ -797,6 +856,8 @@ resource "davinci_variable" "gv-pingIdFooterMessage" {
   description    = "The copyright message for your Footer within PingID"
   type           = "string"
   value          = "Copyright © 2003-2024 Ping Identity Corporation. All rights reserved."
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "IsActionReg" {
@@ -806,6 +867,8 @@ resource "davinci_variable" "IsActionReg" {
   name           = "IsActionReg"
   description    = "Internal variable"
   type           = "boolean"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "numberOfRetries" {
@@ -814,6 +877,8 @@ resource "davinci_variable" "numberOfRetries" {
   mutable        = "true"
   name           = "numberOfRetries"
   type           = "number"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "rpid" {
@@ -823,6 +888,8 @@ resource "davinci_variable" "rpid" {
   name           = "rpid"
   description    = "Relying Party ID"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "selectedDeviceId" {
@@ -832,6 +899,8 @@ resource "davinci_variable" "selectedDeviceId" {
   name           = "selectedDeviceId"
   description    = "Internal variable"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "OTPFallback" {
@@ -841,6 +910,8 @@ resource "davinci_variable" "OTPFallback" {
   name           = "OTPFallback"
   description    = "When true a push timeout flow should continue to an OTP page"
   type           = "boolean"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "origin" {
@@ -850,6 +921,8 @@ resource "davinci_variable" "origin" {
   name           = "origin"
   description    = "FIDO2 origin"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "useCode" {
@@ -859,6 +932,8 @@ resource "davinci_variable" "useCode" {
   name           = "useCode"
   description    = "When true the 'Use Code' button will be displayed during a mobile app authentication"
   type           = "boolean"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "p1UserId" {
@@ -867,6 +942,8 @@ resource "davinci_variable" "p1UserId" {
   mutable        = "true"
   name           = "p1UserId"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "p1DeviceAuthenticationId" {
@@ -875,6 +952,8 @@ resource "davinci_variable" "p1DeviceAuthenticationId" {
   mutable        = "true"
   name           = "p1DeviceAuthenticationId"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "gv-VariableObject" {
@@ -884,6 +963,8 @@ resource "davinci_variable" "gv-VariableObject" {
   name           = "gv-VariableObject"
   description    = "Variable to hold all main ping company objects"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "selectedDeviceText" {
@@ -892,6 +973,8 @@ resource "davinci_variable" "selectedDeviceText" {
   mutable        = "true"
   name           = "selectedDeviceText"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "riskEvaluationId" {
@@ -901,6 +984,8 @@ resource "davinci_variable" "riskEvaluationId" {
   name           = "riskEvaluationId"
   description    = "The Evaluation ID from the Risk Evaluation"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "riskLevel" {
@@ -910,6 +995,8 @@ resource "davinci_variable" "riskLevel" {
   name           = "riskLevel"
   description    = "Level for the PingOne Protect Evaluation"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "riskRecommendedAction" {
@@ -919,6 +1006,8 @@ resource "davinci_variable" "riskRecommendedAction" {
   name           = "riskRecommendedAction"
   description    = "Recommended Action for Risk Eval"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "riskObject" {
@@ -928,6 +1017,8 @@ resource "davinci_variable" "riskObject" {
   name           = "riskObject"
   description    = "The object from the Risk Evaluation, if needed for later"
   type           = "object"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "buttonColor" {
@@ -936,6 +1027,8 @@ resource "davinci_variable" "buttonColor" {
   mutable        = "true"
   name           = "buttonColor"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "companyIdentifier" {
@@ -944,6 +1037,8 @@ resource "davinci_variable" "companyIdentifier" {
   mutable        = "true"
   name           = "companyIdentifier"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "backgroundColor" {
@@ -952,6 +1047,8 @@ resource "davinci_variable" "backgroundColor" {
   mutable        = "true"
   name           = "backgroundColor"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "themeId" {
@@ -960,6 +1057,8 @@ resource "davinci_variable" "themeId" {
   mutable        = "true"
   name           = "themeId"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "themeWorkerId" {
@@ -969,6 +1068,8 @@ resource "davinci_variable" "themeWorkerId" {
   name           = "themeWorkerId"
   type           = "string"
   value          = pingone_application.im_theme_worker_app.oidc_options.client_id
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "themeWorkerSecret" {
@@ -978,6 +1079,8 @@ resource "davinci_variable" "themeWorkerSecret" {
   name           = "themeWorkerSecret"
   type           = "secret"
   value          = pingone_application_secret.im_theme_worker_secret.secret
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "companyName" {
@@ -986,6 +1089,8 @@ resource "davinci_variable" "companyName" {
   mutable        = "true"
   name           = "companyName"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_variable" "companyLogo" {
@@ -995,6 +1100,8 @@ resource "davinci_variable" "companyLogo" {
   name           = "companyLogo"
   description    = "Url for company's logo image"
   type           = "string"
+
+    depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 ########################################################
@@ -1536,48 +1643,64 @@ resource "davinci_connection" "Credentials-Annotation" {
   connector_id   = "annotationConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Annotation"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Error-Message" {
   connector_id   = "errorConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Error Message"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Flow-Connector" {
   connector_id   = "flowConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Flow Connector"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Functions" {
   connector_id   = "functionsConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Functions"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Http" {
   connector_id   = "httpConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Http"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Node" {
   connector_id   = "nodeConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Teleport"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Strings" {
   connector_id   = "stringsConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Strings"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Device-Policy" {
   connector_id   = "devicePolicyConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Device Policy"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-PingOne" {
@@ -1604,12 +1727,16 @@ resource "davinci_connection" "Credentials-PingOne" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-PingOne-Authentication" {
   connector_id   = "pingOneAuthenticationConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "PingOne Authentication"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-PingOne-Verify" {
@@ -1636,6 +1763,8 @@ resource "davinci_connection" "Credentials-PingOne-Verify" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-PingOne-Credentials" {
@@ -1662,12 +1791,16 @@ resource "davinci_connection" "Credentials-PingOne-Credentials" {
     name  = "region"
     value = var.region_code
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_connection" "Credentials-Variables" {
   connector_id   = "variablesConnector"
   environment_id = pingone_environment.credentials_environment.id
   name           = "Variables"
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 ####################################################
@@ -1690,6 +1823,8 @@ resource "davinci_application" "Credentials-PingOne-SSO-Connection" {
       redirect_uris                 = ["https://auth.pingone.com/${pingone_environment.credentials_environment.id}/rp/callback/openid_connect"]
     }
   }
+
+  depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
 
 resource "davinci_application_flow_policy" "Verified-Employee-Internal-Access" {
