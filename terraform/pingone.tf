@@ -1751,6 +1751,9 @@ resource "pingone_agreement_localization" "im_titanid_agreement_en" {
   }
 }
 
+resource "time_static" "now" { 
+}
+
 resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
   environment_id            = pingone_environment.internal_master_environment.id
   agreement_id              = pingone_agreement.im_titanid_agreement.id
