@@ -109,12 +109,12 @@ terraform destroy --auto-approve
 
 #### QuickStart for Set up and Running PingOne B2B demo
 
-Quick Start Document: https://shorturl.at/nCrja
+Quick Start Document: [Google Docs Link](https://docs.google.com/document/d/1nVVA6z3z2PLFvLel8H3RWHrlAielcVvlxA9x4gq6gFg/edit?tab=t.0#heading=h.ifiudsrxn4wk)
 
 #### Full set up documentation and running the PingOne B2B Demo
 
-Full Documentation: https://shorturl.at/lEqAC
+Full Documentation: [Google Docs Link](https://docs.google.com/document/d/1Aa5crAcIrL-EeWnY5j9K_Ka9dmWedaTqMXb-I1bLfLs/edit?tab=t.0#heading=h.lkp6jhck5x9i)
 
-### Delegated Admin overview in PingOne
+#### Delegated Admin overview in PingOne
 
-Delegated Admin documentation: https://shorturl.at/LYDas
+Delegated Admin documentation: [Google Docs Link](https://docs.google.com/document/d/1_Yewn_P7gXx0HzyImY952Po--7AFpfBDyj-au-3be1U/edit?tab=t.0#heading=h.ndzfhdfx9269)
