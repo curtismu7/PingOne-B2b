@@ -1745,16 +1745,16 @@ resource "pingone_agreement_localization" "im_titanid_agreement_en" {
   }
 }
 
-resource "time_offset" "now" { 
-  offset_seconds = 60
-}
+# resource "time_offset" "now" { 
+#   offset_seconds = 60
+# }
 
 resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
   environment_id            = pingone_environment.internal_master_environment.id
   agreement_id              = pingone_agreement.im_titanid_agreement.id
   agreement_localization_id = pingone_agreement_localization.im_titanid_agreement_en.id
 
-  effective_at      = time_offset.now.rfc3339
+  # effective_at      = time_offset.now.rfc3339
   content_type      = "text/plain"
   require_reconsent = true
   text              = var.pingone_agreement_localization_revision_im_titanid_agreement_en_now_text
