@@ -1362,22 +1362,22 @@ resource "davinci_flow" "B2B-Demo-Flow" {
 	subflow_link {
 		id   = davinci_flow.SubFlow-A-P1MFA-Device-Authentication.id
 		name = davinci_flow.SubFlow-A-P1MFA-Device-Authentication.name
-		replace_import_subflow_id = "240754dff488f725d326c4b9d90755e4"
+		replace_import_subflow_id = "9f135677f3f1ed894017f93a38eec556"
 	}
     subflow_link {
 		id   = davinci_flow.SubFlow-C-P1MFA-Device-Registration.id
 		name = davinci_flow.SubFlow-C-P1MFA-Device-Registration.name
-		replace_import_subflow_id = "5f7e5bd99c8f3f0aa7da557c3f710e3d"
+		replace_import_subflow_id = "a11734ea34fd27745f19e2335ffa2c31"
 	}
     subflow_link {
 		id   = davinci_flow.SubFlow-Risk-Evaluation.id
 		name = davinci_flow.SubFlow-Risk-Evaluation.name
-		replace_import_subflow_id = "6f3dc17f83f7b0e92ddd5c152474776f"
+		replace_import_subflow_id = "40253015f6bbd356bd9dd5c95b816051"
 	}
     subflow_link {
 		id   = davinci_flow.Obtain-Theme-Object.id
 		name = davinci_flow.Obtain-Theme-Object.name
-		replace_import_subflow_id = "1b1547fe875383d38312b451b8a740cc"
+		replace_import_subflow_id = "aa66043a926651df81adcb6286d5e0c6"
 	}
 
 	depends_on = [
