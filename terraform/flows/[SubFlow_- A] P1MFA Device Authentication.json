@@ -16,7 +16,7 @@
   "currentVersion": 21,
   "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
   "deployedDate": 1747858324437,
-  "description": "Cloned on Wed May 21 2025 16:26:39 GMT+0000 (Coordinated Universal Time). \nP1MFA Device Reg",
+  "description": "P1MFA Devic Authentication",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
     "parameters": {

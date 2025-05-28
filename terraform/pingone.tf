@@ -154,6 +154,56 @@ resource "pingone_environment" "internal_master_environment" {
   ]
 }
 
+# resource "pingone_mfa_settings" "mfa_settings_off" {
+#   environment_id = pingone_environment.internal_master_environment.id
+
+#   pairing = {
+#     max_allowed_devices = 5
+#     pairing_key_format  = "ALPHANUMERIC"
+#   }
+
+#   lockout = {
+#     failure_count    = 5
+#     duration_seconds = 600
+#   }
+
+#   phone_extensions = {
+#     enabled = true
+#   }
+
+#   users = {
+#     mfa_enabled = false
+#   }
+
+#   lifecycle {
+# 	  ignore_changes = all
+# 	}
+# }
+
+resource "pingone_mfa_settings" "mfa_settings_on" {
+  environment_id = pingone_environment.internal_master_environment.id
+
+  pairing = {
+    max_allowed_devices = 5
+    pairing_key_format  = "ALPHANUMERIC"
+  }
+
+  lockout = {
+    failure_count    = 5
+    duration_seconds = 600
+  }
+
+  phone_extensions = {
+    enabled = true
+  }
+
+  users = {
+    mfa_enabled = true
+  }
+
+  #depends_on = [ pingone_mfa_settings.mfa_settings_off ]
+}
+
 ########################################
 #  Interal Master Environment - Users  #
 ########################################
