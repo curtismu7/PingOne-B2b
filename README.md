@@ -98,7 +98,17 @@ Apply your Terraform configuration, deploying all of the resources specified in 
 ```bash
 terraform apply --auto-approve
 ```
-NOTE: If you get any errors while deploying, run the same command again and it should deploy anything that failed the first time. If that does not work, run the `destroy` command below and re-run the `apply` command. We are currently working to make it more reliable.
+> [!WARNING]
+> The following warning is expected, and should not impact functionality.
+> ```╷
+> │ Warning: Generated effective_at value used
+> │ 
+> │   with pingone_agreement_localization_revision.im_titanid_agreement_en_now,
+> │   on pingone.tf line 1752, in resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now":
+> │ 1752: resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
+> │ 
+> │ No effective_at value was provided; defaulted to: 2025-05-27T13:36:26Z
+> ╵```
 
 Destroy your environment when you are done with it.
 ```bash
