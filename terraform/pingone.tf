@@ -787,6 +787,7 @@ resource "pingone_population" "im_verde_persona_population" {
   theme = {
     id = pingone_branding_theme.im_verde_persona_theme.id
   }
+  preferred_language = "es"
 }
 
 resource "pingone_population" "im_employee_creds_population" {

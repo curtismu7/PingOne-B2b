@@ -12,10 +12,10 @@
     "pingOneAuthenticationConnector",
     "flowConnector"
   ],
-  "createdDate": 1747858321940,
-  "currentVersion": 21,
+  "createdDate": 1749054334443,
+  "currentVersion": 24,
   "customerId": "b061827ab99d0224ed0afa9f5fb03fd2",
-  "deployedDate": 1747858324437,
+  "deployedDate": 1749054336990,
   "description": "P1MFA Devic Authentication",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -116,7 +116,7 @@
   "isInputSchemaSaved": true,
   "isOutputSchemaSaved": false,
   "name": "[SubFlow - A] P1MFA Device Authentication",
-  "publishedVersion": 21,
+  "publishedVersion": 24,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "intermediateLoadingScreenCSS": "",
@@ -125,9 +125,9 @@
     "flowTimeoutInSeconds": 3000
   },
   "timeouts": "null",
-  "updatedDate": 1747858324492,
+  "updatedDate": 1749054337044,
   "flowId": "9f135677f3f1ed894017f93a38eec556",
-  "versionId": 21,
+  "versionId": 24,
   "graphData": {
     "elements": {
       "nodes": [
@@ -183,7 +183,7 @@
                 ]
               }
             },
-            "idUnique": "w8q9f20hvb"
+            "idUnique": "qwd2tx550r"
           },
           "position": {
             "x": 1637.0877184526125,
@@ -227,7 +227,7 @@
               }
             },
             "isDisabled": false,
-            "idUnique": "wpathdw8ym"
+            "idUnique": "h2l30zjar0"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -257,7 +257,7 @@
                 "value": "allTriggersTrue"
               }
             },
-            "idUnique": "2pol7k0v6m"
+            "idUnique": "bpt2hg8t6i"
           },
           "position": {
             "x": 1774.8058847544783,
@@ -369,7 +369,7 @@
                 ]
               }
             },
-            "idUnique": "zn9pzwt8gj"
+            "idUnique": "lz3z4py7yv"
           },
           "position": {
             "x": 2233.8664390940307,
@@ -476,7 +476,7 @@
                 "value": "Configure initial flow settings"
               }
             },
-            "idUnique": "qr9pi1x8we"
+            "idUnique": "xr1lppuadg"
           },
           "position": {
             "x": 971.4499146602614,
@@ -525,7 +525,7 @@
                 "value": "allTriggersTrue"
               }
             },
-            "idUnique": "joiqtkx816"
+            "idUnique": "ent6x3fezr"
           },
           "position": {
             "x": 2371.5846053958962,
@@ -579,7 +579,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "f3hrppl5ks"
+            "idUnique": "turxw1qotw"
           },
           "position": {
             "x": 2073.1952450751874,
@@ -632,7 +632,7 @@
                 ]
               }
             },
-            "idUnique": "r0uuvmbp2g"
+            "idUnique": "mfpphid74d"
           },
           "position": {
             "x": 7054.002259659331,
@@ -672,7 +672,7 @@
                 "value": "Check the OTP that was entered against the Device Auth Selected"
               }
             },
-            "idUnique": "4o0hwcjif8"
+            "idUnique": "bmat277977"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -708,7 +708,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "2sxvc5wag9"
+            "idUnique": "pn532tewoi"
           },
           "position": {
             "x": 2096.148272792165,
@@ -757,7 +757,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"SUCCESS\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "qg5hweou3l"
+            "idUnique": "lflnda5sg0"
           },
           "position": {
             "x": 1947.692012085845,
@@ -800,7 +800,7 @@
                 "value": "Check the FIDO assertion against the Device selected ensuring the Origin is correct as well"
               }
             },
-            "idUnique": "9ug568dz9n"
+            "idUnique": "nb503oyh16"
           },
           "position": {
             "x": 1260.0273044794467,
@@ -836,7 +836,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "giupu2tyz1"
+            "idUnique": "548dino4zb"
           },
           "position": {
             "x": 1410.0273044794467,
@@ -905,7 +905,7 @@
                 "value": "Update variables related to the selected Device. Updated Variables: p1DeviceId, p1DeviceAuthStatus, publicKeyCredentialsOptions, numberMatching"
               }
             },
-            "idUnique": "xwgsxy34vd"
+            "idUnique": "5benwwjczc"
           },
           "position": {
             "x": 5860.444818376494,
@@ -924,7 +924,7 @@
           "data": {
             "id": "3e55pa68mh",
             "nodeType": "EVAL",
-            "idUnique": "h7iccqfopf",
+            "idUnique": "zyio16tokv",
             "properties": {
               "8ter31mwl4": {
                 "value": "always"
@@ -972,7 +972,7 @@
                 "value": "Create the Device Authentication with the Device selected from the User Select Auth Page"
               }
             },
-            "idUnique": "uihejslx7j"
+            "idUnique": "b38577v54m"
           },
           "position": {
             "x": 5539.102430338808,
@@ -1002,7 +1002,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "6z2r4ccyoj"
+            "idUnique": "tn66cax00x"
           },
           "position": {
             "x": 5653.867568923696,
@@ -1053,7 +1053,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "7hrgahxya6"
+            "idUnique": "a3pr0vzmld"
           },
           "position": {
             "x": 218.02730447944668,
@@ -1113,7 +1113,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "xviwel13s9"
+            "idUnique": "h5tra4twu1"
           },
           "position": {
             "x": 236.95302771697763,
@@ -1150,7 +1150,7 @@
                 "value": "Read the Device Auth Attempt. The user never proceeded forward, we have additional logic to see if this was a timeout or something else that caused a failure for the user"
               }
             },
-            "idUnique": "2o8hu6tlsn"
+            "idUnique": "4wbp5vu6dl"
           },
           "position": {
             "x": 1290.0273044794467,
@@ -1205,7 +1205,7 @@
               }
             },
             "isDisabled": false,
-            "idUnique": "bif9bbejsd"
+            "idUnique": "9oiyo8noc7"
           },
           "position": {
             "x": 1590.0273044794467,
@@ -1243,7 +1243,7 @@
               }
             },
             "isDisabled": false,
-            "idUnique": "jkjht0qgv3"
+            "idUnique": "0r5t6hivan"
           },
           "position": {
             "x": 1947.692012085845,
@@ -1276,7 +1276,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "cj7i1p0w6h"
+            "idUnique": "5vy237gk6k"
           },
           "position": {
             "x": 1410.0273044794467,
@@ -1295,7 +1295,7 @@
           "data": {
             "id": "koonc5bmut",
             "nodeType": "EVAL",
-            "idUnique": "898n2djihz"
+            "idUnique": "p1nj3h7lmi"
           },
           "position": {
             "x": 1778.329863598332,
@@ -1319,7 +1319,7 @@
             "name": "PingOne MFA",
             "label": "PingID Testing",
             "status": "configured",
-            "idUnique": "4uz80s51ip",
+            "idUnique": "nzqh6o2eh7",
             "capabilityName": "validateOtpDeviceAuthentication",
             "type": "action",
             "properties": {
@@ -1372,7 +1372,7 @@
                 "value": "invalid OTP "
               }
             },
-            "idUnique": "w94inc06cu"
+            "idUnique": "fj86xjjdud"
           },
           "position": {
             "x": 3500.1783732213803,
@@ -1399,7 +1399,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "cbdx0uj8yy"
+            "idUnique": "79imuzrsbt"
           },
           "position": {
             "x": 3302.5891999859487,
@@ -1450,7 +1450,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "yq0v8yodfd"
+            "idUnique": "ifw076s50t"
           },
           "position": {
             "x": 218.02730447944668,
@@ -1469,7 +1469,7 @@
           "data": {
             "id": "tpunejkcdb",
             "nodeType": "EVAL",
-            "idUnique": "mrz9sdf25p"
+            "idUnique": "cx1mcpz8ky"
           },
           "position": {
             "x": 7191.720425961196,
@@ -1488,7 +1488,7 @@
           "data": {
             "id": "1v1xcxyb2f",
             "nodeType": "EVAL",
-            "idUnique": "cekn6igrlv"
+            "idUnique": "urmkg90nkc"
           },
           "position": {
             "x": 1778.329863598332,
@@ -1507,7 +1507,7 @@
           "data": {
             "id": "71a3xps88g",
             "nodeType": "EVAL",
-            "idUnique": "r7dw1gd6ri"
+            "idUnique": "t50sn9rzfi"
           },
           "position": {
             "x": 1778.329863598332,
@@ -1526,7 +1526,7 @@
           "data": {
             "id": "a3w5zv46as",
             "nodeType": "EVAL",
-            "idUnique": "6j6c3u4vjo"
+            "idUnique": "ywvce0humc"
           },
           "position": {
             "x": 1778.329863598332,
@@ -1560,7 +1560,7 @@
                 "value": "Device Selection Restart"
               }
             },
-            "idUnique": "2gsnztf7uy"
+            "idUnique": "j90p5lyepn"
           },
           "position": {
             "x": 4620.981321659703,
@@ -1591,7 +1591,7 @@
                 "value": "1580cu25z3"
               }
             },
-            "idUnique": "67mfw46rwx"
+            "idUnique": "a42f0dkn0h"
           },
           "position": {
             "x": 3189.681100994273,
@@ -1628,7 +1628,7 @@
                 "value": "Start the Mobile Push MFA flow"
               }
             },
-            "idUnique": "cpj5va9uot"
+            "idUnique": "6l5ffcq073"
           },
           "position": {
             "x": 318.4728066205647,
@@ -1647,7 +1647,7 @@
           "data": {
             "id": "2l1l1v076y",
             "nodeType": "EVAL",
-            "idUnique": "wkhckb007u",
+            "idUnique": "ipaurpko6r",
             "properties": {
               "p9xvlma846": {
                 "value": "anyTriggersFalse"
@@ -1701,7 +1701,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"numberMatching\",\n        \"data\": \"{{global.variables.numberMatching}}\",\n        \"tooltip\": \"{{global.variables.numberMatching}}\",\n        \"children\": [\n          {\n            \"text\": \"numberMatching\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "nafwskdmcm"
+            "idUnique": "mvtclmsbl8"
           },
           "position": {
             "x": 7398.2976754139945,
@@ -1735,7 +1735,7 @@
                 "value": "OTP start"
               }
             },
-            "idUnique": "l2m624b727"
+            "idUnique": "gqfdujba3p"
           },
           "position": {
             "x": 328.7651385848881,
@@ -1790,7 +1790,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"canChangeDevice\",\n        \"data\": \"{{global.variables.canChangeDevice}}\",\n        \"tooltip\": \"{{global.variables.canChangeDevice}}\",\n        \"children\": [\n          {\n            \"text\": \"canChangeDevice\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "8l8dmhkyjb"
+            "idUnique": "2kj97rdmw3"
           },
           "position": {
             "x": 7398.2976754139945,
@@ -1809,7 +1809,7 @@
           "data": {
             "id": "oi7bdtaaa9",
             "nodeType": "EVAL",
-            "idUnique": "t1isjrp26w"
+            "idUnique": "f54xur91gi"
           },
           "position": {
             "x": 7191.720425961196,
@@ -1864,7 +1864,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"publicKeyCredentialRequestOptions\",\n        \"data\": \"{{global.variables.publicKeyCredentialRequestOptions}}\",\n        \"tooltip\": \"{{global.variables.publicKeyCredentialRequestOptions}}\",\n        \"children\": [\n          {\n            \"text\": \"publicKeyCredentialRequestOptions\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "8j29ejzwwz"
+            "idUnique": "cpgsx4dmyk"
           },
           "position": {
             "x": 7398.2976754139945,
@@ -1883,7 +1883,7 @@
           "data": {
             "id": "c5vxj5fc2q",
             "nodeType": "EVAL",
-            "idUnique": "rp2ohtcqxv"
+            "idUnique": "nnol1rt2hz"
           },
           "position": {
             "x": 7191.720425961196,
@@ -1932,7 +1932,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"SUCCESS\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "8me72dt9on"
+            "idUnique": "8thb13oe8s"
           },
           "position": {
             "x": 1560.0273044794467,
@@ -1983,7 +1983,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "9lcfy6oyck"
+            "idUnique": "ertul7ur95"
           },
           "position": {
             "x": 214,
@@ -2032,7 +2032,7 @@
                 "value": "Update the max length object for the different lengths that are permitted.  For example an OTP from SMS might be 6 numbers, where a Yubikey might be 36"
               }
             },
-            "idUnique": "py5e83io55"
+            "idUnique": "vmiyrd9ywb"
           },
           "position": {
             "x": 604.2014711886195,
@@ -2051,7 +2051,7 @@
           "data": {
             "id": "wczhxsb5sr",
             "nodeType": "EVAL",
-            "idUnique": "hob1lwm83x"
+            "idUnique": "yl3q3loda9"
           },
           "position": {
             "x": 443.5302771697762,
@@ -2070,7 +2070,7 @@
           "data": {
             "id": "zqzlvsppm",
             "nodeType": "EVAL",
-            "idUnique": "dbc1z8poed",
+            "idUnique": "x44dyghzel",
             "properties": {
               "rr3gqh69to": {
                 "value": "anyTriggersFalse"
@@ -2124,7 +2124,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"SUCCESS\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "b72cuup23v"
+            "idUnique": "tswq9fvdh5"
           },
           "position": {
             "x": 2325.678549961941,
@@ -2164,7 +2164,7 @@
                 "value": "Did the user fail because the PingID app Timed out. Or was it Denied by the end user"
               }
             },
-            "idUnique": "z968kjipmr"
+            "idUnique": "kmqxmn73wl"
           },
           "position": {
             "x": 1947.692012085845,
@@ -2183,7 +2183,7 @@
           "data": {
             "id": "bzots1n9hn",
             "nodeType": "EVAL",
-            "idUnique": "m0rmud7z02"
+            "idUnique": "lhm36kzys8"
           },
           "position": {
             "x": 1778.329863598332,
@@ -2210,7 +2210,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "t1qkilt2fo"
+            "idUnique": "snaftf6k96"
           },
           "position": {
             "x": 2088.827135825439,
@@ -2264,7 +2264,7 @@
                 "value": "In the cases of Yubikey PingId requires the OTP to be lowercase. This function converts it to lowercase as needed"
               }
             },
-            "idUnique": "ioey98bpi8"
+            "idUnique": "uof99wba24"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -2283,7 +2283,7 @@
           "data": {
             "id": "dy5dmbveoi",
             "nodeType": "EVAL",
-            "idUnique": "1nzl4z3oxc"
+            "idUnique": "25ek627g43"
           },
           "position": {
             "x": 1430.5104689998138,
@@ -2302,7 +2302,7 @@
           "data": {
             "id": "6pt6g60nm8",
             "nodeType": "EVAL",
-            "idUnique": "grh3pkyd3o",
+            "idUnique": "8pphqk6bas",
             "properties": {
               "q5y1vj12e0": {
                 "value": "anyTriggersFalse"
@@ -2356,7 +2356,7 @@
                 ]
               }
             },
-            "idUnique": "md9mgkgysw"
+            "idUnique": "839vdesxiw"
           },
           "position": {
             "x": 5240.713070018099,
@@ -2375,7 +2375,7 @@
           "data": {
             "id": "qss31m73w2",
             "nodeType": "EVAL",
-            "idUnique": "pexa1k6pm3",
+            "idUnique": "9g7f57hhhl",
             "properties": {
               "g68os5cfbn": {
                 "value": "anyTriggersFalse"
@@ -2414,7 +2414,7 @@
                 "value": "Backup Device Auth"
               }
             },
-            "idUnique": "cuu1tripdr"
+            "idUnique": "zvz2mb8gmv"
           },
           "position": {
             "x": 330.0273044794467,
@@ -2445,7 +2445,7 @@
                 "value": "ai8h98zedl"
               }
             },
-            "idUnique": "iebu8a79qa"
+            "idUnique": "bga7fjx847"
           },
           "position": {
             "x": 5539.102430338808,
@@ -2464,7 +2464,7 @@
           "data": {
             "id": "plht43mz6i",
             "nodeType": "EVAL",
-            "idUnique": "lsg33mmi27",
+            "idUnique": "1pupqmdg4f",
             "properties": {
               "7zmc42cm7y": {
                 "value": "anyTriggersFalse"
@@ -2506,7 +2506,7 @@
                 "value": "Navigate the end user back to select a new device"
               }
             },
-            "idUnique": "sj2g9c0yj4"
+            "idUnique": "f88nf02j8l"
           },
           "position": {
             "x": 1260.0273044794467,
@@ -2549,7 +2549,7 @@
                 "value": "Fail occurred, send the user down the fail branch with an appropriate error message"
               }
             },
-            "idUnique": "r7o4bpftws"
+            "idUnique": "6olvkczmof"
           },
           "position": {
             "x": 1560.0273044794467,
@@ -2600,7 +2600,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "6oomfypoho"
+            "idUnique": "9lbgrnfl03"
           },
           "position": {
             "x": 218.02730447944668,
@@ -2619,7 +2619,7 @@
           "data": {
             "id": "but1qjb0w3",
             "nodeType": "EVAL",
-            "idUnique": "ydra33xwd6",
+            "idUnique": "7c8epn6g23",
             "properties": {
               "2j6b60un84": {
                 "value": "anyTriggersFalse"
@@ -2681,7 +2681,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "snq9bjtouy"
+            "idUnique": "dgljl6uamk"
           },
           "position": {
             "x": 236.95302771697763,
@@ -2738,7 +2738,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "i2tm9x13a1"
+            "idUnique": "1s0enbh1s0"
           },
           "position": {
             "x": 236.95302771697763,
@@ -2795,7 +2795,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "ktxcd2dhy4"
+            "idUnique": "djdpux2nr1"
           },
           "position": {
             "x": 696.0135820565299,
@@ -2852,7 +2852,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "ugnck88716"
+            "idUnique": "5g8aoyvjkf"
           },
           "position": {
             "x": 218.24604925095014,
@@ -2904,7 +2904,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"SUCCESS\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "ygngua4d2w"
+            "idUnique": "hh4gnjxdh9"
           },
           "position": {
             "x": 3500.1783732213803,
@@ -2941,7 +2941,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error with your device check\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "l65e7a0mu8"
+            "idUnique": "b7hglobeia"
           },
           "position": {
             "x": 1947.692012085845,
@@ -2978,7 +2978,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error with the device\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "eaic2srq61"
+            "idUnique": "ek6c2hbf25"
           },
           "position": {
             "x": 1580.7406903629003,
@@ -3012,7 +3012,7 @@
                 "value": "App Passcode"
               }
             },
-            "idUnique": "xw2dt2160n"
+            "idUnique": "het9huhhup"
           },
           "position": {
             "x": 2258.189284312952,
@@ -3031,7 +3031,7 @@
           "data": {
             "id": "qf2qgjjzts",
             "nodeType": "EVAL",
-            "idUnique": "qpylrc53jr"
+            "idUnique": "rek8gjx9cj"
           },
           "position": {
             "x": 2371.0973833046273,
@@ -3068,7 +3068,7 @@
                 "value": "Move the user to the screen to enter the passcode from the Mobile App"
               }
             },
-            "idUnique": "idwnot8nsy"
+            "idUnique": "054gfltaxk"
           },
           "position": {
             "x": 1290.0273044794467,
@@ -3125,7 +3125,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "pku3x4ad09"
+            "idUnique": "y7whqtkfwy"
           },
           "position": {
             "x": 2555.208827131717,
@@ -3182,7 +3182,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "t1cp0l3l7f"
+            "idUnique": "hshjbtermn"
           },
           "position": {
             "x": 634.0273044794467,
@@ -3225,7 +3225,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "8ugzwsx77h"
+            "idUnique": "uk84hwc2bq"
           },
           "position": {
             "x": 5860.444818376494,
@@ -3285,7 +3285,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "6ijbdibl8d"
+            "idUnique": "zho1h3iwyv"
           },
           "position": {
             "x": 4552.12223850877,
@@ -3336,7 +3336,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "n855k0oulg"
+            "idUnique": "auqy8znfks"
           },
           "position": {
             "x": 218.02730447944668,
@@ -3355,7 +3355,7 @@
           "data": {
             "id": "os8fol8mfh",
             "nodeType": "EVAL",
-            "idUnique": "9mqn01surx"
+            "idUnique": "k9asnwzo1h"
           },
           "position": {
             "x": 415.46301016653877,
@@ -3401,7 +3401,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "he9cqqneps"
+            "idUnique": "49dbcaas9v"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -3447,7 +3447,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "9jhysrvd9m",
+            "idUnique": "fwgo93pfx8",
             "isDisabled": false
           },
           "position": {
@@ -3479,7 +3479,7 @@
                 "value": "Authentication Start"
               }
             },
-            "idUnique": "ib4eeimuje"
+            "idUnique": "ymbr3zff4s"
           },
           "position": {
             "x": 971.4499146602614,
@@ -3530,7 +3530,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "513rwi269p"
+            "idUnique": "0i560vvaba"
           },
           "position": {
             "x": 218.02730447944668,
@@ -3587,7 +3587,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "qou3i4dz6u"
+            "idUnique": "9w8guy93dk"
           },
           "position": {
             "x": 235.46301016653877,
@@ -3660,7 +3660,7 @@
                 "value": "Return back to the main flow with the following attributes - userId, flowInteractionId"
               }
             },
-            "idUnique": "d0peh04yiy"
+            "idUnique": "2ec22bipfn"
           },
           "position": {
             "x": 955.4630101665387,
@@ -3694,7 +3694,7 @@
                 "value": "Sign On Success"
               }
             },
-            "idUnique": "0nxhrc23sw"
+            "idUnique": "nyn0xxnync"
           },
           "position": {
             "x": 325.46301016653877,
@@ -3751,7 +3751,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "1bluuogmuy"
+            "idUnique": "czv39pyswt"
           },
           "position": {
             "x": 235.46301016653877,
@@ -3816,7 +3816,7 @@
                 "value": "Return to Main flow - Failure"
               }
             },
-            "idUnique": "5pr9sh20aj"
+            "idUnique": "oq8tytcc4a"
           },
           "position": {
             "x": 595.4630101665387,
@@ -3850,7 +3850,7 @@
                 "value": "Sign On Fail"
               }
             },
-            "idUnique": "f5uljir0qs"
+            "idUnique": "ey70exo6s6"
           },
           "position": {
             "x": 325.46301016653877,
@@ -3895,7 +3895,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "g6br1h0rmf"
+            "idUnique": "d95n7177pr"
           },
           "position": {
             "x": 4735.746460244591,
@@ -3938,7 +3938,7 @@
                 "value": "This will check the status of the Device Auth it will avoid the User Select screen"
               }
             },
-            "idUnique": "ob6e7nllve"
+            "idUnique": "9bpptd58pp"
           },
           "position": {
             "x": 4001.249573301307,
@@ -4007,7 +4007,7 @@
                 "value": "Update variables related to the single Device. Updated Variables: p1DeviceId, p1DeviceAuthStatus, publicKeyCredentialsOptions, numberMatching"
               }
             },
-            "idUnique": "e761qgj8lv"
+            "idUnique": "551l4mfhp9"
           },
           "position": {
             "x": 5860.444818376494,
@@ -4163,7 +4163,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "dwl926f7t3",
+            "idUnique": "veznjng3jo",
             "isDisabled": false
           },
           "position": {
@@ -4183,7 +4183,7 @@
           "data": {
             "id": "8ehwy3pb4e",
             "nodeType": "EVAL",
-            "idUnique": "sxebedzqup"
+            "idUnique": "x6zld8eu7v"
           },
           "position": {
             "x": 5378.431236319964,
@@ -4202,7 +4202,7 @@
           "data": {
             "id": "2j46pe4789",
             "nodeType": "EVAL",
-            "idUnique": "6x2b6rktn8"
+            "idUnique": "039lm5ngyl"
           },
           "position": {
             "x": 3840.578379282464,
@@ -4222,7 +4222,7 @@
             "id": "armcxamsff",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "417xnbp98g"
+            "idUnique": "bri471zabo"
           },
           "position": {
             "x": 5378.431236319964,
@@ -4265,7 +4265,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "vkjgh1zda4"
+            "idUnique": "t60t647qsj"
           },
           "position": {
             "x": 5539.102430338808,
@@ -4285,7 +4285,7 @@
             "id": "pjzrn2qd42",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "9p0jb50bx3"
+            "idUnique": "a3uotoreur"
           },
           "position": {
             "x": 7191.720425961196,
@@ -4322,7 +4322,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "zpmyx8z49p"
+            "idUnique": "hwlnmjdtu1"
           },
           "position": {
             "x": 7398.2976754139945,
@@ -4392,7 +4392,7 @@
                 "value": "Setting the Device variable with the new filtered and prepared Device list to be easily referenced later in the flow. Variables Updated: devcies, deviceCount, rpid, origin"
               }
             },
-            "idUnique": "0p236cmn83"
+            "idUnique": "bhlb1hcdk5"
           },
           "position": {
             "x": 3725.8132406975756,
@@ -4446,7 +4446,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "8xpxf7u797"
+            "idUnique": "68kr2l6dn5"
           },
           "position": {
             "x": 600.0273044794467,
@@ -4579,7 +4579,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "cq6g7k8wz3",
+            "idUnique": "jrgkjt7qcv",
             "isDisabled": false
           },
           "position": {
@@ -4604,7 +4604,7 @@
                 "value": "allTriggersTrue"
               }
             },
-            "idUnique": "gfkoxok1pn"
+            "idUnique": "mr3bw3l000"
           },
           "position": {
             "x": 720.0273044794467,
@@ -4623,7 +4623,7 @@
           "data": {
             "id": "frbtxa9t8f",
             "nodeType": "EVAL",
-            "idUnique": "sqn7y2rosg"
+            "idUnique": "7mzndrdcmy"
           },
           "position": {
             "x": 990.0273044794467,
@@ -4687,7 +4687,7 @@
                 "value": "{}"
               }
             },
-            "idUnique": "huhh3e2fez"
+            "idUnique": "e43z3yeg7h"
           },
           "position": {
             "x": 2100.0273044794467,
@@ -4741,7 +4741,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "jrcu23znm5"
+            "idUnique": "9j9byrgztc"
           },
           "position": {
             "x": 1170.0273044794467,
@@ -4798,7 +4798,7 @@
                 "value": "Read the Value the user selected in the User facing screen. If that is one of the Allowed Devices or a Cancel"
               }
             },
-            "idUnique": "17nuthgf01"
+            "idUnique": "kzn02tvl70"
           },
           "position": {
             "x": 1710.0273044794467,
@@ -4817,7 +4817,7 @@
           "data": {
             "id": "143qanxp9g",
             "nodeType": "EVAL",
-            "idUnique": "3rybun8lra"
+            "idUnique": "qyq80uev4a"
           },
           "position": {
             "x": 1860.0273044794467,
@@ -4881,7 +4881,7 @@
                 "value": "{}"
               }
             },
-            "idUnique": "j6vbs9fwc1"
+            "idUnique": "hmost7dkqc"
           },
           "position": {
             "x": 2100.0273044794467,
@@ -4945,7 +4945,7 @@
                 "value": "{}"
               }
             },
-            "idUnique": "0yx3cwdodu"
+            "idUnique": "e1utclfkpu"
           },
           "position": {
             "x": 2100.0273044794467,
@@ -4964,7 +4964,7 @@
           "data": {
             "id": "k6xra554t5",
             "nodeType": "EVAL",
-            "idUnique": "cyd5gp9cba"
+            "idUnique": "x35cq7kl04"
           },
           "position": {
             "x": 1860.0273044794467,
@@ -4983,7 +4983,7 @@
           "data": {
             "id": "s1wijincfs",
             "nodeType": "EVAL",
-            "idUnique": "ve2djy3e38"
+            "idUnique": "dptl0k23xf"
           },
           "position": {
             "x": 1860.0273044794467,
@@ -5099,7 +5099,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"themeObject\",\n        \"data\": \"{{global.parameters.themeObject}}\",\n        \"tooltip\": \"{{global.parameters.themeObject}}\",\n        \"children\": [\n          {\n            \"text\": \"themeObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "c694dh6loi"
+            "idUnique": "eg7qspocuh"
           },
           "position": {
             "x": 948.4968869432839,
@@ -5119,7 +5119,7 @@
             "id": "fdntolguvj",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "do6q83xqio"
+            "idUnique": "0izsd8n010"
           },
           "position": {
             "x": 1063.262025528172,
@@ -5180,7 +5180,7 @@
               }
             },
             "isDisabled": false,
-            "idUnique": "1wikzwr2iu"
+            "idUnique": "n63x6wylvy"
           },
           "position": {
             "x": 1269.8392749809705,
@@ -5234,7 +5234,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "wrbqk2s9db"
+            "idUnique": "hh8jqu9hmh"
           },
           "position": {
             "x": 6388.364455866979,
@@ -5283,7 +5283,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"false\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "4oimvowlun"
+            "idUnique": "xtsq4cx9hs"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -5320,7 +5320,7 @@
                 "value": "Navigate the end user back to select a new device"
               }
             },
-            "idUnique": "6u160zafse"
+            "idUnique": "gtq2ef064j"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -5351,7 +5351,7 @@
                 "value": "Resend Code"
               }
             },
-            "idUnique": "12pdzscp1c"
+            "idUnique": "dy2rvmh5qw"
           },
           "position": {
             "x": 1440.0273044794467,
@@ -5370,7 +5370,7 @@
           "data": {
             "id": "ywmgxv24fi",
             "nodeType": "EVAL",
-            "idUnique": "baqdevp5oi"
+            "idUnique": "4qw1mx2am5"
           },
           "position": {
             "x": 1560.0273044794467,
@@ -5390,7 +5390,7 @@
             "id": "ad0zes6q7p",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "xovquiu6d4"
+            "idUnique": "pjlq04ntvg"
           },
           "position": {
             "x": 1430.5104689998138,
@@ -5430,7 +5430,7 @@
                 "value": "Checking to see if this is a BackUp Auth device. Since we create a OneTime auth transaction for this user, it will need to go to a different part of the flow in order to generate a new transaction"
               }
             },
-            "idUnique": "b53o392g46"
+            "idUnique": "1xdwcdii95"
           },
           "position": {
             "x": 2187.9603836600754,
@@ -5458,7 +5458,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "kkrznlchu3"
+            "idUnique": "olc1xqc14q"
           },
           "position": {
             "x": 2325.678549961941,
@@ -5495,7 +5495,7 @@
                 "value": "Allow the end user to resend an OTP"
               }
             },
-            "idUnique": "accxejuj4n"
+            "idUnique": "b3vdotj6zm"
           },
           "position": {
             "x": 2486.3497439807843,
@@ -5535,7 +5535,7 @@
                 "value": "Since the user is trying to resent a code, we need to regenerate an auth attempt to the selected device"
               }
             },
-            "idUnique": "bv40fl7v4k"
+            "idUnique": "0hrtr95zvx"
           },
           "position": {
             "x": 2486.3497439807843,
@@ -5586,7 +5586,7 @@
                 "value": "Setting the number of retries so a user only has so many attempts before failing out"
               }
             },
-            "idUnique": "xo65nk2jz9"
+            "idUnique": "0uqrzxgxhs"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -5606,7 +5606,7 @@
             "id": "m7xaqodslx",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "kyr3ogz80q"
+            "idUnique": "mrtq39tc89"
           },
           "position": {
             "x": 1751.8528570375006,
@@ -5649,7 +5649,7 @@
                 "value": "The node to check if the number of retries is less then the value added to this function node"
               }
             },
-            "idUnique": "ly79fuo9rn"
+            "idUnique": "x7stlf2ipj"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -5692,7 +5692,7 @@
                 "value": "Sign On Fail"
               }
             },
-            "idUnique": "4pil7v7hre"
+            "idUnique": "7m7jilkiob"
           },
           "position": {
             "x": 2187.9603836600754,
@@ -5716,7 +5716,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "f5est6qz2z"
+            "idUnique": "qg8368x60d"
           },
           "position": {
             "x": 2050.2422173582095,
@@ -5741,7 +5741,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "ppy5a5s5es"
+            "idUnique": "kjp294xmsb"
           },
           "position": {
             "x": 2578.161854848695,
@@ -5784,7 +5784,7 @@
                 "value": "Return a failure response"
               }
             },
-            "idUnique": "oavuj62ulc"
+            "idUnique": "zhvuvv3jpu"
           },
           "position": {
             "x": 2761.7860765845157,
@@ -5824,7 +5824,7 @@
                 "value": false
               }
             },
-            "idUnique": "jujekvp2jn"
+            "idUnique": "v2fusn6klk"
           },
           "position": {
             "x": 2761.7860765845157,
@@ -5843,7 +5843,7 @@
           "data": {
             "id": "26fru87xse",
             "nodeType": "EVAL",
-            "idUnique": "gbrbt7gle1"
+            "idUnique": "zvqmchpwvj"
           },
           "position": {
             "x": 5378.431236319964,
@@ -5969,7 +5969,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "0q5a7shj3y"
+            "idUnique": "x1prebokdl"
           },
           "position": {
             "x": 588.4728066205644,
@@ -6006,7 +6006,7 @@
                 "value": "Start the FIDO experience for the end user"
               }
             },
-            "idUnique": "nfcbazxnii"
+            "idUnique": "hvli8xpnfy"
           },
           "position": {
             "x": 318.4728066205647,
@@ -6025,7 +6025,7 @@
           "data": {
             "id": "v5vrv7pa6p",
             "nodeType": "EVAL",
-            "idUnique": "qcqqmg9goj"
+            "idUnique": "xtw8plsred"
           },
           "position": {
             "x": 438.4728066205647,
@@ -6078,7 +6078,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "q5y2efg1h2"
+            "idUnique": "a8guk0li7a"
           },
           "position": {
             "x": 918.4728066205644,
@@ -6097,7 +6097,7 @@
           "data": {
             "id": "pk34mdqxpu",
             "nodeType": "EVAL",
-            "idUnique": "nn7wl110l6"
+            "idUnique": "lsvrpnkb59"
           },
           "position": {
             "x": 738.4728066205644,
@@ -6116,7 +6116,7 @@
           "data": {
             "id": "j3i667fzei",
             "nodeType": "EVAL",
-            "idUnique": "hdg6kqw59q"
+            "idUnique": "gpalnoyyrb"
           },
           "position": {
             "x": 1080.0273044794467,
@@ -6135,7 +6135,7 @@
           "data": {
             "id": "lck5x6o1my",
             "nodeType": "EVAL",
-            "idUnique": "n021einbvh"
+            "idUnique": "rsfedv6nxu"
           },
           "position": {
             "x": 1080.0273044794467,
@@ -6155,7 +6155,7 @@
             "id": "cn9vt09buo",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "ryik2qxd37"
+            "idUnique": "rk1crzsg7o"
           },
           "position": {
             "x": 1080.0273044794467,
@@ -6281,7 +6281,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "iophoxv8cy"
+            "idUnique": "qrmbhszfvt"
           },
           "position": {
             "x": 588.4728066205644,
@@ -6334,7 +6334,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "5rakouyjlb"
+            "idUnique": "qhuwgyb9t8"
           },
           "position": {
             "x": 918.4728066205644,
@@ -6361,7 +6361,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "p6xewniwfn"
+            "idUnique": "snjt27f7bx"
           },
           "position": {
             "x": 738.4728066205644,
@@ -6380,7 +6380,7 @@
           "data": {
             "id": "s1vnh2s452",
             "nodeType": "EVAL",
-            "idUnique": "9k0vn0aewv"
+            "idUnique": "usg1dqp00p"
           },
           "position": {
             "x": 1110.0273044794467,
@@ -6417,7 +6417,7 @@
                 "value": "Navigate the end user back to select a new device"
               }
             },
-            "idUnique": "entxv60zrh"
+            "idUnique": "osd84hud0t"
           },
           "position": {
             "x": 1290.0273044794467,
@@ -6530,7 +6530,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"themeObject\",\n        \"data\": \"{{global.parameters.themeObject}}\",\n        \"tooltip\": \"{{global.parameters.themeObject}}\",\n        \"children\": [\n          {\n            \"text\": \"themeObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "ruyluc4btj"
+            "idUnique": "lis6wv4629"
           },
           "position": {
             "x": 2568.686556540059,
@@ -6549,7 +6549,7 @@
           "data": {
             "id": "dmy3a7v1w8",
             "nodeType": "EVAL",
-            "idUnique": "p81jc1gkc4"
+            "idUnique": "tkftbf694r"
           },
           "position": {
             "x": 2681.5946555317346,
@@ -6606,7 +6606,7 @@
               }
             },
             "isDisabled": false,
-            "idUnique": "vcadl28x5p"
+            "idUnique": "bd1g4kuyv5"
           },
           "position": {
             "x": 2850.9568040192476,
@@ -6625,7 +6625,7 @@
           "data": {
             "id": "9xl50fn5d4",
             "nodeType": "EVAL",
-            "idUnique": "kkcq71hpe8"
+            "idUnique": "cjfyuxvc3m"
           },
           "position": {
             "x": 3048.545977254679,
@@ -6650,7 +6650,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "ewoci6zk56"
+            "idUnique": "w69iuq3e73"
           },
           "position": {
             "x": 3867.129694944325,
@@ -6681,7 +6681,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "0qc6aow62a"
+            "idUnique": "rv9asd404o"
           },
           "position": {
             "x": 3613.0864722130555,
@@ -6750,7 +6750,7 @@
                 "value": "Since we have updated the Device Selection, we need to ensure the Vartiables are updated with the new device values. Vairables updated here are: p1DeviceId, p1DeviceAuthenticationStatus, publicKeyCredentialRequestOptions, numberMatching"
               }
             },
-            "idUnique": "42qpl587vc"
+            "idUnique": "8soz54o1wq"
           },
           "position": {
             "x": 3754.2215959526493,
@@ -6769,7 +6769,7 @@
           "data": {
             "id": "vs3x556hyv",
             "nodeType": "EVAL",
-            "idUnique": "wjex36xmof"
+            "idUnique": "5tng7tmvvl"
           },
           "position": {
             "x": 3048.545977254679,
@@ -6806,7 +6806,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "1oqm6763lb"
+            "idUnique": "vhlrktitgm"
           },
           "position": {
             "x": 2258.189284312952,
@@ -6846,7 +6846,7 @@
                 "value": "Allow the user to Retry the PingID Mobile App"
               }
             },
-            "idUnique": "8y18ahkwx7"
+            "idUnique": "zrgc44k9mt"
           },
           "position": {
             "x": 2850.9568040192476,
@@ -6915,7 +6915,7 @@
                 "value": "Since we have updated the Device Selection, we need to ensure the Vartiables are updated with the new device values. Vairables updated here are: p1DeviceId, p1DeviceAuthenticationStatus, publicKeyCredentialRequestOptions, numberMatching"
               }
             },
-            "idUnique": "2wnae2ownb"
+            "idUnique": "cwr2u4wp8b"
           },
           "position": {
             "x": 3161.4540762463544,
@@ -6946,7 +6946,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "pt4e1o2jrx"
+            "idUnique": "4slq7e9p7k"
           },
           "position": {
             "x": 2992.0919277588414,
@@ -6983,7 +6983,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "xcgv0pivlb"
+            "idUnique": "my4w5o0cph"
           },
           "position": {
             "x": 3161.4540762463544,
@@ -7008,7 +7008,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "ptgk7bp39x"
+            "idUnique": "6o0arh31b5"
           },
           "position": {
             "x": 3274.3621752380295,
@@ -7057,7 +7057,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"numberMatching\",\n        \"data\": \"{{global.variables.numberMatching}}\",\n        \"tooltip\": \"{{global.variables.numberMatching}}\",\n        \"children\": [\n          {\n            \"text\": \"numberMatching\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "gju9ldxa4w"
+            "idUnique": "a3gd8bdy7x"
           },
           "position": {
             "x": 3443.7243237255425,
@@ -7097,7 +7097,7 @@
                 "value": "Check if PingID Failure is a timeout or a deny"
               }
             },
-            "idUnique": "2sro25zt23"
+            "idUnique": "e8goaj8g2r"
           },
           "position": {
             "x": 2258.189284312952,
@@ -7117,7 +7117,7 @@
             "id": "yi3gvcfpi6",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "nka33u8lsn"
+            "idUnique": "1h2z82lali"
           },
           "position": {
             "x": 3048.545977254679,
@@ -7160,7 +7160,7 @@
                 "value": "Sign On Fail"
               }
             },
-            "idUnique": "td6qzzla58"
+            "idUnique": "hdkm8euhpz"
           },
           "position": {
             "x": 3189.681100994273,
@@ -7185,7 +7185,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "uu9wusmfxd"
+            "idUnique": "yqj98x4zed"
           },
           "position": {
             "x": 6594.9417053197785,
@@ -7247,7 +7247,7 @@
                 "value": "Setting the selected device variables to be refered later: Variables being updated: selectedDeviceIcon and selectedDeviceType"
               }
             },
-            "idUnique": "zilkk2vqlm"
+            "idUnique": "q1oj9zv1dc"
           },
           "position": {
             "x": 6755.612899338622,
@@ -7266,7 +7266,7 @@
           "data": {
             "id": "tchg4m19ti",
             "nodeType": "EVAL",
-            "idUnique": "jfcnzxt8g3"
+            "idUnique": "jqcaof4m87"
           },
           "position": {
             "x": 6870.3780379235095,
@@ -7286,7 +7286,7 @@
             "id": "3hux6pdux9",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "z8yozmqu5y"
+            "idUnique": "cmzyyx6nug"
           },
           "position": {
             "x": 1290.0273044794467,
@@ -7340,7 +7340,7 @@
                 "value": "Set Selected Device Variables"
               }
             },
-            "idUnique": "5h41lbhgyn"
+            "idUnique": "z8k64l4qgn"
           },
           "position": {
             "x": 1440.0273044794467,
@@ -7359,7 +7359,7 @@
           "data": {
             "id": "g4t6xsl2df",
             "nodeType": "EVAL",
-            "idUnique": "0hja7fxax7"
+            "idUnique": "j83np5m3cn"
           },
           "position": {
             "x": 1560.0273044794467,
@@ -7385,7 +7385,7 @@
             "nodeType": "CONNECTION",
             "properties": {
               "code": {
-                "value": "// Titles and icons\nconst deviceTypes = {\n    SMS: { title: \"Text Message\", icon: \"mdi-comment-text-outline\" },\n    VOICE: { title: \"Voice\", icon: \"mdi-face-agent\" },\n    EMAIL: { title: \"Email\", icon: \"mdi-email-outline\" },\n    TOTP: { title: \"Authenticator App\", icon: \"mdi-cellphone-key\" },\n    FIDO2: { title: \"Passkey/FIDO2\", icon: \"mdi-fingerprint\" },\n    PLATFORM: { title: \"Biometrics\", icon: \"mdi-fingerprint\" },\n    MOBILE: { title: \"Mobile Push\", icon: \"mdi-account-key-outline\" },\n    PINGID_MOBILE: { title: \"PingID App\", icon: \"mdi-cellphone\" },\n    SECURITY_KEY: { title: \"Security Key\", icon: \"mdi-fingerprint\" },\n    MAGIC: { title: \"Magic Link\", icon: \"mdi-auto-fix\" },\n    PINGID_DESKTOP: { title: \"Desktop App\", icon: \"mdi-auto-fix\" },\n    YUBIKEY: { title: \"YubiKey\", icon: \"mdi-usb-flash-drive\" }\n};\n\n// Device types that require masking\nconst SMS = \"SMS\";\nconst VOICE = \"VOICE\";\nconst EMAIL = \"EMAIL\";\nconst SEPARATOR = \" - \";\nconst MAGIC = \"Magic Link\";\n\n// Mask email\nconst maskEmail = (email) => {\n    const [username, domain] = email.split(\"@\");\n    const maskedUsername =\n        username.charAt(0) + \"*\".repeat(username.length - 2) + username.slice(-1);\n    return maskedUsername + \"@\" + domain;\n};\n\n// Mask phone number\nconst maskPhone = (phone) => {\n    const numericPhoneNumber = phone.replace(/[^\\d+]/g, \"\");\n    // Mask the first six digits of the phone number\n    const maskedPhoneNumber = \"***-***-\" + numericPhoneNumber.slice(-4);\n    return maskedPhoneNumber;\n};\n\n// Main entry point\nmodule.exports = async ({ params }) => {\n    console.log('params: ', params);\n\n    let devices = params.devices;\n    const passwordlessAuth = params.passwordlessAuth;\n    const allowedTypes = params.passwordlessAllowedTypes || [];\n\n    // If devices is not passed or is empty, return false\n    if (!devices || devices.length === 0) {\n        return false;\n    }\n\n    // ✅ Only filter by allowedTypes if it's set and doesn't include MFA or ALL\n    const skipFilter = allowedTypes.length === 0 ||\n        allowedTypes.includes(\"MFA\") ||\n        allowedTypes.includes(\"ALL\");\n\n    if (!skipFilter) {\n        devices = devices.filter(d => allowedTypes.includes(d.type));\n        if (devices.length === 0) {\n            return false;\n        }\n    }\n\n    // Apply WebAuthn Support filters\n    if (params.webAuthNSupport === \"NONE\") {\n        devices = devices.filter(device => {\n            return device.type !== \"SECURITY_KEY\" && device.type !== \"PLATFORM\";\n        });\n    }\n\n    if (params.webAuthNSupport === \"SECURITY_KEY_ONLY\") {\n        devices = devices.filter(device => device.type !== \"PLATFORM\");\n    }\n\n    // Filter out devices with a cooldown\n    devices = devices.filter(device => device.coolDownExpiresAt == undefined);\n\n    // Determine the count based on deviceSelection\n    let count;\n    if (params.deviceSelection === \"DEFAULT_TO_FIRST\") {\n        count = 1;\n    } else {\n        count = devices.length;\n    }\n\n    const unmaskedMap = new Map();\n    (params.unmaskedDevices || []).forEach(d => unmaskedMap.set(d.id, d));\n\n    // Process devices to include additional properties\n    // for (const d of devices) {\n    //     if (d.type === SMS || d.type === VOICE) {\n    //         // d.maskedValue = maskPhone(d.phone);\n    //         d.maskedValue = d.phone;\n    //     } else if (d.type === EMAIL) {\n    //         // d.maskedValue = maskEmail(d.email);\n    //         d.maskedValue = d.email;\n    //     }\n\n    //     const nickname = d.nickname || \"\";\n    //     const maskedValue = d.maskedValue || \"\";\n\n    //     if (d.nickname === MAGIC) {\n    //         d.type = \"MAGIC\";\n    //     }\n\n    //     if (nickname && maskedValue) {\n    //         d.displayText = `${nickname}${SEPARATOR}${maskedValue}`;\n    //     } else if (!nickname && !maskedValue) {\n    //         d.displayText = \"\";\n    //     } else {\n    //         d.displayText = `${nickname}${maskedValue}`;\n    //     }\n\n    //     d.displayIcon = deviceTypes[d.type]?.icon || \"\";\n    //     d.displayType = deviceTypes[d.type]?.title || \"Unknown\";\n    // }\n    for (const d of devices) {\n        const unmasked = unmaskedMap.get(d.id);\n\n        // Keep the masked version that comes in on the device for UI display\n        if (d.type === SMS || d.type === VOICE) {\n            d.maskedValue = d.phone; // masked version\n            if (unmasked?.phone) {\n                d.phone = unmasked.phone; // raw version\n            }\n        } else if (d.type === EMAIL) {\n            d.maskedValue = d.email; // masked version\n            if (unmasked?.email) {\n                d.email = unmasked.email; // raw version\n            }\n        }\n\n        const nickname = d.nickname || \"\";\n        const maskedValue = d.maskedValue || \"\";\n\n        if (d.nickname === MAGIC) {\n            d.type = \"MAGIC\";\n        }\n\n        const unmaskedValue = d.type === SMS || d.type === VOICE\n            ? d.phone\n            : d.type === EMAIL\n                ? d.email\n                : d.maskedValue;\n\n\n        if (nickname && maskedValue) {\n            d.displayText = `${nickname}${SEPARATOR}${unmaskedValue}`;\n        } else if (!nickname && !maskedValue) {\n            d.displayText = \"\";\n        } else {\n            d.displayText = `${nickname}${unmaskedValue}`;\n        }\n\n        d.displayIcon = deviceTypes[d.type]?.icon || \"\";\n        d.displayType = deviceTypes[d.type]?.title || \"Unknown\";\n    }\n\n\n\n    const askToRegister = shouldAskToRegister(devices, allowedTypes);\n\n    return {\n        usableDevices: devices,\n        count: count,\n        canChangeDevice: devices.length > 1,\n        askToRegister\n    };\n};\n\nfunction shouldAskToRegister(devices, allowedTypes) {\n    if (!allowedTypes || allowedTypes.length <= 1) return false;\n\n    const filteredTypes = allowedTypes.filter(type => type !== \"MFA\" && type !== \"ALL\");\n\n    if (filteredTypes.length <= 1 && filteredTypes.includes(\"EMAIL\")) return false;\n\n    const hasOnlyEmailDevice = devices.every(d => d.type === \"EMAIL\");\n    const hasMultipleAllowed = filteredTypes.length > 1;\n\n    return hasOnlyEmailDevice && hasMultipleAllowed;\n}"
+                "value": "// Titles and icons\nconst deviceTypes = {\n    SMS: { title: \"Text Message\", icon: \"mdi-comment-text-outline\" },\n    VOICE: { title: \"Voice\", icon: \"mdi-face-agent\" },\n    EMAIL: { title: \"Email\", icon: \"mdi-email-outline\" },\n    TOTP: { title: \"Authenticator App\", icon: \"mdi-cellphone-key\" },\n    FIDO2: { title: \"Passkey/FIDO2\", icon: \"mdi-fingerprint\" },\n    PLATFORM: { title: \"Biometrics\", icon: \"mdi-fingerprint\" },\n    MOBILE: { title: \"Mobile Push\", icon: \"mdi-account-key-outline\" },\n    PINGID_MOBILE: { title: \"PingID App\", icon: \"mdi-cellphone\" },\n    SECURITY_KEY: { title: \"Security Key\", icon: \"mdi-fingerprint\" },\n    MAGIC: { title: \"Magic Link\", icon: \"mdi-auto-fix\" },\n    PINGID_DESKTOP: { title: \"Desktop App\", icon: \"mdi-auto-fix\" },\n    YUBIKEY: { title: \"YubiKey\", icon: \"mdi-usb-flash-drive\" }\n};\n\n// Device types that require masking\nconst SMS = \"SMS\";\nconst VOICE = \"VOICE\";\nconst EMAIL = \"EMAIL\";\nconst SEPARATOR = \" - \";\nconst MAGIC = \"Magic Link\";\n\n// Mask email\nconst maskEmail = (email) => {\n    const [username, domain] = email.split(\"@\");\n    const maskedUsername =\n        username.charAt(0) + \"*\".repeat(username.length - 2) + username.slice(-1);\n    return maskedUsername + \"@\" + domain;\n};\n\n// Mask phone number\nconst maskPhone = (phone) => {\n    const numericPhoneNumber = phone.replace(/[^\\d+]/g, \"\");\n    // Mask the first six digits of the phone number\n    const maskedPhoneNumber = \"***-***-\" + numericPhoneNumber.slice(-4);\n    return maskedPhoneNumber;\n};\n\n// Main entry point\nmodule.exports = async ({ params }) => {\n    console.log('params: ', params);\n\n    let devices = params.devices;\n    const passwordlessAuth = params.passwordlessAuth;\n    const allowedTypes = params.passwordlessAllowedTypes || [];\n\n    // If devices is not passed or is empty, return false\n    if (!devices || devices.length === 0) {\n        // return false;\n        return {\n            usableDevices: [],\n            count: 0,\n            canChangeDevice: false,\n            askToRegister: true\n        };\n    }\n\n    // ✅ Only filter by allowedTypes if it's set and doesn't include MFA or ALL\n    const skipFilter = allowedTypes.length === 0 ||\n        allowedTypes.includes(\"MFA\") ||\n        allowedTypes.includes(\"ALL\");\n\n    if (!skipFilter) {\n        devices = devices.filter(d => allowedTypes.includes(d.type));\n        if (devices.length === 0) {\n            // return false;\n            return {\n                usableDevices: [],\n                count: 0,\n                canChangeDevice: false,\n                askToRegister: true\n            };\n        }\n    }\n\n    // Apply WebAuthn Support filters\n    if (params.webAuthNSupport === \"NONE\") {\n        devices = devices.filter(device => {\n            return device.type !== \"SECURITY_KEY\" && device.type !== \"PLATFORM\";\n        });\n    }\n\n    if (params.webAuthNSupport === \"SECURITY_KEY_ONLY\") {\n        devices = devices.filter(device => device.type !== \"PLATFORM\");\n    }\n\n    // Filter out devices with a cooldown\n    devices = devices.filter(device => device.coolDownExpiresAt == undefined);\n\n    // Determine the count based on deviceSelection\n    let count;\n    if (params.deviceSelection === \"DEFAULT_TO_FIRST\") {\n        count = 1;\n    } else {\n        count = devices.length;\n    }\n\n    const unmaskedMap = new Map();\n    (params.unmaskedDevices || []).forEach(d => unmaskedMap.set(d.id, d));\n\n    // Process devices to include additional properties\n    // for (const d of devices) {\n    //     if (d.type === SMS || d.type === VOICE) {\n    //         // d.maskedValue = maskPhone(d.phone);\n    //         d.maskedValue = d.phone;\n    //     } else if (d.type === EMAIL) {\n    //         // d.maskedValue = maskEmail(d.email);\n    //         d.maskedValue = d.email;\n    //     }\n\n    //     const nickname = d.nickname || \"\";\n    //     const maskedValue = d.maskedValue || \"\";\n\n    //     if (d.nickname === MAGIC) {\n    //         d.type = \"MAGIC\";\n    //     }\n\n    //     if (nickname && maskedValue) {\n    //         d.displayText = `${nickname}${SEPARATOR}${maskedValue}`;\n    //     } else if (!nickname && !maskedValue) {\n    //         d.displayText = \"\";\n    //     } else {\n    //         d.displayText = `${nickname}${maskedValue}`;\n    //     }\n\n    //     d.displayIcon = deviceTypes[d.type]?.icon || \"\";\n    //     d.displayType = deviceTypes[d.type]?.title || \"Unknown\";\n    // }\n    for (const d of devices) {\n        const unmasked = unmaskedMap.get(d.id);\n\n        // Keep the masked version that comes in on the device for UI display\n        if (d.type === SMS || d.type === VOICE) {\n            d.maskedValue = d.phone; // masked version\n            if (unmasked?.phone) {\n                d.phone = unmasked.phone; // raw version\n            }\n        } else if (d.type === EMAIL) {\n            d.maskedValue = d.email; // masked version\n            if (unmasked?.email) {\n                d.email = unmasked.email; // raw version\n            }\n        }\n\n        const nickname = d.nickname || \"\";\n        const maskedValue = d.maskedValue || \"\";\n\n        if (d.nickname === MAGIC) {\n            d.type = \"MAGIC\";\n        }\n\n        const unmaskedValue = d.type === SMS || d.type === VOICE\n            ? d.phone\n            : d.type === EMAIL\n                ? d.email\n                : d.maskedValue;\n\n\n        if (nickname && maskedValue) {\n            d.displayText = `${nickname}${SEPARATOR}${unmaskedValue}`;\n        } else if (!nickname && !maskedValue) {\n            d.displayText = \"\";\n        } else {\n            d.displayText = `${nickname}${unmaskedValue}`;\n        }\n\n        d.displayIcon = deviceTypes[d.type]?.icon || \"\";\n        d.displayType = deviceTypes[d.type]?.title || \"Unknown\";\n    }\n\n\n\n    const askToRegister = shouldAskToRegister(devices, allowedTypes);\n\n    return {\n        usableDevices: devices,\n        count: count,\n        canChangeDevice: devices.length > 1,\n        askToRegister\n    };\n};\n\nfunction shouldAskToRegister(devices, allowedTypes) {\n    if (!allowedTypes || allowedTypes.length <= 1) return false;\n\n    const filteredTypes = allowedTypes.filter(type => type !== \"MFA\" && type !== \"ALL\");\n\n    if (filteredTypes.length <= 1 && filteredTypes.includes(\"EMAIL\")) return false;\n\n    const hasOnlyEmailDevice = devices.every(d => d.type === \"EMAIL\");\n    const hasMultipleAllowed = filteredTypes.length > 1;\n\n    return hasOnlyEmailDevice && hasMultipleAllowed;\n}"
               },
               "nodeDescription": {
                 "value": "Remove any devices such as WebAuthN device if the user-agent used by browser does not support it. As well as enrich each device for the end user experiences"
@@ -7428,7 +7428,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "lbyy3qlpxu"
+            "idUnique": "zo3v4ma45d"
           },
           "position": {
             "x": 2532.2557994147396,
@@ -7456,9 +7456,12 @@
               },
               "55lj0sslyj": {
                 "value": "anyTriggersFalse"
+              },
+              "vmsnuyzddw": {
+                "value": "always"
               }
             },
-            "idUnique": "mg9anv48zf"
+            "idUnique": "392d70m7w1"
           },
           "position": {
             "x": 2669.973965716605,
@@ -7478,7 +7481,7 @@
             "id": "zzd1leotqb",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "ir127xap55"
+            "idUnique": "4j017yv257"
           },
           "position": {
             "x": 1430.5104689998138,
@@ -7521,7 +7524,7 @@
                 "value": "Return a failure response"
               }
             },
-            "idUnique": "u9ghup6mee"
+            "idUnique": "f3k2lt27mi"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -7540,7 +7543,7 @@
           "data": {
             "id": "hyur6u50ul",
             "nodeType": "EVAL",
-            "idUnique": "9emhl8xnc8"
+            "idUnique": "l3tofh79bw"
           },
           "position": {
             "x": 1430.5104689998138,
@@ -7657,7 +7660,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "vqginlkc29"
+            "idUnique": "gpxoz4vcoi"
           },
           "position": {
             "x": 2258.189284312952,
@@ -7710,7 +7713,7 @@
             },
             "status": "configured",
             "type": "trigger",
-            "idUnique": "c171enjqhg"
+            "idUnique": "ef04chou5i"
           },
           "position": {
             "x": 2568.686556540059,
@@ -7729,7 +7732,7 @@
           "data": {
             "id": "03ifzsd9xq",
             "nodeType": "EVAL",
-            "idUnique": "ij7iis2kwa"
+            "idUnique": "cc3k0a9neu"
           },
           "position": {
             "x": 2371.0973833046273,
@@ -7748,7 +7751,7 @@
           "data": {
             "id": "vstvm6gqs5",
             "nodeType": "EVAL",
-            "idUnique": "09r9txl1gj"
+            "idUnique": "ai16vm6tek"
           },
           "position": {
             "x": 2709.8216802796533,
@@ -7768,7 +7771,7 @@
             "id": "7d1j6yss2z",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "1eisyj52t0"
+            "idUnique": "paarqvtiqy"
           },
           "position": {
             "x": 2709.8216802796533,
@@ -7799,7 +7802,7 @@
                 "value": "hhywmlniur"
               }
             },
-            "idUnique": "zj15sefti8"
+            "idUnique": "0z8k3vju6t"
           },
           "position": {
             "x": 2850.9568040192476,
@@ -7819,7 +7822,7 @@
             "id": "971quiayar",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "ug4pvqqvov"
+            "idUnique": "k2phne34n4"
           },
           "position": {
             "x": 2709.8216802796533,
@@ -7850,7 +7853,7 @@
                 "value": "1580cu25z3"
               }
             },
-            "idUnique": "1w1i39p2kv"
+            "idUnique": "hn661faflv"
           },
           "position": {
             "x": 2850.9568040192476,
@@ -7870,7 +7873,7 @@
             "id": "kfowptz8ck",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "wajl5taplw"
+            "idUnique": "ii5n87e6b5"
           },
           "position": {
             "x": 2709.8216802796533,
@@ -7907,7 +7910,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error after timeout of PingID Mobile Application\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "icdn6eqhy2"
+            "idUnique": "ll2zd51w4e"
           },
           "position": {
             "x": 2850.9568040192476,
@@ -7956,7 +7959,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"numberMatching\",\n        \"data\": \"{{global.variables.numberMatching}}\",\n        \"tooltip\": \"{{global.variables.numberMatching}}\",\n        \"children\": [\n          {\n            \"text\": \"numberMatching\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "w1ttabiwoj"
+            "idUnique": "6nrzbx7xgt"
           },
           "position": {
             "x": 4036.491843431838,
@@ -7999,7 +8002,7 @@
                 "value": "Fail occurred, send the user down the fail branch with an appropriate error message"
               }
             },
-            "idUnique": "62df9d96hf"
+            "idUnique": "zg9k7maheo"
           },
           "position": {
             "x": 3754.2215959526493,
@@ -8039,7 +8042,7 @@
                 "value": "Allow the user to Retry the PingID Mobile App"
               }
             },
-            "idUnique": "51escum7ps"
+            "idUnique": "4nzqqz46lo"
           },
           "position": {
             "x": 3500.1783732213803,
@@ -8058,7 +8061,7 @@
           "data": {
             "id": "plylkvrpk9",
             "nodeType": "EVAL",
-            "idUnique": "n4iv9bkknm"
+            "idUnique": "21p8annt9b"
           },
           "position": {
             "x": 1110.0273044794467,
@@ -8098,7 +8101,7 @@
                 "value": "With this being a Mobile App push, if the user cancels we want to ensure that the device auth is then closed as well."
               }
             },
-            "idUnique": "cehyu29ysn"
+            "idUnique": "ri5nq45tzm"
           },
           "position": {
             "x": 3189.681100994273,
@@ -8122,7 +8125,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "lwdjvg0lzp"
+            "idUnique": "dvx3a76khb"
           },
           "position": {
             "x": 3302.5891999859487,
@@ -8168,7 +8171,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "1phfu3751l",
+            "idUnique": "xvzqk89g66",
             "isDisabled": false
           },
           "position": {
@@ -8215,7 +8218,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "w1zhi61ou8"
+            "idUnique": "uacl1rfq6h"
           },
           "position": {
             "x": 925.5438592263063,
@@ -8261,7 +8264,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "qv7dnjs0hg"
+            "idUnique": "xalmsd34wi"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -8307,7 +8310,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "5kw6y64oab"
+            "idUnique": "7n6tgo5foi"
           },
           "position": {
             "x": 1260.0273044794467,
@@ -8353,7 +8356,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "sirriwigir"
+            "idUnique": "e0vzydoyhf"
           },
           "position": {
             "x": 930.0273044794467,
@@ -8372,7 +8375,7 @@
           "data": {
             "id": "1hmzcrr39i",
             "nodeType": "EVAL",
-            "idUnique": "wbpt1ly7ql"
+            "idUnique": "obj26ie3d6"
           },
           "position": {
             "x": 3048.545977254679,
@@ -8423,7 +8426,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "g6byvtf1qc"
+            "idUnique": "kw5hppzwhb"
           },
           "position": {
             "x": 236.95302771697763,
@@ -8480,7 +8483,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "njw181kexv"
+            "idUnique": "8winwztmpw"
           },
           "position": {
             "x": 218.24604925095014,
@@ -8537,7 +8540,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "g286c9to3k"
+            "idUnique": "9r20qgmcw6"
           },
           "position": {
             "x": 218.24604925095014,
@@ -8594,7 +8597,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "dm5f7itc0b"
+            "idUnique": "fuc1hdbdiy"
           },
           "position": {
             "x": 2027.289189641232,
@@ -8651,7 +8654,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "o2us1v23zh"
+            "idUnique": "xmilf0z07z"
           },
           "position": {
             "x": 2647.0209379996277,
@@ -8708,7 +8711,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "if4dgosdj3"
+            "idUnique": "trwehi3b8q"
           },
           "position": {
             "x": 5610,
@@ -8765,7 +8768,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "wamr6nxd83"
+            "idUnique": "8byo9r153z"
           },
           "position": {
             "x": 6893.331065640487,
@@ -8822,7 +8825,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "r7ojyjgsf6"
+            "idUnique": "vn0f4r1jwv"
           },
           "position": {
             "x": 1453.4634967167915,
@@ -8879,7 +8882,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "gmxm555op0"
+            "idUnique": "82c0ke0rxy"
           },
           "position": {
             "x": 1545.275607584702,
@@ -8936,7 +8939,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "vjkkyrpffw"
+            "idUnique": "objpvoqp93"
           },
           "position": {
             "x": 664.0273044794467,
@@ -8993,7 +8996,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "ti5x92tk9t"
+            "idUnique": "9mjw87awvu"
           },
           "position": {
             "x": 514.0273044794467,
@@ -9053,7 +9056,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "oizeen5gpg"
+            "idUnique": "2vkke2d54p"
           },
           "position": {
             "x": 2145.281185321277,
@@ -9113,7 +9116,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "iscku1onr4"
+            "idUnique": "v16nbw9o9c"
           },
           "position": {
             "x": 1778.329863598332,
@@ -9173,7 +9176,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "ztro231su9"
+            "idUnique": "xgp6deirne"
           },
           "position": {
             "x": 3330.8162247338673,
@@ -9230,7 +9233,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "rmol3sx86g"
+            "idUnique": "uc17mxlvbh"
           },
           "position": {
             "x": 1800.0273044794467,
@@ -9250,7 +9253,7 @@
             "id": "3tge894dtc",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "spi8wd39v1"
+            "idUnique": "y9b8iwhpcn"
           },
           "position": {
             "x": 1860.0273044794467,
@@ -9281,7 +9284,7 @@
                 "value": "1580cu25z3"
               }
             },
-            "idUnique": "pw2cypuslw"
+            "idUnique": "fi27e3u6ms"
           },
           "position": {
             "x": 2100.0273044794467,
@@ -9301,7 +9304,7 @@
             "id": "hjm5ow9e8m",
             "nodeType": "EVAL",
             "label": "Evaluator",
-            "idUnique": "q0zcz23dm9"
+            "idUnique": "lvz5m1o6tw"
           },
           "position": {
             "x": 1860.0273044794467,
@@ -9338,7 +9341,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error with the backup device\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "v1lp7dod02"
+            "idUnique": "h0r2l4imsm"
           },
           "position": {
             "x": 2100.0273044794467,
@@ -9387,7 +9390,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"false\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "wc56k8udxq"
+            "idUnique": "d994d1nh8m"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -9436,7 +9439,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"false\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "2o1609rb84"
+            "idUnique": "xupzepy7yl"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -9460,7 +9463,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "fglxbypytr"
+            "idUnique": "69ux8vaczi"
           },
           "position": {
             "x": 2220.0273044794467,
@@ -9484,7 +9487,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "k53sht444g"
+            "idUnique": "kyv79mgth8"
           },
           "position": {
             "x": 2220.0273044794467,
@@ -9508,7 +9511,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "vbv930imf6"
+            "idUnique": "cji8jzzwi6"
           },
           "position": {
             "x": 2220.0273044794467,
@@ -9545,7 +9548,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error triggering the backup device\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "kddzkd9wuw"
+            "idUnique": "edxqter1lx"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -9582,7 +9585,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error triggering the backup device\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "jorye1z98g"
+            "idUnique": "ebvcj7ny6x"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -9619,7 +9622,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Error triggering the backup device\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "wh43blh05t"
+            "idUnique": "ccu93nw4af"
           },
           "position": {
             "x": 2400.0273044794467,
@@ -9656,7 +9659,7 @@
                 "value": "Allow the user who forgot their device to fail back to the BackUp devices"
               }
             },
-            "idUnique": "o8iyyaov6b"
+            "idUnique": "yhbi0zixom"
           },
           "position": {
             "x": 1260.0273044794467,
@@ -9675,7 +9678,7 @@
           "data": {
             "id": "ap6djobcf9",
             "nodeType": "EVAL",
-            "idUnique": "u0sgy3zhx5"
+            "idUnique": "kvto06n6zm"
           },
           "position": {
             "x": 1080.0273044794467,
@@ -9712,7 +9715,7 @@
                 "value": "Allow the user who forgot their device to fail back to the BackUp devices"
               }
             },
-            "idUnique": "qlhhxr9vpn"
+            "idUnique": "yrebpz0zky"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -9731,7 +9734,7 @@
           "data": {
             "id": "0yymkc0f5m",
             "nodeType": "EVAL",
-            "idUnique": "y23ljnbkhy"
+            "idUnique": "kbpmyczd28"
           },
           "position": {
             "x": 1430.5104689998138,
@@ -9768,7 +9771,7 @@
                 "value": "Allow the user who forgot their device to fail back to the BackUp devices"
               }
             },
-            "idUnique": "5yviyw2i75"
+            "idUnique": "ewqokweyjf"
           },
           "position": {
             "x": 1290.0273044794467,
@@ -9787,7 +9790,7 @@
           "data": {
             "id": "uadtbojhvr",
             "nodeType": "EVAL",
-            "idUnique": "i77z84jfqw"
+            "idUnique": "n47rci1xbp"
           },
           "position": {
             "x": 1104.2500555500055,
@@ -9806,7 +9809,7 @@
           "data": {
             "id": "w1e5ds9ms3",
             "nodeType": "EVAL",
-            "idUnique": "65d19s7a8j"
+            "idUnique": "cfh37byfe6"
           },
           "position": {
             "x": 4735.746460244591,
@@ -9825,7 +9828,7 @@
           "data": {
             "id": "ehjsjo0m5o",
             "nodeType": "EVAL",
-            "idUnique": "huc1hfp2ux"
+            "idUnique": "8txz3l2rze"
           },
           "position": {
             "x": 1110.0273044794467,
@@ -9871,7 +9874,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "r14aybcffy",
+            "idUnique": "1z1zcf1r0h",
             "isDisabled": false
           },
           "position": {
@@ -9921,7 +9924,7 @@
                 "value": "This node is intended to parse the auth methods used from PingID Authentication.  This will space delimitate any of the identifiers used for session control."
               }
             },
-            "idUnique": "edb9c8yybx"
+            "idUnique": "7svrdnyc41"
           },
           "position": {
             "x": 595.4630101665387,
@@ -9940,7 +9943,7 @@
           "data": {
             "id": "i5mbttnfqn",
             "nodeType": "EVAL",
-            "idUnique": "ci14tmltp6"
+            "idUnique": "c5imth2c28"
           },
           "position": {
             "x": 415.46301016653877,
@@ -9959,7 +9962,7 @@
           "data": {
             "id": "q0wz2ensps",
             "nodeType": "EVAL",
-            "idUnique": "2a18y62znv"
+            "idUnique": "x4j1v19sqi"
           },
           "position": {
             "x": 745.4630101665387,
@@ -9992,7 +9995,7 @@
                 "value": "mfa"
               }
             },
-            "idUnique": "lcmywwxk8x",
+            "idUnique": "zmpm0xvezf",
             "type": "action"
           },
           "position": {
@@ -10066,7 +10069,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "a8s4tj2wz7"
+            "idUnique": "x2h1y3za2p"
           },
           "position": {
             "x": 1935.4770787733214,
@@ -10096,7 +10099,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "fsw5axzb6x"
+            "idUnique": "3ye1qs7177"
           },
           "position": {
             "x": 1407.5574412828362,
@@ -10156,7 +10159,7 @@
               }
             },
             "status": "configured",
-            "idUnique": "nwd7jb6m07"
+            "idUnique": "42fgf9t4mj"
           },
           "position": {
             "x": 1178.02716411306,
@@ -10271,7 +10274,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"themeObject\",\n        \"data\": \"{{global.parameters.themeObject}}\",\n        \"tooltip\": \"{{global.parameters.themeObject}}\",\n        \"children\": [\n          {\n            \"text\": \"themeObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "2tvk9ysovm"
+            "idUnique": "idq6yuh229"
           },
           "position": {
             "x": 696.0135820565299,
@@ -10290,7 +10293,7 @@
           "data": {
             "id": "s2gj7n383t",
             "nodeType": "EVAL",
-            "idUnique": "kly3rg8j2l"
+            "idUnique": "y1972pnocd"
           },
           "position": {
             "x": 1109.1680809621273,
@@ -10360,7 +10363,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"themeObject\",\n        \"data\": \"{{global.parameters.themeObject}}\",\n        \"tooltip\": \"{{global.parameters.themeObject}}\",\n        \"children\": [\n          {\n            \"text\": \"themeObject\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "w616077hes"
+            "idUnique": "vjihbppzjv"
           },
           "position": {
             "x": 1614.1346907356349,
@@ -10379,7 +10382,7 @@
           "data": {
             "id": "lg6s85s40r",
             "nodeType": "EVAL",
-            "idUnique": "ozei8lgq2z"
+            "idUnique": "c87yqjxroa"
           },
           "position": {
             "x": 1751.8528570375006,
@@ -10398,7 +10401,7 @@
           "data": {
             "id": "mgo3vo808l",
             "nodeType": "EVAL",
-            "idUnique": "ooxysfh8vo"
+            "idUnique": "k5i8qlv139"
           },
           "position": {
             "x": 1109.1680809621273,
@@ -10444,7 +10447,7 @@
                 "value": true
               }
             },
-            "idUnique": "im3am1qlyf"
+            "idUnique": "jbbifjon5g"
           },
           "position": {
             "x": 4620.981321659703,
@@ -10513,7 +10516,7 @@
                 "value": "Update variables related to the selected Device. Updated Variables: p1DeviceId, p1DeviceAuthStatus, publicKeyCredentialsOptions, numberMatching"
               }
             },
-            "idUnique": "4o6w244752"
+            "idUnique": "d5fm3pk73t"
           },
           "position": {
             "x": 5860.444818376494,
@@ -10553,7 +10556,7 @@
                 "value": "Create the Device Authentication with the Device selected from the User Select Auth Page"
               }
             },
-            "idUnique": "ty3krz83bh"
+            "idUnique": "6mg3cak6a2"
           },
           "position": {
             "x": 5539.102430338808,
@@ -10580,7 +10583,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "wiwz6boojw"
+            "idUnique": "mep3yi32qb"
           },
           "position": {
             "x": 5653.867568923696,
@@ -10623,7 +10626,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "cz1akf2b6e"
+            "idUnique": "3da67oazjx"
           },
           "position": {
             "x": 5860.444818376494,
@@ -10650,7 +10653,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "lgit1n9z02"
+            "idUnique": "csc4uo93tg"
           },
           "position": {
             "x": 4437.357099923882,
@@ -10669,7 +10672,7 @@
           "data": {
             "id": "40m03lxoeo",
             "nodeType": "EVAL",
-            "idUnique": "w8oitrondy"
+            "idUnique": "29fypyass7"
           },
           "position": {
             "x": 787.8256929244405,
@@ -10720,7 +10723,7 @@
                 "value": "Setting the number of retries so a user only has so many attempts before failing out"
               }
             },
-            "idUnique": "usqw0mc1uj"
+            "idUnique": "pgzksctaxc"
           },
           "position": {
             "x": 2348.631577678919,
@@ -10739,7 +10742,7 @@
           "data": {
             "id": "ub7mrk1jf8",
             "nodeType": "EVAL",
-            "idUnique": "siaz64vnsw"
+            "idUnique": "3cp6kia7m8"
           },
           "position": {
             "x": 2486.3497439807843,
@@ -10782,7 +10785,7 @@
                 "value": "The node to check if the number of retries is less then the value added to this function node"
               }
             },
-            "idUnique": "2dhdjxd4eo"
+            "idUnique": "6i0ssbun8x"
           },
           "position": {
             "x": 2647.0209379996277,
@@ -10807,7 +10810,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "w93o2c1h45"
+            "idUnique": "dabu9n5for"
           },
           "position": {
             "x": 2807.692132018471,
@@ -10862,7 +10865,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"canChangeDevice\",\n        \"data\": \"{{global.variables.canChangeDevice}}\",\n        \"tooltip\": \"{{global.variables.canChangeDevice}}\",\n        \"children\": [\n          {\n            \"text\": \"canChangeDevice\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "73ipnmyfos"
+            "idUnique": "y339kp8gvv"
           },
           "position": {
             "x": 3243.799658641046,
@@ -10908,7 +10911,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "8zjxj24t58"
+            "idUnique": "gw22s3yz0e"
           },
           "position": {
             "x": 2991.316353754292,
@@ -10945,7 +10948,7 @@
                 "value": "On-screen error to show the OTP was incorrect and allow for another attempt"
               }
             },
-            "idUnique": "y89mftd0d"
+            "idUnique": "l0spnn4gbk"
           },
           "position": {
             "x": 2991.316353754292,
@@ -10964,7 +10967,7 @@
           "data": {
             "id": "q8b49qolzr",
             "nodeType": "EVAL",
-            "idUnique": "4sp9mo0zsf"
+            "idUnique": "aoi8z3devo"
           },
           "position": {
             "x": 3083.1284646222025,
@@ -11038,7 +11041,7 @@
                 "value": "Configure initial flow settings"
               }
             },
-            "idUnique": "48yn5g1p7o"
+            "idUnique": "qbl9ssp9xx"
           },
           "position": {
             "x": 374.6711940188433,
@@ -11057,7 +11060,7 @@
           "data": {
             "id": "m2ei55eto",
             "nodeType": "EVAL",
-            "idUnique": "u99jzryypf"
+            "idUnique": "d2tcjfm62c"
           },
           "position": {
             "x": 535.3423880376868,
@@ -11100,7 +11103,7 @@
                 "value": "This will check the count of the Device, if there is only one device, it will avoid the User Select screen"
               }
             },
-            "idUnique": "gko2bbu685"
+            "idUnique": "jm2cym3bjs"
           },
           "position": {
             "x": 4299.638933622016,
@@ -11130,7 +11133,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "2ybcy4txeu"
+            "idUnique": "0wdh326e1i"
           },
           "position": {
             "x": 4116.014711886195,
@@ -11206,7 +11209,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"url\": \"forms.button.deviceReg\",\n        \"data\": \"{{forms.button.deviceReg | translate}}\",\n        \"name\": \"forms.button.deviceReg\",\n        \"children\": [\n          {\n            \"text\": \"forms.button.deviceReg\"\n          }\n        ],\n        \"src\": \"lang.svg\",\n        \"tooltip\": \"{{forms.button.deviceReg}}\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "4a8b54put4"
+            "idUnique": "wic3e9jprp"
           },
           "position": {
             "x": 3060.1754369052246,
@@ -11225,7 +11228,7 @@
           "data": {
             "id": "677nqca8dy",
             "nodeType": "EVAL",
-            "idUnique": "ttrtqlov3v"
+            "idUnique": "rrwaemrvhh"
           },
           "position": {
             "x": 3519.2359912447773,
@@ -11292,7 +11295,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"allowedMethods\",\n        \"data\": \"{{global.parameters.allowedMethods}}\",\n        \"tooltip\": \"{{global.parameters.allowedMethods}}\",\n        \"children\": [\n          {\n            \"text\": \"allowedMethods\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "lsrz3ovxhb"
+            "idUnique": "yh15f4dupt"
           },
           "position": {
             "x": 3725.8132406975756,
@@ -11341,7 +11344,7 @@
                 ]
               }
             },
-            "idUnique": "czv4o4gksa"
+            "idUnique": "0946riepyl"
           },
           "position": {
             "x": 3358.564797225934,
@@ -11360,7 +11363,7 @@
           "data": {
             "id": "s01ftyv9ip",
             "nodeType": "EVAL",
-            "idUnique": "qk22lcp6lg"
+            "idUnique": "5tt9nuxqdm"
           },
           "position": {
             "x": 3174.940575490113,
@@ -11433,7 +11436,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "sw0cg3ttyt"
+            "idUnique": "e6yj55m6gm"
           },
           "position": {
             "x": 3702.860212980598,
@@ -11452,7 +11455,7 @@
           "data": {
             "id": "tpzjtg9iop",
             "nodeType": "EVAL",
-            "idUnique": "gkgs9wj9zk"
+            "idUnique": "30p7s4lfn9"
           },
           "position": {
             "x": 3519.2359912447773,
@@ -11528,7 +11531,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"SUCCESS\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "sga1ph36gd"
+            "idUnique": "e7swrnf3vc"
           },
           "position": {
             "x": 4001.249573301307,
@@ -11552,7 +11555,7 @@
                 "value": "always"
               }
             },
-            "idUnique": "sx65sqzqzn"
+            "idUnique": "ft7c7z2wab"
           },
           "position": {
             "x": 3840.578379282464,
@@ -11621,7 +11624,7 @@
                 "value": "Update variables related to the single Device. Updated Variables: p1DeviceId, p1DeviceAuthStatus, publicKeyCredentialsOptions, numberMatching"
               }
             },
-            "idUnique": "y46guueyq2"
+            "idUnique": "uncfy92c6e"
           },
           "position": {
             "x": 5860.444818376494,
@@ -11661,7 +11664,7 @@
                 "value": "Create the Device Authentication with the Device selected from the User Select Auth Page"
               }
             },
-            "idUnique": "ivoaufckx3"
+            "idUnique": "466yokvwa8"
           },
           "position": {
             "x": 5539.102430338808,
@@ -11685,7 +11688,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "qrofsm978r"
+            "idUnique": "ftcqdq1y3p"
           },
           "position": {
             "x": 5653.867568923696,
@@ -11728,7 +11731,7 @@
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"pingIdUserId\",\n        \"data\": \"{{global.parameters.pingIdUserId}}\",\n        \"tooltip\": \"{{global.parameters.pingIdUserId}}\",\n        \"children\": [\n          {\n            \"text\": \"pingIdUserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             },
-            "idUnique": "s9ah6w2lmf"
+            "idUnique": "ruxi59rght"
           },
           "position": {
             "x": 5860.444818376494,
@@ -11771,7 +11774,7 @@
                 "value": "Ask the user if they would like to register a device"
               }
             },
-            "idUnique": "uoz4wr8q88"
+            "idUnique": "sfzihjc7r9"
           },
           "position": {
             "x": 2807.692132018471,
@@ -11795,7 +11798,7 @@
                 "value": "anyTriggersFalse"
               }
             },
-            "idUnique": "wqn31ri2pb"
+            "idUnique": "ayl513pc4c"
           },
           "position": {
             "x": 2922.457270603359,
@@ -11814,7 +11817,7 @@
           "data": {
             "id": "ghkdhdabxi",
             "nodeType": "EVAL",
-            "idUnique": "r223sr81x9"
+            "idUnique": "dbh91d45xn"
           },
           "position": {
             "x": 3519.2359912447773,
@@ -16672,7 +16675,7 @@
     }
   ],
   "flowColor": "#ff661c",
-  "savedDate": 1747858320376,
+  "savedDate": 1749054332681,
   "variables": [
     {
       "context": "flowInstance",
