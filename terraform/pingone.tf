@@ -1097,8 +1097,8 @@ resource "pingone_application" "im_titanid_app" {
     }
   }
   icon = {
-    id   = pingone_image.im_titanid_logo.id
-    href = pingone_image.im_titanid_logo.uploaded_image.href
+    id   = pingone_image.im_titanid_app_logo.id
+    href = pingone_image.im_titanid_app_logo.uploaded_image.href
   }
 }
 
@@ -1128,8 +1128,8 @@ resource "pingone_application" "im_verde_persona_app" {
   }
 
   icon = {
-    id   = pingone_image.im_verde_persona_logo.id
-    href = pingone_image.im_verde_persona_logo.uploaded_image.href
+    id   = pingone_image.im_verde_persona_app_logo.id
+    href = pingone_image.im_verde_persona_app_logo.uploaded_image.href
   }
 }
 
@@ -1612,6 +1612,12 @@ resource "pingone_image" "im_titanid_logo" {
   image_file_base64 = filebase64("./images/titanid-solutions-icon.png")
 }
 
+resource "pingone_image" "im_titanid_app_logo" {
+  environment_id = pingone_environment.internal_master_environment.id
+
+  image_file_base64 = filebase64("./images/titanid-solutions-app-icon.png")
+}
+
 resource "pingone_branding_theme" "im_titanid_theme" {
   environment_id = pingone_environment.internal_master_environment.id
 
@@ -1694,6 +1700,12 @@ resource "pingone_image" "im_verde_persona_logo" {
   environment_id = pingone_environment.internal_master_environment.id
 
   image_file_base64 = filebase64("./images/verde-persona-icon.png")
+}
+
+resource "pingone_image" "im_verde_persona_app_logo" {
+  environment_id = pingone_environment.internal_master_environment.id
+
+  image_file_base64 = filebase64("./images/verde-persona-app-icon.png")
 }
 
 resource "pingone_branding_theme" "im_verde_persona_theme" {
