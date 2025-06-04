@@ -1718,7 +1718,7 @@ resource "pingone_branding_theme" "im_verde_persona_theme" {
 resource "pingone_image" "im_environment_3_logo" {
   environment_id = pingone_environment.internal_master_environment.id
 
-  image_file_base64 = filebase64("./images/silver-surfer-icon.png")
+  image_file_base64 = filebase64("./images/silver-surfers-icon.png")
 }
 
 resource "pingone_branding_theme" "im_environment_3_theme" {
@@ -2528,7 +2528,7 @@ resource "pingone_application_secret" "environment_3_titan_solutions_secret" {
 
 resource "pingone_image" "environment_3_logo" {
   environment_id = pingone_environment.environment_3.id
-  image_file_base64 = filebase64("./images/silver-surfer-icon.png")
+  image_file_base64 = filebase64("./images/silver-surfers-icon.png")
 }
 
 resource "pingone_branding_theme" "environment_3_theme" {
