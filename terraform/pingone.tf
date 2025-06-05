@@ -2580,9 +2580,24 @@ resource "pingone_identity_provider" "microsoft" {
   name    = "Microsoft"
   enabled = true
 
-  microsoft = {
-    client_id     = var.microsoft_client_id == "" ? "client-id" : var.microsoft_client_id
-    client_secret = var.microsoft_client_secret == "" ? "client-id" : var.microsoft_client_secret
+  icon = {
+    href = "https://purepng.com/public/uploads/large/purepng.com-microsoft-logo-iconlogobrand-logoiconslogos-251519939091wmudn.png"
+    id   = "c6dbb456-0857-4fab-bfb0-909944233017"
+  }
+
+  # microsoft = {
+  #   client_id     = var.microsoft_client_id == "" ? "client-id" : var.microsoft_client_id
+  #   client_secret = var.microsoft_client_secret == "" ? "client-id" : var.microsoft_client_secret
+  # }
+
+  openid_connect = {
+    authorization_endpoint = "https://az-endpoint.com"
+    client_id = "client-id"
+    client_secret = "client-secret"
+    issuer = "https://issuer.com"
+    jwks_endpoint = "https://jwks-endpoint.com"
+    scopes = [ "openid" ]
+    token_endpoint = "https://token-endpoint.com"
   }
 
   lifecycle {
@@ -2617,22 +2632,22 @@ resource "pingone_sign_on_policy" "environment_3_authentication_policy" {
   name        = "Microsoft"
 }
 
-# resource "pingone_sign_on_policy_action" "microsoft_identity_provider_action" {
-#   environment_id    = pingone_environment.environment_3.id
-#   sign_on_policy_id = pingone_sign_on_policy.environment_3_authentication_policy.id
+resource "pingone_sign_on_policy_action" "microsoft_identity_provider_action" {
+  environment_id    = pingone_environment.environment_3.id
+  sign_on_policy_id = pingone_sign_on_policy.environment_3_authentication_policy.id
 
-#   priority = 1
+  priority = 1
 
-#   conditions {
-#     last_sign_on_older_than_seconds = 1800 // 30 minutes
-#   }
+  conditions {
+    last_sign_on_older_than_seconds = 1800 // 30 minutes
+  }
 
-#   identity_provider {
-#     identity_provider_id = pingone_identity_provider.microsoft.id
-#   }
-# }
+  identity_provider {
+    identity_provider_id = pingone_identity_provider.microsoft.id
+  }
+}
 
-## Error:
+## Error leaving this here until it is fixed for Microsoft IDPs:
 # Error: Error when calling `CreateSignOnPolicyAction`: The request could not be completed. One or more validation errors were in the request.
 # │ 
 # │   with pingone_sign_on_policy_action.my_policy_identity_provider,
