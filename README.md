@@ -114,7 +114,6 @@ terraform apply --auto-approve
 
 Destroy your environment when you are done with it.
 ```bash
-terraform state rm pingone_identity_provider_attribute.microsoft_upn
 terraform destroy --auto-approve
 ```
 
