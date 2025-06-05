@@ -117,6 +117,20 @@ Destroy your environment when you are done with it.
 terraform destroy --auto-approve
 ```
 
+> [!WARNING]
+> If you see the following error while attempting to destroy and environment:
+> ```
+> ╷
+> │ Error: Invalid parameter value - Unmappable identity provider type
+> │ 
+> │ The identity provider ID provided (b738f367-e828-4f76-9ab8-1ed4e843ecf7) relates to an unknown type.  Attributes cannot be mapped to this identity provider.
+> ╵
+> ```
+> Run the following command and then re-run the destroy command above:
+> ```
+> terraform state rm pingone_identity_provider_attribute.microsoft_upn
+> ```
+
 ### Additional Documentation
 
 #### QuickStart for Set up and Running PingOne B2B demo
