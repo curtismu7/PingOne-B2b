@@ -137,4 +137,4 @@ Delegated Admin documentation: [Google Docs Link](https://docs.google.com/docume
 <img src="https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true" width="600">
 
 
-Diagram:  [Github Link](https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true)
+Diagram:  [Github Link to diagram](https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true)
