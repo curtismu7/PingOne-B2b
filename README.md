@@ -27,27 +27,27 @@ In your Administrators environment, create a new group. Name it whatever you wou
 Add your own admin account to this group. Do not provide it with any Roles. \
 
 You will need the Group ID from this group and the Environment ID of the Administrators environment.
-<img src="https://github.com/user-attachments/assets/28ea7018-f9dd-45d3-85cf-51b9c15319f0" width="300">
+<img src="https://github.com/user-attachments/assets/28ea7018-f9dd-45d3-85cf-51b9c15319f0" width="500">
 > [!WARNING]
 > Terraform will reach back into the administrators environment and use this group to provide permissions to the environments it creates for Administrators. Once Terraform has added Roles to this group, you will no longer be able to add or remove yourself from the group. If this happens, you can still create another Administator account, sign into it and provide your initial account with access.
 
 Create a new PingOne environment with the PingOne SSO and PingOne DaVinci services. Name it whatever you like. Suggestion: **Terrform Administration**. \
 This environment will only be used to allow Terraform to create and manage new environments within PingOne.
-<img src="https://github.com/curtismu7/Master-Flow/assets/117233001/81e61e41-df67-4c3a-ab42-2f9c6855a519" width="300">
+<img src="https://github.com/curtismu7/Master-Flow/assets/117233001/81e61e41-df67-4c3a-ab42-2f9c6855a519" width="500">
 
 In your new environment, create a worker application. Name it whatever you like. Suggestion: **Pingone Terrform Administration**. \
 Enable it.\
 Navigate to the Roles tab and provide it with the following permissions.
 > [!WARNING]
 > Do not assign Environment Admin permissions at the Organization level. The Terraform configuration will add any permissions needed to maintain the environments it creates moving forward. If you apply Environment Admin permissions at the Organization level, Terraform will error out with a message about duplicate permissions.
-<img src="https://github.com/user-attachments/assets/c86b8175-ee5f-4a05-aca1-d4e2dcac2ab0" width="300"> 
+<img src="https://github.com/user-attachments/assets/c86b8175-ee5f-4a05-aca1-d4e2dcac2ab0" width="500"> 
 <br />
 
 In your new environment, create a user. Its email address must be reachable, but its username and all other attributes may be anything you desire. \
 Navigate to the Roles tab and provide this user with the following permissions.
 > [!WARNING]
 > Do not apply DaVinci Admin rights at the Organization level. The Terraform configuration will add any permissions needed to maintain the environments it creates moving forward.
-<img src="https://github.com/curtismu7/Master-Flow/assets/117233001/8ce0bd20-1e78-4389-9bad-cd58ee7d0ec9" width="300">
+<img src="https://github.com/curtismu7/Master-Flow/assets/117233001/8ce0bd20-1e78-4389-9bad-cd58ee7d0ec9" width="500">
 <br />
 
 Navigate to Applications -> Applications, select "PingOne Self-Service - MyAccount", and then choose "Overview". Using the URL from "Home Page URL", sign in as this user and execute a password reset. Once the user's password has been reset, you can log out of the PingOne Dock. If you do not reset their password, you will see errors relating to the user's credentials later.
@@ -133,5 +133,7 @@ Full Documentation: [Google Docs Link](https://docs.google.com/document/d/1Aa5cr
 Delegated Admin documentation: [Google Docs Link](https://docs.google.com/document/d/1_Yewn_P7gXx0HzyImY952Po--7AFpfBDyj-au-3be1U/edit?tab=t.0#heading=h.ndzfhdfx9269)
 
 #### Diagram showing Environments 
-<img src="[https://github.com/user-attachments/assets/28ea7018-f9dd-45d3-85cf-51b9c15319f0](https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true)" width="600">
+
+<img src="[https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true]" width="600">
+
 Diagram:  [Github Link](https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true)
