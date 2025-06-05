@@ -22,9 +22,9 @@
 
 #### Configure PingOne
 
-In your Administrators environment, create a new group. Name it whatever you would like. Suggestion: **PingOne B2B Administrators** \
+In your Administrators environment, create a new group. Name it whatever you would like. Suggestion: **PingOne B2B Administrators**
 > [!WARNING]
-Add your own admin account to this group. Do not provide it with any Roles. \
+Add your own admin account to this group. Do not provide it with any Roles.
 
 You will need the Group ID from this group and the Environment ID of the Administrators environment.
 <img src="https://github.com/user-attachments/assets/28ea7018-f9dd-45d3-85cf-51b9c15319f0" width="500">
