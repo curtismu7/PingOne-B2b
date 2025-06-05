@@ -23,7 +23,9 @@
 #### Configure PingOne
 
 In your Administrators environment, create a new group. Name it whatever you would like. Suggestion: **PingOne B2B Administrators** \
+> [!WARNING]
 Add your own admin account to this group. Do not provide it with any Roles. \
+
 You will need the Group ID from this group and the Environment ID of the Administrators environment.
 <img src="https://github.com/user-attachments/assets/28ea7018-f9dd-45d3-85cf-51b9c15319f0" width="300">
 > [!WARNING]
@@ -129,3 +131,7 @@ Full Documentation: [Google Docs Link](https://docs.google.com/document/d/1Aa5cr
 #### Delegated Admin overview in PingOne
 
 Delegated Admin documentation: [Google Docs Link](https://docs.google.com/document/d/1_Yewn_P7gXx0HzyImY952Po--7AFpfBDyj-au-3be1U/edit?tab=t.0#heading=h.ndzfhdfx9269)
+
+#### Diagram showing Environments
+
+https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true
