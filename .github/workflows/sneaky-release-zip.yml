@@ -31,14 +31,14 @@ jobs:
           exclusions: '*.git* *.DS_* TODO.md .editorconfig'
           directory: 'terraform'
       - run: |
-          RELEASE="1.0.0"
-          RELEASE_TITLE="1.0.0"
+          RELEASE="1.0.1"
+          RELEASE_TITLE="1.0.1"
           gh release create $RELEASE --title $RELEASE_TITLE --notes "Official ${{ steps.version.outputs.version }} Release of the PingOne B2B Terraform configuration" --latest -R curtismu7/PingOne-B2b 
           gh release upload $RELEASE ./terraform/tf-release.zip -R curtismu7/PingOne-B2b
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          sed -i -E "s/\/download\/(.*?)\/tf-release.zip/\/download\/1.0.0\/tf-release.zip/" ./README.md
+          sed -i -E "s/\/download\/(.*?)\/tf-release.zip/\/download\/1.0.1\/tf-release.zip/" ./README.md
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Automated with Github Actions (Create Release Zip)
