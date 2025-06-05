@@ -134,4 +134,4 @@ Delegated Admin documentation: [Google Docs Link](https://docs.google.com/docume
 
 #### Diagram showing Environments
 
-https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true
+Dagram  [Github Link]https://github.com/curtismu7/CDN/blob/main/PingOne%20B2B%20Model.png?raw=true
