@@ -2512,7 +2512,7 @@ resource "pingone_application" "environment_3_titan_solutions" {
     grant_types                 = ["AUTHORIZATION_CODE"]
     response_types              = ["CODE"]
     token_endpoint_auth_method  = "NONE"
-    redirect_uris               = ["https://auth.pingone.com/${pingone_environment.environment_3.id}/rp/callback/openid_connect"]
+    redirect_uris               = ["https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
   }
 
   # icon = {
