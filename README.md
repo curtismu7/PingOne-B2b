@@ -1,5 +1,8 @@
 # PingOne B2B Demo Environment
 
+> [!TIP]
+> Want cleaner, easier to follow documentation? Check out the [Confluence Page](https://pingidentity.atlassian.net/wiki/x/vQWMXg) instead!
+
 ## Table of Contents
 - [PingOne B2B Demo Environment](#pingone-b2b-demo-environment)
   - [Table of Contents](#table-of-contents)
