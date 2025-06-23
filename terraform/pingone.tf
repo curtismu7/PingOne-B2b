@@ -1746,11 +1746,11 @@ resource "pingone_branding_theme" "im_environment_3_theme" {
   }
 
   background_color   = "#F3F3F3"
-  button_text_color  = "#F3F3F3"
-  heading_text_color = "#CCCCCC"
+  button_text_color  = "#FFFFFF"
+  heading_text_color = "#FFFFFF"
   card_color         = "#5A5A5A"
-  body_text_color    = "#C0C0C0"
-  link_text_color    = "#CCCCCC"
+  body_text_color    = "#FFFFFF"
+  link_text_color    = "#FFFFFF"
   button_color       = "#C0C0C0"
 }
 
@@ -1811,17 +1811,6 @@ resource "pingone_agreement_localization" "im_titanid_agreement_en" {
 # resource "time_offset" "now" { 
 #   offset_seconds = 60
 # }
-
-resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
-  environment_id            = pingone_environment.internal_master_environment.id
-  agreement_id              = pingone_agreement.im_titanid_agreement.id
-  agreement_localization_id = pingone_agreement_localization.im_titanid_agreement_en.id
-
-  # effective_at      = time_offset.now.rfc3339
-  content_type      = "text/plain"
-  require_reconsent = true
-  text              = var.pingone_agreement_localization_revision_im_titanid_agreement_en_now_text
-}
 
 resource "pingone_agreement_localization_enable" "im_titanid_agreement_en_enable" {
   environment_id            = pingone_environment.internal_master_environment.id
@@ -2136,6 +2125,34 @@ resource "pingone_application" "credentials_dv_worker_app" {
 resource "pingone_application_secret" "credentials_dv_worker_secret" {
   environment_id = pingone_environment.credentials_environment.id
   application_id = pingone_application.credentials_dv_worker_app.id
+}
+
+#################################################
+#  Credentials Environment - Application Roles  #
+#################################################
+
+resource "pingone_application_role_assignment" "credentials_dv_id_admin" {
+  environment_id = pingone_environment.credentials_environment.id
+  application_id = pingone_application.credentials_dv_worker_app.id
+  role_id        = data.pingone_role.identity_data_admin.id
+
+  scope_environment_id = pingone_environment.credentials_environment.id
+}
+
+resource "pingone_application_role_assignment" "credentials_dv_env_admin" {
+  environment_id = pingone_environment.credentials_environment.id
+  application_id = pingone_application.credentials_dv_worker_app.id
+  role_id        = data.pingone_role.environment_admin.id
+
+  scope_environment_id = pingone_environment.credentials_environment.id
+}
+
+resource "pingone_application_role_assignment" "credentials_dv_dv_admin" {
+  environment_id = pingone_environment.credentials_environment.id
+  application_id = pingone_application.credentials_dv_worker_app.id
+  role_id        = data.pingone_role.davinci_admin.id
+
+  scope_environment_id = pingone_environment.credentials_environment.id
 }
 
 ##########################################
