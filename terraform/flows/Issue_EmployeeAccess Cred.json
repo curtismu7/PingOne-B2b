@@ -12,10 +12,10 @@
     "variablesConnector",
     "stringsConnector"
   ],
-  "createdDate": 1745500854632,
-  "currentVersion": 14,
+  "createdDate": 1752720655345,
+  "currentVersion": 22,
   "customerId": "9e7a1b9c40541ad3300834c5539253e7",
-  "deployedDate": 1745500856304,
+  "deployedDate": 1752720657908,
   "description": "Imported on Wed Apr 23 2025 17:07:00 GMT+0000 (Coordinated Universal Time)",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -58,7 +58,7 @@
   "isInputSchemaSaved": true,
   "isOutputSchemaSaved": false,
   "name": "Issue EmployeeAccess Cred",
-  "publishedVersion": 14,
+  "publishedVersion": 22,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "intermediateLoadingScreenCSS": "",
@@ -76,9 +76,9 @@
     "flowTimeoutInSeconds": 0
   },
   "timeouts": "null",
-  "updatedDate": 1745500856354,
+  "updatedDate": 1752720657952,
   "flowId": "6a21e2e98b64c0b036d44b3bc5d38544",
-  "versionId": 14,
+  "versionId": 22,
   "graphData": {
     "elements": {
       "nodes": [
@@ -504,8 +504,8 @@
             "label": "Evaluator"
           },
           "position": {
-            "x": 692.0176851327728,
-            "y": 458.94892442482177
+            "x": 720,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -595,8 +595,8 @@
             }
           },
           "position": {
-            "x": 861.1041309734966,
-            "y": 458.94892442482177
+            "x": 900,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -619,8 +619,8 @@
             }
           },
           "position": {
-            "x": 981.8801637168708,
-            "y": 458.94892442482177
+            "x": 1020,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -652,8 +652,8 @@
             }
           },
           "position": {
-            "x": 1150.9666095575944,
-            "y": 603.8801637168707
+            "x": 1170,
+            "y": 600
           },
           "group": "nodes",
           "removed": false,
@@ -754,7 +754,7 @@
                 "value": "{\n\t\"type\": \"object\",\n\t\"properties\": {\n\t\t\"selfie\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"displayName\": \"selfie\",\n\t\t\t\"preferredControlType\": \"textField\",\n\t\t\t\"enableParameters\": true,\n\t\t\t\"propertyName\": \"selfie\"\n\t\t},\n\t\t\"verifiers\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"displayName\": \"verifiers\",\n\t\t\t\"preferredControlType\": \"textField\",\n\t\t\t\"enableParameters\": true,\n\t\t\t\"propertyName\": \"verifiers\"\n\t\t},\n\t\t\"accessType\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"displayName\": \"accessType\",\n\t\t\t\"preferredControlType\": \"textField\",\n\t\t\t\"enableParameters\": true,\n\t\t\t\"propertyName\": \"accessType\"\n\t\t}\n\t}\n}"
               },
               "selfie": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"IMAGE\",\n        \"data\": \"{{local.pn9su1zdtl.payload.output.selfie._embedded.verifiedData[0].data.IMAGE}}\",\n        \"tooltip\": \"{{local.pn9su1zdtl.payload.output.selfie._embedded.verifiedData[0].data.IMAGE}}\",\n        \"children\": [\n          {\n            \"text\": \"IMAGE\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"IMAGE\",\n        \"data\": \"{{local.hergjvn7jd.payload.output.backgroundReplace.data.IMAGE}}\",\n        \"tooltip\": \"{{local.hergjvn7jd.payload.output.backgroundReplace.data.IMAGE}}\",\n        \"children\": [\n          {\n            \"text\": \"IMAGE\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               },
               "verifiers": {
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"verifiedDocuments\",\n        \"data\": \"{{local.4li2m2xj45.payload.output.transaction.verifiedDocuments}}\",\n        \"tooltip\": \"{{local.4li2m2xj45.payload.output.transaction.verifiedDocuments}}\",\n        \"children\": [\n          {\n            \"text\": \"verifiedDocuments\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
@@ -765,7 +765,7 @@
             }
           },
           "position": {
-            "x": 3044,
+            "x": 3390,
             "y": 1080
           },
           "group": "nodes",
@@ -1053,8 +1053,8 @@
             "idUnique": "mbb1ucl3yi"
           },
           "position": {
-            "x": 518.7583476106014,
-            "y": 454
+            "x": 540,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -1135,7 +1135,7 @@
             "idUnique": "y1904vo92t"
           },
           "position": {
-            "x": 1740,
+            "x": 1770,
             "y": 450
           },
           "group": "nodes",
@@ -1195,8 +1195,8 @@
             "idUnique": "lb31g4gkg6"
           },
           "position": {
-            "x": 398.7583476106014,
-            "y": 334
+            "x": 420,
+            "y": 330
           },
           "group": "nodes",
           "removed": false,
@@ -1234,8 +1234,8 @@
             }
           },
           "position": {
-            "x": 1150.9666095575944,
-            "y": 458.94892442482177
+            "x": 1170,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -1253,8 +1253,8 @@
             "label": "Evaluator"
           },
           "position": {
-            "x": 1271.7426423009686,
-            "y": 458.94892442482177
+            "x": 1290,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -1539,7 +1539,7 @@
             "name": "PingOne Verify",
             "label": "PingOne Verify",
             "status": "configured",
-            "capabilityName": "readSelfie",
+            "capabilityName": "readVerifiedData",
             "type": "action",
             "properties": {
               "userId": {
@@ -1547,30 +1547,17 @@
               },
               "transactionId": {
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.d4lz7ki5k6.payload.output.transaction.id}}\",\n        \"tooltip\": \"{{local.d4lz7ki5k6.payload.output.transaction.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "verifiedType": {
+                "value": [
+                  "SELFIE"
+                ]
               }
             }
           },
           "position": {
             "x": 2825,
             "y": 1079
-          },
-          "group": "nodes",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": false,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "c73wzcag26",
-            "nodeType": "EVAL"
-          },
-          "position": {
-            "x": 2934.5,
-            "y": 1079.5
           },
           "group": "nodes",
           "removed": false,
@@ -1606,8 +1593,8 @@
             "idUnique": "1crw19o0c0"
           },
           "position": {
-            "x": 1423,
-            "y": 459
+            "x": 1470,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -1624,8 +1611,8 @@
             "nodeType": "EVAL"
           },
           "position": {
-            "x": 1588.5,
-            "y": 454.5
+            "x": 1620,
+            "y": 450
           },
           "group": "nodes",
           "removed": false,
@@ -2000,9 +1987,110 @@
           "grabbable": true,
           "pannable": false,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "b42gtfzo3v",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 2957.5,
+            "y": 1078.75
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "hergjvn7jd",
+            "nodeType": "CONNECTION",
+            "connectionId": "0960c49c995f805c32363dedecc78fde",
+            "connectorId": "pingOneVerifyConnector",
+            "name": "PingOne Verify",
+            "label": "PingOne Verify",
+            "status": "configured",
+            "capabilityName": "backgroundReplacer",
+            "type": "action",
+            "properties": {
+              "userId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"p1UserId\",\n        \"data\": \"{{local.85g8t6bdy8.payload.output.p1UserId}}\",\n        \"tooltip\": \"{{local.85g8t6bdy8.payload.output.p1UserId}}\",\n        \"children\": [\n          {\n            \"text\": \"p1UserId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "transactionId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.d4lz7ki5k6.payload.output.transaction.id}}\",\n        \"tooltip\": \"{{local.d4lz7ki5k6.payload.output.transaction.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "colorPicker": {
+                "value": "#9b9b9b5e"
+              },
+              "selfieId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.pn9su1zdtl.payload.output.rawResponse._embedded.verifiedData[0].id}}\",\n        \"tooltip\": \"{{local.pn9su1zdtl.payload.output.rawResponse._embedded.verifiedData[0].id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "aspectWidth": {
+                "value": 3
+              },
+              "aspectHeight": {
+                "value": 4
+              }
+            }
+          },
+          "position": {
+            "x": 3120,
+            "y": 1080
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "mr9zx3jso",
+            "nodeType": "EVAL"
+          },
+          "position": {
+            "x": 3270,
+            "y": 1080
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
         }
       ],
       "edges": [
+        {
+          "data": {
+            "id": "5dsp6gvcvv",
+            "source": "wxgj2fx422",
+            "target": "146k1ptidy"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
         {
           "data": {
             "id": "0oreswm5yz",
@@ -2119,9 +2207,9 @@
         },
         {
           "data": {
-            "id": "kw6nmqpggn",
-            "source": "c73wzcag26",
-            "target": "pxcgf17ixw"
+            "id": "glsj8f9iy9",
+            "source": "146k1ptidy",
+            "target": "ieqk7h2bd9"
           },
           "position": {
             "x": 0,
@@ -2635,9 +2723,9 @@
         },
         {
           "data": {
-            "id": "apqassxt93",
-            "source": "pn9su1zdtl",
-            "target": "c73wzcag26"
+            "id": "703dfe57yx",
+            "source": "tp6ros78cx",
+            "target": "nwvbb70vbs"
           },
           "position": {
             "x": 0,
@@ -2730,9 +2818,9 @@
         },
         {
           "data": {
-            "id": "5dsp6gvcvv",
-            "source": "wxgj2fx422",
-            "target": "146k1ptidy"
+            "id": "rj9lcsj3m3",
+            "source": "pn9su1zdtl",
+            "target": "b42gtfzo3v"
           },
           "position": {
             "x": 0,
@@ -2749,9 +2837,9 @@
         },
         {
           "data": {
-            "id": "glsj8f9iy9",
-            "source": "146k1ptidy",
-            "target": "ieqk7h2bd9"
+            "id": "o5fzbkwyki",
+            "source": "b42gtfzo3v",
+            "target": "hergjvn7jd"
           },
           "position": {
             "x": 0,
@@ -2768,9 +2856,28 @@
         },
         {
           "data": {
-            "id": "703dfe57yx",
-            "source": "tp6ros78cx",
-            "target": "nwvbb70vbs"
+            "id": "fd6wg7pd7w",
+            "source": "hergjvn7jd",
+            "target": "mr9zx3jso"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "pejipfa4jz",
+            "source": "mr9zx3jso",
+            "target": "pxcgf17ixw"
           },
           "position": {
             "x": 0,
@@ -2835,7 +2942,7 @@
     }
   ],
   "flowColor": "#ff661c",
-  "savedDate": 1745500854387,
+  "savedDate": 1752720655100,
   "variables": [
     {
       "context": "flowInstance",

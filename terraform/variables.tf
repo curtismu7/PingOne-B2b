@@ -84,10 +84,7 @@ variable "environment_description_master" {
   description = "Description of the PingOne Environment"
 }
 
-variable "pingone_agreement_localization_revision_im_titanid_agreement_en_now_text" {
-  type        = string
-  description = "Text for agreement"
-}
+
 
 variable "environment_name_credentials" {
   type        = string
@@ -119,7 +116,7 @@ variable "microsoft_client_secret" {
   description = "Microsoft Client Secret"
 }
 
-variable "environment_name_4" {
+variable "external_IdP_Env" {
   type        = string
   description = "Name of the PingOne Environment"
 }

@@ -1330,19 +1330,21 @@ resource "pingone_application_role_assignment" "im_theme_client_app_developer" {
 ##############################################################
 
 resource "pingone_identity_provider" "im_environment_3_identity_provider" {
-  environment_id = pingone_environment.internal_master_environment.id
-  registration_population_id = pingone_population.im_environment_3_population.id
-  name    = var.environment_name_3
+   environment_id = "2ef80e6b-72c9-4474-8626-6d5e623dc106"
+  registration_population_id = "7cc7b245-792e-495f-b69b-2a64241a0841"
+  name    = "Entra ID"
   enabled = true
 
   openid_connect = {
-    client_id = pingone_application.environment_3_titan_solutions.oidc_options.client_id
-    client_secret = pingone_application_secret.environment_3_titan_solutions_secret.secret
-    authorization_endpoint = "https://auth.pingone.com/${pingone_environment.environment_3.id}/as/authorize"
-    issuer = "https://auth.pingone.com/${pingone_environment.environment_3.id}/as"
-    jwks_endpoint = "https://auth.pingone.com/${pingone_environment.environment_3.id}/as/jwks"
+    client_id = "c73b1709-6a9e-4c86-9803-0386684cf1e4"
+    client_secret = "d3can3poxZqUX4ZOZCR~rFIA94Pcwir_~HvXA.kqvBMJkK5w90UAsloj1koaFnkf""
+    authorization_endpoint = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as/authorize"
+    issuer = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as"
+    jwks_endpoint = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as/jwks"
     scopes = [ "openid" ]
-    token_endpoint = "https://auth.pingone.com/${pingone_environment.environment_3.id}/as/token"
+    token_endpoint = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as/token"
+    token_endpoint_auth_method = "CLIENT_SECRET_BASIC"
+    pkce_method = "S256"
   }
 
   icon = {
@@ -1354,7 +1356,7 @@ resource "pingone_identity_provider" "im_environment_3_identity_provider" {
 resource "pingone_identity_provider" "im_environment_4_identity_provider" {
   environment_id = pingone_environment.internal_master_environment.id
   registration_population_id = pingone_population.im_environment_4_population.id
-  name    = var.environment_name_4
+  name    = var.external_IdP_Env
   enabled = true
 
   openid_connect = {
@@ -1437,164 +1439,7 @@ resource "pingone_language_update" "spanish" {
   default     = false
 }
 
-###############################################
-#  Internal Master Environment - Credentials  #
-###############################################
 
-resource "pingone_credential_type" "im_internal_access_credential_type" {
-  environment_id   = pingone_environment.internal_master_environment.id
-  title            = "InternalAccess"
-  description      = "Internal Access Credential"
-  card_type        = "InternalAccess"
-  revoke_on_delete = true
-  management_mode  = "MANAGED"
-
-  card_design_template = <<-EOT
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 480">
-<rect fill="none" width="736" height="476" stroke="#CACED3" stroke-width="3" rx="10" ry="10" x="2" y="2"></rect>
-<rect fill="$${cardColor}" height="476" rx="10" ry="10" width="736" x="2" y="2"></rect>
-<image href="$${backgroundImage}" style="opacity:50%" height="476" rx="10" ry="10" width="736" x="2" y="2"></image>
-<image href="$${logoImage}" x="42" y="43" height="90px" width="90px"></image>
-<line y2="160" x2="695" y1="160" x1="42.5" stroke="$${textColor}"></line>
-<text fill="$${textColor}" font-weight="450" font-size="30" x="160" y="90">$${cardTitle}</text>
-<text fill="$${textColor}" font-size="25" font-weight="300" x="160" y="130">$${cardSubtitle}</text>
-<image href="data:image/jpeg;base64,$${fields[0].value}" x="590" y="30" height="120px" width="120px"></image>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="278">$${fields[2].value}</text>
-</svg>
-EOT
-
-  metadata = {
-    name               = "InternalAccess"
-    description        = "Internal Access Credential"
-    bg_opacity_percent = 0
-
-    background_image = pingone_image.credentials_background_image.uploaded_image.href
-    logo_image       = pingone_image.credentials_logo_image.uploaded_image.href
-
-    card_color = "#ffffff"
-    text_color = "#E53935"
-
-    fields = [
-      {
-        type       = "Alphanumeric Text"
-        title      = "selfie"
-        is_visible = true
-        required   = false
-      },
-      {
-        type       = "Directory Attribute"
-        title      = "unique_identifier"
-        attribute  = "id"
-        is_visible = false
-        required   = false
-      },
-      {
-        type       = "Alphanumeric Text"
-        title      = "verifiers"
-        is_visible = true
-        required   = false
-      },
-      {
-        type       = "Alphanumeric Text"
-        title      = "accessType"
-        is_visible = true
-        required   = false
-      }     
-    ]
-  }
-}
-
-resource "pingone_credential_type" "im_verified_employee_credential_type" {
-  environment_id   = pingone_environment.internal_master_environment.id
-  title            = "VerifiedEmployee"
-  card_type        = "VerifiedEmployee"
-  revoke_on_delete = true
-
-  card_design_template = <<-EOT
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 480">
-<rect fill="none" width="736" height="476" stroke="#CACED3" stroke-width="3" rx="10" ry="10" x="2" y="2"></rect>
-<rect fill="$${cardColor}" height="476" rx="10" ry="10" width="736" x="2" y="2"></rect>
-<image href="$${backgroundImage}" style="opacity:50%" height="476" rx="10" ry="10" width="736" x="2" y="2"></image>
-<image href="$${logoImage}" x="42" y="43" height="90px" width="90px"></image>
-<line y2="160" x2="695" y1="160" x1="42.5" stroke="$${textColor}"></line>
-<text fill="$${textColor}" font-weight="450" font-size="30" x="160" y="90">$${cardTitle}</text>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="228">$${fields[0].value}</text>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="278">$${fields[1].value}</text>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="328">$${fields[2].value}</text>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="378">$${fields[3].value}</text>
-<text fill="$${textColor}" font-weight="500" font-size="20" x="50" y="428">$${fields[4].value}</text>
-</svg>
-EOT
-
-  metadata = {
-    name               = "VerifiedEmployee"
-    bg_opacity_percent = 0
-
-    background_image = pingone_image.credentials_background_image.uploaded_image.href
-    logo_image       = pingone_image.credentials_logo_image.uploaded_image.href
-
-    card_color = "#ffffff"
-    text_color = "#000000"
-
-    fields = [
-      {
-        type       = "Directory Attribute"
-        title      = "givenName"
-        attribute  = "name.given"
-        is_visible = true
-      },
-      {
-        type       = "Directory Attribute"
-        title      = "surname"
-        attribute  = "name.family"
-        is_visible = true
-      },
-      {
-        type       = "Directory Attribute"
-        title      = "displayName"
-        attribute  = "name.formatted"
-        is_visible = true
-      },
-      {
-        type       = "Directory Attribute"
-        title      = "mail"
-        attribute  = "email"
-        is_visible = true
-      },      
-      {
-        type       = "Directory Attribute"
-        title      = "jobTitle"
-        attribute  = "title"
-        is_visible = true
-      }
-    ]
-  }
-}
-
-resource "pingone_credential_issuance_rule" "im_verified_employee_credential_issuance_rule" {
-  environment_id                = pingone_environment.internal_master_environment.id
-  credential_type_id            = pingone_credential_type.im_verified_employee_credential_type.id
-
-  status = "ACTIVE"
-
-  filter = {
-    population_ids = [pingone_population.im_employee_creds_population.id]
-  }
-
-  automation = {
-    issue  = "PERIODIC"
-    revoke = "PERIODIC"
-    update = "PERIODIC"
-  }
-
-  notification = {
-    methods = ["EMAIL", "SMS"]
-    template = {
-      locale  = "en"
-      variant = "credential_issued_template_B"
-    }
-  }
-}
 
 ###########################################
 #  Interal Master Environment - Branding  #
@@ -1731,7 +1576,7 @@ resource "pingone_branding_theme" "im_verde_persona_theme" {
 resource "pingone_image" "im_environment_3_logo" {
   environment_id = pingone_environment.internal_master_environment.id
 
-  image_file_base64 = filebase64("./images/silver-surfers-icon.png")
+  image_file_base64 = filebase64("./images/ms_logo.jpeg")
 }
 
 resource "pingone_branding_theme" "im_environment_3_theme" {
@@ -1781,7 +1626,7 @@ resource "pingone_branding_theme" "im_environment_4_theme" {
 }
 
 #############################################
-#  Interal Master Environment - Agreements  #
+#  Interal Master Environment - Language  #
 #############################################
 
 data "pingone_language" "en" {
@@ -1789,62 +1634,6 @@ data "pingone_language" "en" {
   locale = "en"
 }
 
-resource "pingone_agreement" "im_titanid_agreement" {
-  environment_id = pingone_environment.internal_master_environment.id
-
-  name        = "TitanID Agreement"
-}
-
-resource "pingone_agreement_localization" "im_titanid_agreement_en" {
-  environment_id = pingone_environment.internal_master_environment.id
-  agreement_id   = pingone_agreement.im_titanid_agreement.id
-  language_id    = data.pingone_language.en.id
-
-  display_name = "TitanID Agreement - English Locale"
-
-  # This allows you to rename your environment and do things like that without triggering a re-create on this, which errors because we need a localization
-  lifecycle {
-    ignore_changes = all
-  }
-}
-
-# resource "time_offset" "now" { 
-#   offset_seconds = 60
-# }
-
-resource "pingone_agreement_localization_revision" "im_titanid_agreement_en_now" {
-  environment_id            = pingone_environment.internal_master_environment.id
-  agreement_id              = pingone_agreement.im_titanid_agreement.id
-  agreement_localization_id = pingone_agreement_localization.im_titanid_agreement_en.id
-
-  # effective_at      = time_offset.now.rfc3339
-  content_type      = "text/plain"
-  require_reconsent = true
-  text              = var.pingone_agreement_localization_revision_im_titanid_agreement_en_now_text
-}
-
-resource "pingone_agreement_localization_enable" "im_titanid_agreement_en_enable" {
-  environment_id            = pingone_environment.internal_master_environment.id
-  agreement_id              = pingone_agreement.im_titanid_agreement.id
-  agreement_localization_id = pingone_agreement_localization.im_titanid_agreement_en.id
-
-  enabled = true
-
-  depends_on = [
-    pingone_agreement_localization_revision.im_titanid_agreement_en_now
-  ]
-}
-
-resource "pingone_agreement_enable" "im_titanid_agreement_enable" {
-  environment_id = pingone_environment.internal_master_environment.id
-  agreement_id   = pingone_agreement.im_titanid_agreement.id
-
-  enabled = true
-
-  depends_on = [
-    pingone_agreement_localization_enable.im_titanid_agreement_en_enable
-  ]
-}
 
 ###################################################
 #  Interal Master Environment - Protect Policies  #
@@ -2462,214 +2251,14 @@ resource "pingone_webhook" "credentials_webhook" {
   }
 }
 
-###################################
-#  Environment 3 (SilverSurfers)  #
-###################################
-
-resource "pingone_environment" "environment_3" {         
-  name        = var.environment_name_3
-  type        = var.environment_type
-  license_id  = var.license_id != "" ? var.license_id : data.pingone_licenses.internal_license.ids[0]
-
-  services = [
-    {
-      type = "SSO"
-    },
-    {
-      type = "PingID"
-    },
-    {
-      type = "DaVinci",
-      tags  = ["DAVINCI_MINIMAL"]
-    }
-  ]
-}
-
-#################################################
-#  Environment 3 (SilverSurfers) - Populations  #
-#################################################
-
-resource "pingone_population_default" "environment_3_default_population" {
-  environment_id = pingone_environment.environment_3.id
-
-  name        = "Default"
-  description = "A default population"
-}
-
-
-
-##################################################
-#  Environment 3 (SilverSurfers) - Applications  #
-##################################################
-
-resource "pingone_application" "environment_3_titan_solutions" {
-  environment_id = pingone_environment.environment_3.id
-  enabled        = true
-  name           = "TitanSolutions"
-
-  oidc_options = {
-    type                        = "WEB_APP"
-    grant_types                 = ["AUTHORIZATION_CODE"]
-    response_types              = ["CODE"]
-    token_endpoint_auth_method  = "NONE"
-    redirect_uris               = ["https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
-  }
-
-  # icon = {
-  #   id   = "c6dbb456-0857-4fab-bfb0-909944233017"
-  #   href = "https://assets.pingone.com/ux/ui-library/4.18.0/images/logo-pingidentity.png"
-  # }
-}
-
-resource "pingone_application_attribute_mapping" "environment_3_attribute" {
-  environment_id = pingone_environment.environment_3.id
-  application_id = pingone_application.environment_3_titan_solutions.id
-
-  name  = "sub"
-  value = "$${user.username}"
-  required = true
-}
-
-resource "pingone_application_secret" "environment_3_titan_solutions_secret" {
-  environment_id = pingone_environment.environment_3.id
-  application_id = pingone_application.environment_3_titan_solutions.id
-}
-
-##############################################
-#  Environment 3 (SilverSurfers) - Branding  #
-##############################################
-
-resource "pingone_image" "environment_3_logo" {
-  environment_id = pingone_environment.environment_3.id
-  image_file_base64 = filebase64("./images/silver-surfers-icon.png")
-}
-
-resource "pingone_branding_theme" "environment_3_theme" {
-  environment_id = pingone_environment.environment_3.id
-
-  name     = "${var.environment_name_3} Split"
-  template = "split"
-
-  logo = {
-    id   = pingone_image.environment_3_logo.id
-    href = pingone_image.environment_3_logo.uploaded_image.href
-  }
-
-  background_color   = "#F3F3F3"
-  button_text_color  = "#F3F3F3"
-  heading_text_color = "#CCCCCC"
-  card_color         = "#5A5A5A"
-  body_text_color    = "#C0C0C0"
-  link_text_color    = "#CCCCCC"
-  button_color       = "#C0C0C0"
-}
-
-resource "pingone_branding_theme_default" "environment_3_theme_active" {
-  environment_id = pingone_environment.environment_3.id
-
-  branding_theme_id = pingone_branding_theme.environment_3_theme.id
-}
-
-#################################################################
-#  Environment 3 (SilverSurfers) - External Identity Providers  #
-#################################################################
-
-resource "pingone_identity_provider" "microsoft" {
-  environment_id = pingone_environment.environment_3.id
-  registration_population_id = pingone_population_default.environment_3_default_population.id
-  name    = "Microsoft"
-  enabled = true
-
-  icon = {
-    href = "https://purepng.com/public/uploads/large/purepng.com-microsoft-logo-iconlogobrand-logoiconslogos-251519939091wmudn.png"
-    id   = "c6dbb456-0857-4fab-bfb0-909944233017"
-  }
-
-  # microsoft = {
-  #   client_id     = var.microsoft_client_id == "" ? "client-id" : var.microsoft_client_id
-  #   client_secret = var.microsoft_client_secret == "" ? "client-id" : var.microsoft_client_secret
-  # }
-
-  openid_connect = {
-    authorization_endpoint = "https://az-endpoint.com"
-    client_id = "client-id"
-    client_secret = "client-secret"
-    issuer = "https://issuer.com"
-    jwks_endpoint = "https://jwks-endpoint.com"
-    scopes = [ "openid" ]
-    token_endpoint = "https://token-endpoint.com"
-  }
-
-  lifecycle {
-    ignore_changes = all
-  }
-}
-
-resource "pingone_identity_provider_attribute" "microsoft_upn" {
-  environment_id       = pingone_environment.environment_3.id
-  identity_provider_id = pingone_identity_provider.microsoft.id
-
-  name   = "username"
-  value  = "$${providerAttributes.userPrincipalName}"
-}
-
-resource "pingone_identity_provider_attribute" "microsoft_email" {
-  environment_id       = pingone_environment.environment_3.id
-  identity_provider_id = pingone_identity_provider.microsoft.id
-
-  name   = "email"
-  update = "EMPTY_ONLY"
-  value  = "$${providerAttributes.email}"
-}
-
-#############################################################
-#  Environment 3 (SilverSurfers) - Authentication Policies  #
-#############################################################
-
-resource "pingone_sign_on_policy" "environment_3_authentication_policy" {
-  environment_id = pingone_environment.environment_3.id
-
-  name        = "Microsoft"
-}
-
-resource "pingone_sign_on_policy_action" "microsoft_identity_provider_action" {
-  environment_id    = pingone_environment.environment_3.id
-  sign_on_policy_id = pingone_sign_on_policy.environment_3_authentication_policy.id
-
-  priority = 1
-
-  conditions {
-    last_sign_on_older_than_seconds = 1800 // 30 minutes
-  }
-
-  identity_provider {
-    identity_provider_id = pingone_identity_provider.microsoft.id
-  }
-}
-
-## Error leaving this here until it is fixed for Microsoft IDPs:
-# Error: Error when calling `CreateSignOnPolicyAction`: The request could not be completed. One or more validation errors were in the request.
-# │ 
-# │   with pingone_sign_on_policy_action.my_policy_identity_provider,
-# │   on pingone.tf line 685, in resource "pingone_sign_on_policy_action" "my_policy_identity_provider":
-# │  685: resource "pingone_sign_on_policy_action" "my_policy_identity_provider" {
-# │ 
-# │ PingOne Error Details:
-# │ ID:           bab313b1-fc35-45ea-aae5-28bedba8b2a0
-# │ Code:         INVALID_DATA
-# │ Message:      The request could not be completed. One or more validation errors were in the request.
-# │ Details:
-# │   - Code:     INVALID_VALUE
-# │     Message:  Only SAML or OIDC type IDP can be configured with 'passUserContext' property.
-# │     Target:   passUserContext
 
 #################################
 #  Environment 4 (GoldenGate)  #
 #################################
 
 resource "pingone_environment" "environment_4" {         
-  name        = var.environment_name_4
-  #description = var.environment_description_4
+  name        = var.external_IdP_Env
+  #description = var.environment_description_external_IdP_Env
   type        = var.environment_type
   license_id  = var.license_id != "" ? var.license_id : data.pingone_licenses.internal_license.ids[0]
 
@@ -2784,7 +2373,7 @@ resource "pingone_image" "environment_4_logo" {
 resource "pingone_branding_settings" "environment_4_branding" {
   environment_id = pingone_environment.environment_4.id
 
-  company_name = var.environment_name_4
+  company_name = var.external_IdP_Env
 
   logo_image = {
     id   = pingone_image.environment_4_logo.id
@@ -2795,7 +2384,7 @@ resource "pingone_branding_settings" "environment_4_branding" {
 resource "pingone_branding_theme" "environment_4_theme" {
   environment_id = pingone_environment.environment_4.id
 
-  name     = "${var.environment_name_4} Default"
+  name     = "${var.external_IdP_Env} Default"
   template = "default"
 
   logo = {
@@ -2825,7 +2414,7 @@ resource "pingone_branding_theme_default" "environment_4_theme_active" {
 resource "pingone_risk_policy" "environment_4_risk_policy" {
   environment_id = pingone_environment.environment_4.id
 
-  name = "${var.environment_name_4} Risk Policy"
+  name = "${var.external_IdP_Env} Risk Policy"
 
   policy_scores = {
     policy_threshold_medium = {
