@@ -1209,92 +1209,6 @@ resource "davinci_application_flow_policy" "Dummy-App" {
 #  Internal Master Environment - DaVinci Flows  #
 #################################################
 
-resource "davinci_flow" "PingOne-Session-Main-Flow" {
-	environment_id = pingone_environment.internal_master_environment.id
-	flow_json = "${file("${path.module}/flows/PingOne_Session Main Flow.json")}"
-
-	lifecycle {
-	  ignore_changes = all
-	}
-	connection_link {
-		id   = davinci_connection.Flow-Connector.id
-		name = davinci_connection.Flow-Connector.name
-		replace_import_connection_id = "2581eb287bb1d9bd29ae9886d675f89f"
-	}
-	connection_link {
-		id   = davinci_connection.Annotation.id
-		name = davinci_connection.Annotation.name
-		replace_import_connection_id = "921bfae85c38ed45045e07be703d86b8"
-	}
-	connection_link {
-		id   = davinci_connection.Node.id
-		name = davinci_connection.Node.name
-		replace_import_connection_id = "3566e86a35c26e575396dcfb89a3dcc0"
-	}
-	connection_link {
-		id   = davinci_connection.PingOne-Authentication.id
-		name = davinci_connection.PingOne-Authentication.name
-		replace_import_connection_id = "c3e6a164bde107954e93f5c09f0c8bce"
-	}
-
-	subflow_link {
-		id   = davinci_flow.PingOne-Sign-On-With-Registration-Password-Reset-and-Recovery.id
-		name = davinci_flow.PingOne-Sign-On-With-Registration-Password-Reset-and-Recovery.name
-		replace_import_subflow_id = "253db38b908492e90b5559963eb567a2"
-	}
-
-	depends_on = [
-		data.davinci_connections.read_connections
-	]
-}
-
-resource "davinci_flow" "PingOne-Sign-On-With-Registration-Password-Reset-and-Recovery" {
-	environment_id = pingone_environment.internal_master_environment.id
-	flow_json = "${file("${path.module}/flows/PingOne_Sign On with Registration, Password Reset and Recovery.json")}"
-
-	lifecycle {
-	  ignore_changes = all
-	}
-	connection_link {
-		id   = davinci_connection.Error-Message.id
-		name = davinci_connection.Error-Message.name
-		replace_import_connection_id = "53ab83a4a4ab919d9f2cb02d9e111ac8"
-	}
-	connection_link {
-		id   = davinci_connection.Annotation.id
-		name = davinci_connection.Annotation.name
-		replace_import_connection_id = "921bfae85c38ed45045e07be703d86b8"
-	}
-	connection_link {
-		id   = davinci_connection.Node.id
-		name = davinci_connection.Node.name
-		replace_import_connection_id = "3566e86a35c26e575396dcfb89a3dcc0"
-	}
-	connection_link {
-		id   = davinci_connection.PingOne.id
-		name = davinci_connection.PingOne.name
-		replace_import_connection_id = "94141bf2f1b9b59a5f5365ff135e02bb"
-	}
-    connection_link {
-		id   = davinci_connection.Functions.id
-		name = davinci_connection.Functions.name
-		replace_import_connection_id = "de650ca45593b82c49064ead10b9fe17"
-	}
-    connection_link {
-		id   = davinci_connection.Http.id
-		name = davinci_connection.Http.name
-		replace_import_connection_id = "867ed4363b2bc21c860085ad2baa817d"
-	}
-    connection_link {
-		id   = davinci_connection.Variables.id
-		name = davinci_connection.Variables.name
-		replace_import_connection_id = "06922a684039827499bdbdd97f49827b"
-	}
-
-	depends_on = [
-		data.davinci_connections.read_connections
-	]
-}
 
 resource "davinci_flow" "B2B-Demo-Flow" {
 	environment_id = pingone_environment.internal_master_environment.id
@@ -1563,43 +1477,43 @@ resource "davinci_flow" "Obtain-Theme-Object" {
 	]
 }
 
-resource "davinci_flow" "eIDP-Onboarding" {
-	environment_id = pingone_environment.internal_master_environment.id
-	flow_json = "${file("${path.module}/flows/eIDP_Onboarding.json")}"
-
-	lifecycle {
-	  ignore_changes = all
-	}
-	connection_link {
-		id   = davinci_connection.Generic.id
-		name = davinci_connection.Generic.name
-		replace_import_connection_id = "3b51289bf0126ac190d61284920d99e4"
-	}
-  connection_link {
-		id   = davinci_connection.Http.id
-		name = davinci_connection.Http.name
-		replace_import_connection_id = "867ed4363b2bc21c860085ad2baa817d"
-	}
-  connection_link {
-		id   = davinci_connection.Functions.id
-		name = davinci_connection.Functions.name
-		replace_import_connection_id = "de650ca45593b82c49064ead10b9fe17"
-	}
-  connection_link {
-		id   = davinci_connection.Node.id
-		name = davinci_connection.Node.name
-		replace_import_connection_id = "3566e86a35c26e575396dcfb89a3dcc0"
-	}
-  connection_link {
-		id   = davinci_connection.Error-Message.id
-		name = davinci_connection.Error-Message.name
-		replace_import_connection_id = "53ab83a4a4ab919d9f2cb02d9e111ac8"
-	}
-
-	depends_on = [
-		data.davinci_connections.read_connections
-	]
-}
+# resource "davinci_flow" "eIDP-Onboarding" {
+# 	environment_id = pingone_environment.internal_master_environment.id
+# 	flow_json = "${file("${path.module}/flows/eIDP_Onboarding.json")}"
+#
+# 	lifecycle {
+# 	  ignore_changes = all
+# 	}
+# 	connection_link {
+# 		id   = davinci_connection.Generic.id
+# 		name = davinci_connection.Generic.name
+# 		replace_import_connection_id = "3b51289bf0126ac190d61284920d99e4"
+# 	}
+#   connection_link {
+# 		id   = davinci_connection.Http.id
+# 		name = davinci_connection.Http.name
+# 		replace_import_connection_id = "867ed4363b2bc21c860085ad2baa817d"
+# 	}
+#   connection_link {
+# 		id   = davinci_connection.Functions.id
+# 		name = davinci_connection.Functions.name
+# 		replace_import_connection_id = "de650ca45593b82c49064ead10b9fe17"
+# 	}
+#   connection_link {
+# 		id   = davinci_connection.Node.id
+# 		name = davinci_connection.Node.name
+# 		replace_import_connection_id = "3566e86a35c26e575396dcfb89a3dcc0"
+# 	}
+#   connection_link {
+# 		id   = davinci_connection.Error-Message.id
+# 		name = davinci_connection.Error-Message.name
+# 		replace_import_connection_id = "53ab83a4a4ab919d9f2cb02d9e111ac8"
+# 	}
+#
+# 	depends_on = [
+# 		data.davinci_connections.read_connections
+# 	]
+# }
 
 resource "davinci_flow" "Dummy-App-Interface" {
 	environment_id = pingone_environment.internal_master_environment.id
@@ -2151,7 +2065,45 @@ resource "davinci_flow" "Verify-Internal-Access-Flow" {
 		replace_import_subflow_id = "b0f215d1e3835f32ccfc79044f15183f"
 	}
 
+  subflow_link {
+		id   = davinci_flow.Verify-Selfie-Only.id
+		name = davinci_flow.Verify-Selfie-Only.name
+		replace_import_subflow_id = "70f50787708e8623d2ddea78fbc6ff1c"
+	}
+
 	depends_on = [
 		data.davinci_connections.Credentials_read_connections
 	]
 }
+
+resource "davinci_flow" "Verify-Selfie-Only" {
+	environment_id = pingone_environment.credentials_environment.id
+	flow_json = "${file("${path.module}/flows/Verify_- Selfie Only.json")}"
+
+	lifecycle {
+	  ignore_changes = all
+	}
+
+      connection_link {
+		id   = davinci_connection.Credentials-PingOne-Verify.id
+		name = davinci_connection.Credentials-PingOne-Verify.name
+		replace_import_connection_id = "0960c49c995f805c32363dedecc78fde"
+	}
+
+  	connection_link {
+		id   = davinci_connection.Credentials-Functions.id
+		name = davinci_connection.Credentials-Functions.name
+		replace_import_connection_id = "de650ca45593b82c49064ead10b9fe17"
+	}
+
+  	connection_link {
+		id   = davinci_connection.Credentials-Http.id
+		name = davinci_connection.Credentials-Http.name
+		replace_import_connection_id = "867ed4363b2bc21c860085ad2baa817d"
+	}
+
+  	depends_on = [
+		data.davinci_connections.Credentials_read_connections
+	]
+}
+
