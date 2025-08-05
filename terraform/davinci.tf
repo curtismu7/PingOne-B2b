@@ -661,7 +661,7 @@ resource "davinci_variable" "credentialTypeId" {
   mutable        = "true"
   name           = "credentialTypeId"
   type           = "string"
-  value          = pingone_credential_type.im_verified_employee_credential_type.id
+  value          = pingone_credential_type.internal_access_credential_type.id
 
     depends_on = [ pingone_user_role_assignment.davinci_admin ]
 }
@@ -1163,19 +1163,6 @@ resource "davinci_application" "PingOne-SSO-Connection" {
       enforce_signed_request_openid = "false"
       redirect_uris                 = ["https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
     }
-  }
-}
-
-resource "davinci_application_flow_policy" "PingOne-SSO-Flow-Policy" {
-  environment_id = pingone_environment.internal_master_environment.id
-  application_id = davinci_application.PingOne-SSO-Connection.id
-  name           = "PingOne - Sign On and Registration"
-  status         = "enabled"
-
-  policy_flow {
-    flow_id    = davinci_flow.PingOne-Session-Main-Flow.id
-    version_id = -1
-    weight     = 100
   }
 }
 

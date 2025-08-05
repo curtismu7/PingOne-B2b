@@ -30,14 +30,13 @@ data "pingone_role" "davinci_admin" {
 
 variable "environment_ids" {
   type = set(string)
-  default = ["env1", "env2", "env3", "env4"]
+  default = ["env1", "env2", "env4"]
 }
 
 locals  {
   environment_ids = {
     "env1" = pingone_environment.internal_master_environment.id, 
     "env2" = pingone_environment.credentials_environment.id,
-    "env3" = pingone_environment.environment_3.id,
     "env4" = pingone_environment.environment_4.id
     }
 }
@@ -1164,7 +1163,7 @@ resource "pingone_application_flow_policy_assignment" "im_blueshield_app" {
   environment_id = pingone_environment.internal_master_environment.id
   application_id = pingone_application.im_blueshield_app.id
 
-  flow_policy_id = davinci_application_flow_policy.PingOne-SSO-Flow-Policy.id
+  flow_policy_id = davinci_application_flow_policy.B2B-Alternate.id
 
   priority = 1
 }
@@ -1265,6 +1264,22 @@ resource "pingone_application_secret" "im_theme_worker_secret" {
   application_id = pingone_application.im_theme_worker_app.id
 }
 
+resource "pingone_application" "im_admin_console_link" {
+  environment_id = pingone_environment.internal_master_environment.id
+  name           = "P1 Admin Console"
+  enabled        = true
+
+  external_link_options = {
+    home_page_url = "https://console.pingone.com/?env=${pingone_environment.internal_master_environment.id}"
+  }
+
+  icon = {
+    id   = "c6dbb456-0857-4fab-bfb0-909944233017"
+    href = "https://assets.pingone.com/ux/ui-library/4.18.0/images/logo-pingidentity.png"
+  }
+}
+
+
 #####################################################
 #  Interal Master Environment - Applications Roles  #
 #####################################################
@@ -1330,14 +1345,14 @@ resource "pingone_application_role_assignment" "im_theme_client_app_developer" {
 ##############################################################
 
 resource "pingone_identity_provider" "im_environment_3_identity_provider" {
-   environment_id = "2ef80e6b-72c9-4474-8626-6d5e623dc106"
-  registration_population_id = "7cc7b245-792e-495f-b69b-2a64241a0841"
+  environment_id = pingone_environment.internal_master_environment.id
+  registration_population_id = pingone_population.im_blueshield_population.id
   name    = "Entra ID"
   enabled = true
 
   openid_connect = {
     client_id = "c73b1709-6a9e-4c86-9803-0386684cf1e4"
-    client_secret = "d3can3poxZqUX4ZOZCR~rFIA94Pcwir_~HvXA.kqvBMJkK5w90UAsloj1koaFnkf""
+    client_secret = "d3can3poxZqUX4ZOZCR~rFIA94Pcwir_~HvXA.kqvBMJkK5w90UAsloj1koaFnkf"
     authorization_endpoint = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as/authorize"
     issuer = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as"
     jwks_endpoint = "https://auth.pingone.com/2ef80e6b-72c9-4474-8626-6d5e623dc106/as/jwks"
@@ -1348,8 +1363,8 @@ resource "pingone_identity_provider" "im_environment_3_identity_provider" {
   }
 
   icon = {
-    id   = pingone_image.environment_3_logo.id
-    href = pingone_image.environment_3_logo.uploaded_image.href
+    id   = pingone_image.im_environment_3_logo.id
+    href = pingone_image.im_environment_3_logo.uploaded_image.href
   }
 }
 
@@ -1586,8 +1601,8 @@ resource "pingone_branding_theme" "im_environment_3_theme" {
   template = "split"
 
   logo = {
-    id   = pingone_image.environment_3_logo.id
-    href = pingone_image.environment_3_logo.uploaded_image.href
+    id   = pingone_image.im_environment_3_logo.id
+    href = pingone_image.im_environment_3_logo.uploaded_image.href
   }
 
   background_color   = "#F3F3F3"
@@ -1633,6 +1648,56 @@ data "pingone_language" "en" {
   environment_id = pingone_environment.internal_master_environment.id
   locale = "en"
 }
+
+resource "null_resource" "upload_translation_bundle" {
+  provisioner "local-exec" {
+    command     = <<EOT
+      #!/bin/bash
+      set -e
+
+      CLIENT_ID="${var.worker_id}"
+      CLIENT_SECRET="${var.worker_secret}"
+
+      # Base64 encode client_id:client_secret
+      BASIC_AUTH=$(printf "%s:%s" "$CLIENT_ID" "$CLIENT_SECRET" | base64)
+
+      # Request access token using client_secret_basic
+      RESPONSE=$(curl -s -X POST "https://auth.pingone.com/${var.pingone_environment_id}/as/token" \
+      -H "Authorization: Basic $BASIC_AUTH" \
+      -H "Content-Type: application/x-www-form-urlencoded" \
+      -d "grant_type=client_credentials")
+  
+      # Extract access token using sed (safe for JWTs)
+      TOKEN=$(echo "$RESPONSE" | sed -n 's/.*"access_token" *: *"\([^"]*\)".*/\1/p')
+  
+      if [ -z "$TOKEN" ]; then
+      echo "Failed to retrieve access token. Full response:"
+      echo "$RESPONSE"
+      exit 1
+      fi
+
+      echo "Access token obtained. Uploading translation bundle..."
+
+      # Upload the Spanish translation CSV
+      curl -X PUT \
+        -H "Authorization: Bearer $TOKEN" \
+        -H "Content-Type: text/csv" \
+        --data-binary "@${path.module}/language_packs/bundle-forms-customMessages-en.csv" \
+        "https://api.pingone.com/v1/environments/${pingone_environment.internal_master_environment.id}/translations/es/bundle"
+
+      # Upload the English translation CSV
+      curl -X PUT \
+        -H "Authorization: Bearer $TOKEN" \
+        -H "Content-Type: text/csv" \
+        --data-binary "@${path.module}/language_packs/bundle-forms-customMessages-en.csv" \
+        "https://api.pingone.com/v1/environments/${pingone_environment.internal_master_environment.id}/translations/en/bundle"
+    EOT
+    interpreter = ["/bin/bash", "-c"]
+  }
+
+  depends_on = [ pingone_language_update.spanish ]
+}
+
 
 
 ###################################################

@@ -84,8 +84,6 @@ variable "environment_description_master" {
   description = "Description of the PingOne Environment"
 }
 
-
-
 variable "environment_name_credentials" {
   type        = string
   description = "Name of the PingOne Environment"
@@ -96,32 +94,12 @@ variable "environment_description_credentials" {
   description = "Description of the PingOne Environment"
 }
 
-variable "environment_name_3" {
-  type        = string
-  description = "Name of the PingOne Environment"
-}
-
-variable "environment_description_3" {
-  type        = string
-  description = "Description of the PingOne Environment"
-}
-
-variable "microsoft_client_id" {
-  type        = string
-  description = "Microsoft Client ID"
-}
-
-variable "microsoft_client_secret" {
-  type        = string
-  description = "Microsoft Client Secret"
-}
-
 variable "external_IdP_Env" {
   type        = string
   description = "Name of the PingOne Environment"
 }
 
-variable "environment_description_4" {
+variable "environment_description_external_IdP_Env" {
   type        = string
   description = "Description of the PingOne Environment"
 }
