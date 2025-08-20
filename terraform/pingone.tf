@@ -24,6 +24,24 @@ data "pingone_role" "davinci_admin" {
   name = "DaVinci Admin"
 }
 
+############
+#  Locals  #
+############
+
+locals {
+  region_tlds = {
+    "NA" = ".com"
+    "EU" = ".eu"
+    "AU" = ".com.au"
+    "AP" = ".asia"
+    "CA" = ".ca"
+    "SG" = ".sg"
+  }
+
+  pingone_auth_domain = "https://auth.pingone${local.region_tlds[var.region_code]}"
+  pingone_api_domain  = "https://api.pingone${local.region_tlds[var.region_code]}"
+}
+
 ###########
 #  Roles  #
 ###########
@@ -1201,7 +1219,7 @@ resource "pingone_application" "im_partner_oidc_extidp_app" {
     grant_types                 = ["AUTHORIZATION_CODE"]
     response_types              = ["CODE"]
     token_endpoint_auth_method = "NONE"
-    redirect_uris               = ["https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
+    redirect_uris               = ["${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
   }
 }
 
@@ -1377,11 +1395,11 @@ resource "pingone_identity_provider" "im_environment_4_identity_provider" {
   openid_connect = {
     client_id = pingone_application.environment_4_titan_solutions.oidc_options.client_id
     client_secret = pingone_application_secret.environment_4_titan_solutions_secret.secret
-    authorization_endpoint = "https://auth.pingone.com/${pingone_environment.environment_4.id}/as/authorize"
-    issuer = "https://auth.pingone.com/${pingone_environment.environment_4.id}/as"
-    jwks_endpoint = "https://auth.pingone.com/${pingone_environment.environment_4.id}/as/jwks"
+    authorization_endpoint = "${local.pingone_auth_domain}/${pingone_environment.environment_4.id}/as/authorize"
+    issuer = "${local.pingone_auth_domain}/${pingone_environment.environment_4.id}/as"
+    jwks_endpoint = "${local.pingone_auth_domain}/${pingone_environment.environment_4.id}/as/jwks"
     scopes = [ "openid" ]
-    token_endpoint = "https://auth.pingone.com/${pingone_environment.environment_4.id}/as/token"
+    token_endpoint = "${local.pingone_auth_domain}/${pingone_environment.environment_4.id}/as/token"
     token_endpoint_auth_method = "CLIENT_SECRET_BASIC"
     pkce_method = "S256"
   }
@@ -1401,11 +1419,11 @@ resource "pingone_identity_provider" "im_oidc2_identity_provider" {
   openid_connect = {
     client_id = pingone_application.im_partner_oidc_extidp_app.oidc_options.client_id
     client_secret = pingone_application_secret.im_partner_oidc_extidp_secret.secret
-    authorization_endpoint = "https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/as/authorize"
-    issuer = "https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/as"
-    jwks_endpoint = "https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/as/jwks"
+    authorization_endpoint = "${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/as/authorize"
+    issuer = "${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/as"
+    jwks_endpoint = "${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/as/jwks"
     scopes = [ "openid" ]
-    token_endpoint = "https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/as/token"
+    token_endpoint = "${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/as/token"
   }
 }
 
@@ -1605,13 +1623,13 @@ resource "pingone_branding_theme" "im_environment_3_theme" {
     href = pingone_image.im_environment_3_logo.uploaded_image.href
   }
 
-  background_color   = "#F3F3F3"
+  background_color   = "#4A4A4A"
   button_text_color  = "#F3F3F3"
-  heading_text_color = "#CCCCCC"
-  card_color         = "#5A5A5A"
-  body_text_color    = "#C0C0C0"
-  link_text_color    = "#CCCCCC"
-  button_color       = "#C0C0C0"
+  heading_text_color = "#000000"
+  card_color         = "#DDDDDD"
+  body_text_color    = "#000000"
+  link_text_color    = "#4A90E2"
+  button_color       = "#969696"
 }
 
 resource "pingone_image" "im_environment_4_logo" {
@@ -1662,7 +1680,7 @@ resource "null_resource" "upload_translation_bundle" {
       BASIC_AUTH=$(printf "%s:%s" "$CLIENT_ID" "$CLIENT_SECRET" | base64)
 
       # Request access token using client_secret_basic
-      RESPONSE=$(curl -s -X POST "https://auth.pingone.com/${var.pingone_environment_id}/as/token" \
+      RESPONSE=$(curl -s -X POST "${local.pingone_auth_domain}/${var.pingone_environment_id}/as/token" \
       -H "Authorization: Basic $BASIC_AUTH" \
       -H "Content-Type: application/x-www-form-urlencoded" \
       -d "grant_type=client_credentials")
@@ -1682,15 +1700,15 @@ resource "null_resource" "upload_translation_bundle" {
       curl -X PUT \
         -H "Authorization: Bearer $TOKEN" \
         -H "Content-Type: text/csv" \
-        --data-binary "@${path.module}/language_packs/bundle-forms-customMessages-en.csv" \
-        "https://api.pingone.com/v1/environments/${pingone_environment.internal_master_environment.id}/translations/es/bundle"
+        --data-binary "@${path.module}/language_packs/bundle-forms-customMessages-es.csv" \
+        "${local.pingone_api_domain}/v1/environments/${pingone_environment.internal_master_environment.id}/translations/es/bundle"
 
       # Upload the English translation CSV
       curl -X PUT \
         -H "Authorization: Bearer $TOKEN" \
         -H "Content-Type: text/csv" \
         --data-binary "@${path.module}/language_packs/bundle-forms-customMessages-en.csv" \
-        "https://api.pingone.com/v1/environments/${pingone_environment.internal_master_environment.id}/translations/en/bundle"
+        "${local.pingone_api_domain}/v1/environments/${pingone_environment.internal_master_environment.id}/translations/en/bundle"
     EOT
     interpreter = ["/bin/bash", "-c"]
   }
@@ -2401,7 +2419,7 @@ resource "pingone_application" "environment_4_titan_solutions" {
     grant_types                 = ["AUTHORIZATION_CODE"]
     response_types              = ["CODE"]
     token_endpoint_auth_method  = "NONE"
-    redirect_uris               = ["https://auth.pingone.com/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
+    redirect_uris               = ["${local.pingone_auth_domain}/${pingone_environment.internal_master_environment.id}/rp/callback/openid_connect"]
     token_endpoint_auth_method  = "CLIENT_SECRET_BASIC"
   }
 

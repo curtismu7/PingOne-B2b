@@ -1342,7 +1342,7 @@ resource "davinci_flow" "SubFlow-A-P1MFA-Device-Authentication" {
     subflow_link {
 		id   = davinci_flow.SubFlow-C-P1MFA-Device-Registration.id
 		name = davinci_flow.SubFlow-C-P1MFA-Device-Registration.name
-		replace_import_subflow_id = "a11734ea34fd27745f19e2335ffa2c31"
+		replace_import_subflow_id = "c1d474bfda00edf3ffcb0ffdcb5c6ed1"
 	}
 
 	depends_on = [
